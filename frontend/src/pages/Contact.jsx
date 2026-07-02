@@ -29,10 +29,33 @@ export default function Contact() {
   const update = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.type === "checkbox" ? e.target.checked : e.target.value }));
 
   const copy = (key, value) => {
-    navigator.clipboard?.writeText(value);
+    try {
+      if (navigator.clipboard?.writeText) {
+        navigator.clipboard.writeText(value).catch(() => fallbackCopy(value));
+      } else {
+        fallbackCopy(value);
+      }
+    } catch {
+      fallbackCopy(value);
+    }
     setCopied(key);
     toast.success(t.contact.copied);
     setTimeout(() => setCopied(null), 1500);
+  };
+
+  const fallbackCopy = (value) => {
+    try {
+      const ta = document.createElement("textarea");
+      ta.value = value;
+      ta.style.position = "fixed";
+      ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand("copy");
+      document.body.removeChild(ta);
+    } catch {
+      /* no-op */
+    }
   };
 
   const scrollToCalendly = () => calendlyRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
