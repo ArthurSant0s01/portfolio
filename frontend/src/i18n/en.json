@@ -36,7 +36,7 @@
   "home": {
     "whoOverline": "Who I am",
     "whoTitle": "An 18-year-old creative from Portugal blending code, cinema and AI into modern digital experiences that feel alive.",
-    "moreAbout": "Explore Profile",
+    "moreAbout": "More about me",
     "aiBandOverline": "AI & Automation",
     "aiBandTitle": "Exploring the future with intelligent tools",
     "aiBandText": "From prompt engineering to automation and AI-powered websites — I build with the technology shaping tomorrow.",
@@ -70,8 +70,7 @@
   "about": {
     "overline": "About me",
     "title": "Turning ideas into experiences.",
-    "bio": "I'm a web developer and creator of digital experiences, passionate about turning ideas into modern, fast and intuitive solutions. I specialise in building fully responsive websites, web applications and digital solutions that combine web development, artificial intelligence, design and creativity to help businesses and professionals stand out in the digital world.",
-    "bio2": "I stand out for my discipline, perseverance and commitment to excellence, continuously evolving, learning new technologies and overcoming challenges through innovative solutions. In every project, I strive to combine performance, user experience, technical quality and attention to detail to deliver results that generate real impact and value.",
+    "bio": "I'm an 18-year-old creative professional based in Portugal, passionate about technology, web development, photography, video editing and artificial intelligence. I build modern digital experiences that combine creativity, performance and innovation — and I'm constantly learning new tools to deliver high-quality work.",
     "missionTitle": "My Mission",
     "mission": "To craft digital experiences that feel human, elegant and future-ready — bridging creative vision with technical execution.",
     "goalsTitle": "Career Goals",
