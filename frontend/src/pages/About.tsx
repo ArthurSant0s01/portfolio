@@ -7,11 +7,8 @@ import { Page, SectionHeading } from "../components/Primitives";
 import { Magnetic } from "../components/Magnetic";
 import { profile } from "../data/portfolio";
 import { useI18n } from "../i18n/I18nContext";
-import useCvDownload from "../hooks/useCvDownload";
-
 export default function About() {
   const { t } = useI18n();
-  const { download } = useCvDownload();
 
   return (
     <Page>
@@ -87,9 +84,9 @@ export default function About() {
             <Reveal delay={0.3}>
               <div className="mt-12">
                 <Magnetic>
-                  <button onClick={() => download("en")} data-testid="about-download-cv" className="inline-flex items-center gap-2 btn-glow text-white font-medium px-7 py-3.5 rounded-full">
+                  <a href="/Arthur-Santos-CV.pdf" target="_blank" rel="noopener noreferrer" data-testid="about-download-cv" className="inline-flex items-center gap-2 btn-glow text-white font-medium px-7 py-3.5 rounded-full">
                     <Download size={18} /> {t.common.downloadResume}
-                  </button>
+                  </a>
                 </Magnetic>
               </div>
             </Reveal>

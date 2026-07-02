@@ -10,7 +10,6 @@ import Particles from "../components/Particles";
 import { Magnetic } from "../components/Magnetic";
 import { GradientThumb } from "../components/Visuals";
 import { useI18n } from "../i18n/I18nContext";
-import useCvDownload from "../hooks/useCvDownload";
 
 function RotatingRoles({ roles }) {
   const reduceMotion = useReducedMotion();
@@ -64,7 +63,6 @@ function Hero() {
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const yText = useTransform(scrollYProgress, [0, 1], [0, 120]);
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
-  const { download } = useCvDownload();
   // Disable parallax scroll effects on mobile to prevent content overlap during scroll
   const heroMotionStyle = (reduceMotion || isMobile) ? {} : { y: yText, opacity };
 
@@ -128,9 +126,9 @@ function Hero() {
               </Link>
             </Magnetic>
             <Magnetic>
-              <button onClick={() => download("en")} data-testid="hero-download-cv" className="inline-flex items-center gap-2 glass text-white font-medium px-7 py-3.5 rounded-full hover:border-white/30 transition-all">
+              <a href="/Arthur-Santos-CV.pdf" target="_blank" rel="noopener noreferrer" data-testid="hero-download-cv" className="inline-flex items-center gap-2 glass text-white font-medium px-7 py-3.5 rounded-full hover:border-white/30 transition-all">
                 <Download size={18} /> {t.common.downloadResume}
-              </button>
+              </a>
             </Magnetic>
             <Magnetic>
               <Link to="/contact" data-testid="hero-contact" className="inline-flex items-center gap-2 glass text-white font-medium px-7 py-3.5 rounded-full hover:border-white/30 transition-all sm:px-5 sm:text-muted sm:hover:text-white sm:border-transparent sm:bg-transparent sm:hover:border-transparent">
