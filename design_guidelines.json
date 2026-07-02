@@ -1,0 +1,140 @@
+{
+  "project_info": {
+    "name": "Arthur de Oliveira dos Santos Portfolio",
+    "role": "Creative Developer / Videographer / Photographer / AI Enthusiast",
+    "theme": "dark",
+    "archetype": "5/7 Hybrid (Luxury + Electric/Neon Cinematic Future)",
+    "description": "Award-winning style portfolio inspired by Awwwards-winning websites and premium creative agencies. Premium, minimalist and futuristic."
+  },
+  "colors": {
+    "background": "#0A0A0A",
+    "surface": "#121212",
+    "primary": "#3B82F6",
+    "secondary": "#8B5CF6",
+    "accent": "#06B6D4",
+    "text_primary": "#FFFFFF",
+    "text_muted": "#A1A1AA",
+    "border": "rgba(255, 255, 255, 0.1)",
+    "gradient_mesh": "linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(139, 92, 246, 0.2), rgba(6, 182, 212, 0.2))"
+  },
+  "typography": {
+    "primary": {
+      "font_family": "Satoshi, sans-serif",
+      "usage": "Headings and Body. Use extreme weight contrast (e.g., font-black for H1, font-light for subtitles)."
+    },
+    "mono": {
+      "font_family": "JetBrains Mono, monospace",
+      "usage": "Overlines, labels, technical details, statistics numbers. Use tracking-[0.2em] uppercase for overlines."
+    },
+    "rules": [
+      "H1 must be fluid, e.g., text-5xl md:text-7xl with tracking-tighter and leading-none.",
+      "Avoid standard bold headers; use Black or Light.",
+      "Line height: leading-relaxed for body, leading-none for large headings."
+    ]
+  },
+  "layout_and_spacing": {
+    "grid_strategy": "TETRIS Grid (Mode A) - Asymmetrical, high tension. Mix col-span-8, col-span-4 to avoid perfectly equal boxes.",
+    "spacing_scale": "Generous padding. Use p-8 to p-16 for containers. Massive gaps (gap-8 to gap-16) between sections.",
+    "surfaces": "Glassmorphism (Crystal variant). bg-white/5 or bg-black/60 with backdrop-blur-2xl and 1px border-white/10. Add subtle inner shadow or light border for optical clarity.",
+    "alignment": "Optical alignment over geometrical. Left-align text for better readability, use negative space aggressively."
+  },
+  "motion_and_interactions": {
+    "libraries": [
+      "framer-motion",
+      "lucide-react"
+    ],
+    "patterns": [
+      "Smooth Scrolling: MUST implement Lenis for premium scroll feel.",
+      "Custom Cursor: A glowing or inverted custom cursor using framer-motion.",
+      "Page Transitions: Elegant fade and slight translate-y on route changes or section mounts.",
+      "Scroll Reveal: Elements fade in and slide up slightly as they enter the viewport.",
+      "Parallax: Background images and floating elements move at a different speed than the scroll.",
+      "Hover States: Cards should have a subtle lift (-translate-y-1), increased glass opacity, and a glowing border effect on hover."
+    ]
+  },
+  "components_and_sections": [
+    {
+      "name": "Navigation",
+      "features": "Fixed top, glassmorphism background (backdrop-blur-xl), logo on left, links and CTA on right. Must be fully visible on desktop."
+    },
+    {
+      "name": "Hero Section",
+      "features": "Massive typography (Satoshi Black). Background video (or animated dark mesh if video unavailable). Overlay bg-black/50 to ensure text contrast. Floating elements (badges). Custom cursor interaction area."
+    },
+    {
+      "name": "About / Experience",
+      "features": "Timeline of experience. Minimalist nodes. Animated progress lines on scroll. Mono font for dates."
+    },
+    {
+      "name": "Skills",
+      "features": "Animated bars or circular progress indicators. Glowing accents (#06B6D4 cyan)."
+    },
+    {
+      "name": "Projects / Videos / Photography Galleries",
+      "features": "Bento grid (Tetris style) for cards. Hovering over a card reveals a play button or project details. Subtle zoom on image inside card on hover."
+    },
+    {
+      "name": "Statistics",
+      "features": "Counters that animate from 0 when scrolled into view. JetBrains Mono font for numbers."
+    },
+    {
+      "name": "Contact",
+      "features": "Real functional form. Shadcn Input/Textarea stripped of standard borders, styled with glassmorphism (bg-white/5, border-white/10). Glowing submit button."
+    },
+    {
+      "name": "Footer",
+      "features": "Massive text for 'Let's Talk'. Social links. Massive spacing (py-32)."
+    }
+  ],
+  "accessibility_and_testing": {
+    "testing": "All interactive elements (buttons, links, form inputs) MUST have data-testid attributes (e.g., data-testid='hero-cta-button').",
+    "accessibility": "Ensure text over gradients/images meets 4.5:1 APCA contrast ratio. Add aria-hidden to purely decorative animations."
+  },
+  "media_assets": {
+    "hero_background": [
+      {
+        "url": "https://images.unsplash.com/photo-1718844054440-22acf5d5c8f0",
+        "alt": "Abstract futuristic dark mesh background"
+      },
+      {
+        "url": "https://images.pexels.com/photos/26954237/pexels-photo-26954237.jpeg",
+        "alt": "Dark metallic honeycomb structure"
+      }
+    ],
+    "about_portrait": [
+      {
+        "url": "https://images.pexels.com/photos/30681560/pexels-photo-30681560.jpeg",
+        "alt": "Arthur silhouette photographer cinematic"
+      }
+    ],
+    "photography_projects": [
+      {
+        "url": "https://images.pexels.com/photos/20583484/pexels-photo-20583484.jpeg",
+        "alt": "Dramatic low light portrait photography"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1471341971476-ae15ff5dd4ea",
+        "alt": "Dark studio photography setup"
+      }
+    ],
+    "videography_projects": [
+      {
+        "url": "https://images.unsplash.com/photo-1672872476232-da16b45c9001",
+        "alt": "Futuristic cyberpunk neon city video shot"
+      },
+      {
+        "url": "https://images.pexels.com/photos/18545013/pexels-photo-18545013.jpeg",
+        "alt": "Abstract neon cityscape video concept"
+      }
+    ]
+  },
+  "instructions_to_main_agent": [
+    "Ensure all packages are installed: framer-motion, lucide-react, @studio-freight/react-lenis.",
+    "Use standard Tailwind classes. For glassmorphism, use 'bg-white/5 backdrop-blur-xl border border-white/10'.",
+    "Do NOT use generic white backgrounds anywhere. Stick to the dark theme palette.",
+    "Apply data-testid to every clickable element and form input.",
+    "Implement the pages mentioned: Home, Sobre (About), Projetos (Projects), Vídeos, Fotografia, Competências (Skills), Contacto.",
+    "Typography: Import Satoshi (e.g., from Fontshare) and JetBrains Mono (from Google Fonts) in index.css or index.html.",
+    "For the hero background video, if a raw mp4 is not available, use one of the dark mesh images as a background with a subtle CSS animation or an animated particle/mesh effect."
+  ]
+}
