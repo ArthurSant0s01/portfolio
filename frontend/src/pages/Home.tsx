@@ -51,12 +51,21 @@ function Hero() {
   const { t } = useI18n();
   const reduceMotion = useReducedMotion();
   const ref = useRef(null);
+  const [isMobile, setIsMobile] = useState(
+    () => typeof window !== "undefined" && window.innerWidth < 768
+  );
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const yText = useTransform(scrollYProgress, [0, 1], [0, 120]);
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
   const { download } = useCvDownload();
   // Disable parallax scroll effects on mobile to prevent content overlap during scroll
-  const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
   const heroMotionStyle = (reduceMotion || isMobile) ? {} : { y: yText, opacity };
 
   return (
