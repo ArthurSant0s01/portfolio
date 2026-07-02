@@ -19,13 +19,7 @@ export default function About() {
 
       {/* Intro */}
       <section className="max-w-7xl mx-auto px-5 sm:px-8">
-        <motion.div
-          className="grid lg:grid-cols-12 gap-12 items-start"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-        >
+        <div className="grid lg:grid-cols-12 gap-12 items-start">
           <div className="lg:col-span-5">
             <Reveal>
               <div className="relative rounded-3xl overflow-hidden glass p-2">
@@ -62,13 +56,8 @@ export default function About() {
             <Reveal delay={0.1}>
               <p className="mt-8 text-muted text-base sm:text-lg leading-relaxed">{t.about.bio}</p>
             </Reveal>
-            {t.about.bio2 && (
-              <Reveal delay={0.16}>
-                <p className="mt-5 text-muted text-base sm:text-lg leading-relaxed">{t.about.bio2}</p>
-              </Reveal>
-            )}
 
-            <div className="mt-10 grid sm:grid-cols-3 gap-4">
+            <div className="mt-8 grid sm:grid-cols-3 gap-4">
               {[
                 { icon: Target, title: t.about.missionTitle, text: t.about.mission },
                 { icon: Rocket, title: t.about.goalsTitle, text: t.about.goals },
@@ -85,16 +74,14 @@ export default function About() {
             </div>
 
             <Reveal delay={0.3}>
-              <div className="mt-12">
-                <Magnetic>
-                  <button onClick={() => download("en")} data-testid="about-download-cv" className="inline-flex items-center gap-2 btn-glow text-white font-medium px-7 py-3.5 rounded-full">
-                    <Download size={18} /> {t.common.downloadResume}
-                  </button>
-                </Magnetic>
-              </div>
+              <Magnetic>
+                <button onClick={() => download("en")} data-testid="about-download-cv" className="mt-10 inline-flex items-center gap-2 btn-glow text-white font-medium px-7 py-3.5 rounded-full">
+                  <Download size={18} /> {t.common.downloadResume}
+                </button>
+              </Magnetic>
             </Reveal>
           </div>
-        </motion.div>
+        </div>
       </section>
 
       {/* Values */}
