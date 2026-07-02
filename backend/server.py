@@ -148,14 +148,39 @@ async def list_contact_messages():
     return docs
 
 
-def _generate_cv_pdf() -> bytes:
+def _generate_cv_pdf(lang: str = "en") -> bytes:
+    pt = lang == "pt"
+    tr = {
+        "role": "Creative Developer  |  Videographer  |  Photographer  |  AI Enthusiast",
+        "loc": "Portugal   -   " + ("Português (Nativo), Inglês (Intermédio)" if pt else "Portuguese (Native), English (Intermediate)"),
+        "profile": "Perfil" if pt else "Profile",
+        "profile_lines": (
+            [
+                "Profissional criativo de 18 anos em Portugal, apaixonado por desenvolvimento",
+                "web, fotografia, edição de vídeo e inteligência artificial. Crio experiências",
+                "digitais modernas que combinam criatividade, desempenho e inovação.",
+            ]
+            if pt
+            else [
+                "18-year-old creative professional based in Portugal, passionate about web",
+                "development, photography, video editing and artificial intelligence. Building",
+                "modern digital experiences that combine creativity, performance and innovation.",
+            ]
+        ),
+        "skills": "Competências" if pt else "Skills",
+        "projects": "Projetos" if pt else "Projects",
+        "services": "Serviços" if pt else "Services",
+        "services_line": (
+            "Desenvolvimento Web, Edição de Vídeo, Fotografia, Conteúdo, Soluções de IA, Landing Pages"
+            if pt
+            else "Web Development, Video Editing, Photography, Content, AI Solutions, Landing Pages"
+        ),
+    }
     buf = io.BytesIO()
     c = canvas.Canvas(buf, pagesize=A4)
     w, h = A4
-    # Background
     c.setFillColor(colors.HexColor("#0A0A0A"))
     c.rect(0, 0, w, h, fill=1, stroke=0)
-    # Accent bar
     c.setFillColor(colors.HexColor("#3B82F6"))
     c.rect(0, h - 55 * mm, w, 55 * mm, fill=1, stroke=0)
     c.setFillColor(colors.HexColor("#8B5CF6"))
@@ -165,9 +190,9 @@ def _generate_cv_pdf() -> bytes:
     c.setFont("Helvetica-Bold", 30)
     c.drawString(20 * mm, h - 28 * mm, "Arthur de Oliveira dos Santos")
     c.setFont("Helvetica", 13)
-    c.drawString(20 * mm, h - 38 * mm, "Creative Developer  |  Videographer  |  Photographer  |  AI Enthusiast")
+    c.drawString(20 * mm, h - 38 * mm, tr["role"])
     c.setFont("Helvetica", 10)
-    c.drawString(20 * mm, h - 47 * mm, "Portugal   -   Portuguese (Native), English (Intermediate)")
+    c.drawString(20 * mm, h - 47 * mm, tr["loc"])
 
     y = h - 70 * mm
 
@@ -187,36 +212,32 @@ def _generate_cv_pdf() -> bytes:
         c.drawString((20 + indent) * mm, y, text)
         y -= 6 * mm
 
-    heading("Profile")
-    for t in [
-        "18-year-old creative professional based in Portugal, passionate about web",
-        "development, photography, video editing and artificial intelligence. Building",
-        "modern digital experiences that combine creativity, performance and innovation.",
-    ]:
+    heading(tr["profile"])
+    for t in tr["profile_lines"]:
         line(t)
     y -= 4 * mm
 
-    heading("Skills")
+    heading(tr["skills"])
     for t in [
         "Web: React, Vite, TypeScript, JavaScript, HTML5, CSS3, Tailwind CSS",
         "Tools: Git, GitHub, Vercel, Supabase",
         "Creative: Premiere Pro, DaVinci Resolve, CapCut, Photoshop, Lightroom",
-        "AI: Artificial Intelligence, Prompt Engineering",
+        "AI: Artificial Intelligence, Prompt Engineering, Automation",
     ]:
         line(t)
     y -= 4 * mm
 
-    heading("Projects")
+    heading(tr["projects"])
     line("SSDoces", bold=True)
-    line("Modern e-commerce for a confectionery. React, Vite, Supabase, Vercel.", indent=4)
+    line("E-commerce - React, Vite, Supabase, Vercel.", indent=4)
     line("Portfolio Website", bold=True)
-    line("Professional portfolio showcasing creative work.", indent=4)
+    line("Premium multilingual portfolio - React, Framer Motion.", indent=4)
     line("Future AI Projects", bold=True)
     line("AI automations and intelligent applications.", indent=4)
     y -= 4 * mm
 
-    heading("Services")
-    line("Web Development, Video Editing, Photography, Social Media Content, AI Solutions, Landing Pages")
+    heading(tr["services"])
+    line(tr["services_line"])
 
     c.showPage()
     c.save()
@@ -225,12 +246,14 @@ def _generate_cv_pdf() -> bytes:
 
 
 @api_router.get("/cv")
-async def download_cv():
-    pdf = _generate_cv_pdf()
+async def download_cv(lang: str = "en"):
+    lang = "pt" if lang == "pt" else "en"
+    pdf = _generate_cv_pdf(lang)
+    fname = f"Arthur_de_Oliveira_{'CV_PT' if lang == 'pt' else 'Resume_EN'}.pdf"
     return StreamingResponse(
         io.BytesIO(pdf),
         media_type="application/pdf",
-        headers={"Content-Disposition": "attachment; filename=Arthur_de_Oliveira_CV.pdf"},
+        headers={"Content-Disposition": f"attachment; filename={fname}"},
     )
 
 

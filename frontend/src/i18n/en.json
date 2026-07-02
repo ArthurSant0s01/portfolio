@@ -1,0 +1,233 @@
+{
+  "meta": {
+    "home": { "title": "Arthur de Oliveira — Creative Developer & Visual Storyteller", "description": "Multidisciplinary Creative Developer building modern digital experiences across web development, AI, photography and videography. Based in Portugal." },
+    "about": { "title": "About — Arthur de Oliveira", "description": "The story, mission, values and skills of Arthur de Oliveira — Creative Developer, AI Enthusiast and Visual Storyteller." },
+    "projects": { "title": "Projects — Arthur de Oliveira", "description": "Selected web development, creative and AI projects with problem, solution and result." },
+    "photography": { "title": "Photography — Arthur de Oliveira", "description": "A curated photography gallery — portraits, studio and street." },
+    "videography": { "title": "Videography — Arthur de Oliveira", "description": "Cinematic video editing, showreels and short films." },
+    "ai": { "title": "AI & Automation — Arthur de Oliveira", "description": "Prompt engineering, AI websites, automation, chatbots and AI tools." },
+    "resume": { "title": "Resume — Arthur de Oliveira", "description": "Education, experience, skills and languages. Download the CV in English or Portuguese." },
+    "contact": { "title": "Contact — Arthur de Oliveira", "description": "Let's build something. Reach out for web, AI, photography and video projects." }
+  },
+  "nav": {
+    "home": "Home", "about": "About", "projects": "Projects", "photography": "Photography",
+    "videography": "Videography", "ai": "AI", "resume": "Resume", "contact": "Contact", "downloadCv": "Download CV"
+  },
+  "common": {
+    "comingSoon": "Coming soon", "workWithMe": "Work with me", "viewProjects": "View Projects",
+    "downloadResume": "Download Resume", "contactMe": "Contact Me", "allProjects": "All projects",
+    "all": "All", "liveDemo": "Live Demo", "github": "GitHub", "viewCase": "View Case Study",
+    "close": "Close", "problem": "Problem", "solution": "Solution", "result": "Result",
+    "sendMessage": "Send Message", "sending": "Sending...", "more": "Learn more", "getInTouch": "Get in touch"
+  },
+  "hero": {
+    "badge": "Freelancer Available · Portugal",
+    "role": "Creative Developer",
+    "title": "Building Modern Digital Experiences",
+    "disciplines": ["Web Development", "Artificial Intelligence", "Photography", "Videography"],
+    "subtitle": "I design and develop premium digital experiences — blending web development, artificial intelligence, photography and videography into work that feels alive."
+  },
+  "branding": {
+    "name": "Arthur de Oliveira",
+    "roles": ["Creative Developer", "AI Enthusiast", "Web Developer", "Videographer", "Photographer"],
+    "available": "Freelancer Available",
+    "location": "Portugal"
+  },
+  "home": {
+    "whoOverline": "Who I am",
+    "whoTitle": "An 18-year-old creative from Portugal blending code, cinema and AI into modern digital experiences that feel alive.",
+    "moreAbout": "More about me",
+    "aiBandOverline": "AI & Automation",
+    "aiBandTitle": "Exploring the future with intelligent tools",
+    "aiBandText": "From prompt engineering to automation and AI-powered websites — I build with the technology shaping tomorrow.",
+    "aiBandCta": "Explore AI work"
+  },
+  "services": {
+    "overline": "What I do",
+    "title": "Services",
+    "subtitle": "From concept to launch — a full creative and technical toolkit under one roof.",
+    "items": [
+      { "title": "Web Development", "description": "Fast, modern, responsive apps with React, Vite & Tailwind.", "icon": "Code2" },
+      { "title": "Landing Pages", "description": "High-converting pages with premium design and motion.", "icon": "LayoutTemplate" },
+      { "title": "Portfolio Websites", "description": "Elegant personal sites that stand out and scale.", "icon": "MonitorSmartphone" },
+      { "title": "Video Editing", "description": "Cinematic edits with Premiere Pro & DaVinci Resolve.", "icon": "Clapperboard" },
+      { "title": "Photography", "description": "Moody, story-driven photography and retouching.", "icon": "Camera" },
+      { "title": "Content Creation", "description": "Scroll-stopping content for social platforms.", "icon": "Share2" },
+      { "title": "AI Solutions", "description": "Intelligent apps and integrations powered by modern AI.", "icon": "Sparkles" },
+      { "title": "Automation", "description": "Workflows that save time and remove repetitive work.", "icon": "Workflow" },
+      { "title": "UI Design", "description": "Clean, accessible interfaces designed with intent.", "icon": "PenTool" }
+    ]
+  },
+  "stats": {
+    "items": [
+      { "label": "Projects Completed", "value": 25, "suffix": "+" },
+      { "label": "Technologies Learned", "value": 20, "suffix": "+" },
+      { "label": "Hours of Study", "value": 2000, "suffix": "+" },
+      { "label": "Coffee Consumed", "value": 1500, "suffix": "+" },
+      { "label": "Client Satisfaction", "value": 100, "suffix": "%" }
+    ]
+  },
+  "about": {
+    "overline": "About me",
+    "title": "Turning ideas into experiences.",
+    "bio": "I'm an 18-year-old creative professional based in Portugal, passionate about technology, web development, photography, video editing and artificial intelligence. I build modern digital experiences that combine creativity, performance and innovation — and I'm constantly learning new tools to deliver high-quality work.",
+    "missionTitle": "My Mission",
+    "mission": "To craft digital experiences that feel human, elegant and future-ready — bridging creative vision with technical execution.",
+    "goalsTitle": "Career Goals",
+    "goals": "Grow into a senior Creative Developer, build an independent creative studio and ship AI-powered products that make a real impact.",
+    "mindsetTitle": "Professional Mindset",
+    "mindset": "Curious by default, detail-obsessed by habit. I treat every project as a craft — learning fast, iterating often and caring about the small things.",
+    "valuesTitle": "Values",
+    "values": [
+      { "title": "Creativity", "text": "Ideas first — design that surprises and delights.", "icon": "Palette" },
+      { "title": "Curiosity", "text": "Always learning, always exploring what's next.", "icon": "Compass" },
+      { "title": "Quality", "text": "Details matter. Polish is not optional.", "icon": "Gem" },
+      { "title": "Consistency", "text": "Show up, iterate, and keep the standard high.", "icon": "Repeat" }
+    ],
+    "softTitle": "Soft Skills",
+    "soft": ["Communication", "Problem Solving", "Adaptability", "Attention to Detail", "Time Management", "Teamwork", "Creativity", "Continuous Learning"],
+    "journeyTitle": "Learning Journey",
+    "journeySubtitle": "A timeline of growth across code, cinema and creativity."
+  },
+  "timeline": {
+    "items": [
+      { "year": "2024", "title": "Started Programming", "text": "Began learning HTML, CSS and JavaScript, discovering a passion for building." },
+      { "year": "2025", "title": "Built First Websites", "text": "Shipped real projects and moved deep into the React ecosystem." },
+      { "year": "2026", "title": "Creative Developer · Portfolio Launched", "text": "Established a multidisciplinary practice and launched this portfolio." },
+      { "year": "Future", "title": "AI · Freelance · Creative Studio", "text": "Building AI solutions, growing as a freelancer and founding a creative studio." }
+    ]
+  },
+  "skills": {
+    "overline": "Toolbox",
+    "title": "Skills",
+    "subtitle": "A blend of technical craft and creative fluency across disciplines.",
+    "categories": [
+      { "name": "Frontend", "icon": "Code2", "description": "Modern, responsive interfaces.", "items": ["React", "Vite", "TypeScript", "JavaScript", "HTML5", "CSS3", "Tailwind CSS"] },
+      { "name": "Backend", "icon": "Server", "description": "APIs, data and services.", "items": ["Node.js", "Supabase", "REST APIs", "MongoDB"] },
+      { "name": "Video Editing", "icon": "Clapperboard", "description": "Cinematic post-production.", "items": ["Premiere Pro", "DaVinci Resolve", "CapCut"] },
+      { "name": "Photography", "icon": "Camera", "description": "Story-driven imagery.", "items": ["Composition", "Lightroom", "Retouching"] },
+      { "name": "AI", "icon": "Sparkles", "description": "Intelligent integrations.", "items": ["Prompt Engineering", "AI Integration", "Automation"] },
+      { "name": "Marketing", "icon": "Megaphone", "description": "Reach and engagement.", "items": ["Social Media", "Content Strategy", "SEO"] },
+      { "name": "Design", "icon": "PenTool", "description": "Clean, intentional UI.", "items": ["UI Design", "Figma", "Photoshop"] },
+      { "name": "Development Tools", "icon": "Wrench", "description": "Ship with confidence.", "items": ["Git", "GitHub", "Vercel", "VS Code"] }
+    ]
+  },
+  "projects": {
+    "overline": "Portfolio",
+    "title": "Featured Projects",
+    "subtitle": "A collection of work spanning web development, creative direction and AI.",
+    "items": [
+      {
+        "id": "ssdoces",
+        "title": "SSDoces",
+        "category": "Web Development",
+        "description": "Modern e-commerce website for a local confectionery business.",
+        "problem": "A local confectionery needed an online presence to sell products and manage orders efficiently.",
+        "solution": "Built a full e-commerce platform with cart, checkout, admin dashboard and automated email notifications.",
+        "result": "A smooth end-to-end shopping experience with an easy admin workflow for the business owner.",
+        "tech": ["React", "Vite", "Supabase", "Vercel"],
+        "icon": "ShoppingBag", "from": "#3B82F6", "to": "#06B6D4",
+        "github": "#", "demo": "#", "status": "Completed"
+      },
+      {
+        "id": "portfolio",
+        "title": "Portfolio Website",
+        "category": "Web Development",
+        "description": "Premium personal portfolio with cinematic motion and multilingual support.",
+        "problem": "Needed a memorable, professional presence to attract recruiters, agencies and premium clients.",
+        "solution": "Designed and built an award-style portfolio with Framer Motion, glassmorphism and EN/PT i18n.",
+        "result": "A fast, accessible, SEO-ready site that scales as new work is added.",
+        "tech": ["React", "Tailwind CSS", "Framer Motion", "i18n"],
+        "icon": "LayoutTemplate", "from": "#8B5CF6", "to": "#3B82F6",
+        "github": "#", "demo": "#", "status": "Completed"
+      },
+      {
+        "id": "future-ai",
+        "title": "Future AI Projects",
+        "category": "Artificial Intelligence",
+        "description": "A space prepared to showcase AI automations and intelligent applications.",
+        "problem": "AI moves fast — I wanted a dedicated home for upcoming intelligent products.",
+        "solution": "Prepared a scalable section ready to feature automations, chatbots and AI tools.",
+        "result": "Ready to grow — new AI projects will slot in without any redesign.",
+        "tech": ["AI", "Prompt Engineering", "Automation"],
+        "icon": "Sparkles", "from": "#06B6D4", "to": "#8B5CF6",
+        "github": "#", "demo": "#", "status": "In Progress"
+      }
+    ]
+  },
+  "photography": {
+    "overline": "Through the lens",
+    "title": "Photography",
+    "subtitle": "Moody, story-driven frames captured in light and shadow.",
+    "filters": ["All", "Portrait", "Studio", "Street", "Editorial"],
+    "empty": { "title": "Gallery coming soon", "description": "A curated collection of portraits, studio and street photography will live here. New frames are on the way." }
+  },
+  "videography": {
+    "overline": "Motion & Film",
+    "title": "Videography",
+    "subtitle": "Cinematic edits, showreels and stories told frame by frame.",
+    "empty": { "title": "Showreel in production", "description": "This space is ready for cinematic edits, showreels and short films. New videos will appear here soon." }
+  },
+  "ai": {
+    "overline": "The future, today",
+    "title": "AI & Automation",
+    "subtitle": "Exploring how intelligent tools can amplify creativity and remove busywork.",
+    "intro": "I'm deeply interested in artificial intelligence — from crafting precise prompts to building automations and AI-powered websites. This is where curiosity meets craft.",
+    "cards": [
+      { "title": "Prompt Engineering", "description": "Designing precise prompts that get reliable, high-quality results.", "icon": "Terminal" },
+      { "title": "AI Websites", "description": "Web experiences enhanced with intelligent, generative features.", "icon": "Globe" },
+      { "title": "Automation", "description": "Workflows that remove repetitive work and save hours.", "icon": "Workflow" },
+      { "title": "Chatbots", "description": "Conversational assistants tailored to real use cases.", "icon": "MessageSquare" },
+      { "title": "AI Tools", "description": "Practical tools that turn ideas into working products.", "icon": "Wand2" },
+      { "title": "Future AI Projects", "description": "A growing space for upcoming intelligent applications.", "icon": "Rocket" }
+    ]
+  },
+  "resume": {
+    "overline": "Curriculum",
+    "title": "Resume",
+    "subtitle": "Education, experience, skills and languages — download in your language.",
+    "downloadPt": "Download CV (Portuguese)",
+    "downloadEn": "Download Resume (English)",
+    "educationTitle": "Education",
+    "education": [
+      { "period": "2024 — Now", "title": "Self-taught Web Development", "org": "Independent" },
+      { "period": "2022 — 2025", "title": "Secondary Education", "org": "Portugal" }
+    ],
+    "experienceTitle": "Experience",
+    "experience": [
+      { "period": "2025 — Now", "title": "Freelance Creative Developer", "org": "Self-employed", "text": "Web development, video editing and photography for clients and personal brands." },
+      { "period": "2024", "title": "SSDoces — E-commerce", "org": "Client Project", "text": "Designed and developed a full e-commerce platform with admin dashboard." }
+    ],
+    "languagesTitle": "Languages",
+    "languages": [
+      { "name": "Portuguese", "level": "Native", "percent": 100 },
+      { "name": "English", "level": "Intermediate", "percent": 65 }
+    ]
+  },
+  "contact": {
+    "overline": "Say hello",
+    "title": "Let's build something",
+    "subtitle": "Have a project in mind or just want to connect? Drop me a message.",
+    "nameLabel": "Name", "namePlaceholder": "Your name",
+    "emailLabel": "Email", "emailPlaceholder": "you@email.com",
+    "subjectLabel": "Subject", "subjectPlaceholder": "What's it about?",
+    "messageLabel": "Message", "messagePlaceholder": "Tell me about your project...",
+    "success": "Message sent! I'll get back to you soon.",
+    "error": "Something went wrong. Please try again.",
+    "validation": "Please fill in your name, email and message.",
+    "successTitle": "Message sent!",
+    "successText": "Thanks for reaching out — I'll reply as soon as possible.",
+    "sendAnother": "Send another",
+    "infoEmail": "Email", "infoLocation": "Location", "infoFollow": "Follow along",
+    "whatsapp": "WhatsApp"
+  },
+  "footer": {
+    "tagline": "Transforming ideas into modern digital experiences through web development, video production and artificial intelligence.",
+    "navTitle": "Navigation",
+    "elsewhereTitle": "Elsewhere",
+    "letstalk": "Let's Talk",
+    "letsCreate": "Let's create together",
+    "builtWith": "Built with React · Vite · Framer Motion",
+    "rights": "All rights reserved."
+  }
+}

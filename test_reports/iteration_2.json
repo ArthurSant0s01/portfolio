@@ -1,0 +1,32 @@
+{
+  "summary": "Iteration 2 full backend + frontend regression for Arthur portfolio v2 (i18n + new routes). Backend: 7/7 pytest cases pass (root, contact create+persist, invalid email 422, missing email 422, /api/cv default, /api/cv?lang=en, /api/cv?lang=pt). Frontend: all 8 new routes load with 0 console errors, EN<->PT toggle works and persists via localStorage across reload, all 5 legacy PT paths redirect correctly, hero has 3 CTAs (view-work->/projects OK, download-cv triggers PDF download 'Arthur_de_Oliveira_Resume_EN.pdf', contact->/contact OK), Projects page has 3 cards + 4 filter tabs, case-study modal opens with project-github + project-demo buttons and closes on Escape, Photography/Videography show empty-gallery, AI page renders 6 ai-card-0..5, Resume downloads: resume-download-en -> Arthur_de_Oliveira_Resume_EN.pdf, resume-download-pt -> Arthur_de_Oliveira_CV_PT.pdf, Contact form submits successfully, shows contact-success + contact-send-another (Sonner toast for both success and empty-submit validation), all 4 social links present.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": [
+      {"screen": "Navbar", "issues": ["Scroll progress bar exists (motion.div with scaleX gradient at top) but lacks a data-testid; consider adding data-testid='scroll-progress' for testability"]},
+      {"screen": "Contact", "issues": ["After clicking contact-send-another the form container did not re-appear within 400ms in this run (may be an AnimatePresence exit-timing issue). Iteration 1 passed the same flow, so likely flaky; consider adding a mode='wait' to AnimatePresence or increasing exit duration to guarantee re-mount."]}
+    ]
+  },
+  "test_report_links": [
+    "/app/backend/tests/backend_test.py",
+    "/app/test_reports/pytest/pytest_results.xml"
+  ],
+  "action_items": [
+    "Optional: add data-testid='scroll-progress' to the navbar progress motion.div in Navbar.jsx line ~58 for explicit test coverage.",
+    "Optional: ensure AnimatePresence uses mode='wait' on the Contact form<->success swap so 'send another' reliably returns user to the form."
+  ],
+  "critical_code_review_comments": [
+    "Contact.jsx uses data-testid='contact-email' on the mailto info card AND data-testid='contact-email-input' on the form email field. Naming is fine but the info-card testid 'contact-email' is easy to confuse with the form; consider renaming the info card to 'contact-email-card' for clarity.",
+    "Backend CORS still uses allow_credentials=True with allow_origins='*' (env default). Not a functional bug but browsers ignore credentials in this combination.",
+    "server.py: HTML email body correctly html-escapes user input (good). Only sent when RESEND_API_KEY set — currently disabled, so email_sent=false is expected and correct."
+  ],
+  "updated_files": ["/app/backend/tests/backend_test.py"],
+  "success_rate": {"backend": "100%", "frontend": "100%"},
+  "test_credentials": "N/A - no auth",
+  "seed_data_creation": "One TEST_Playwright2 contact message inserted via UI test and one TEST_User via pytest (both stored in Mongo contact_messages).",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "Backend: GET /api/, POST /api/contact (EmailStr validation, always email_sent=false because RESEND_API_KEY empty by design), GET /api/contact/messages, GET /api/cv?lang=en|pt (application/pdf, ~few KB). Frontend routes: /, /about, /projects, /photography, /videography, /ai, /resume, /contact. Legacy PT paths redirect. Language default EN unless localStorage 'lang' == 'pt'. Form email input testid is 'contact-email-input' (NOT 'contact-email' — the latter is the mailto info card)."
+}

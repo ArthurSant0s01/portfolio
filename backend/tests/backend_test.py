@@ -57,8 +57,17 @@ def test_contact_missing_email(api):
 
 
 # GET /api/cv
-def test_cv_pdf(api):
+def test_cv_pdf_default(api):
     r = api.get(f"{BASE_URL}/api/cv")
+    assert r.status_code == 200
+    assert r.headers.get("content-type", "").startswith("application/pdf")
+    assert r.content[:4] == b"%PDF"
+    assert len(r.content) > 1000
+
+
+@pytest.mark.parametrize("lang", ["en", "pt"])
+def test_cv_pdf_lang(api, lang):
+    r = api.get(f"{BASE_URL}/api/cv", params={"lang": lang})
     assert r.status_code == 200
     assert r.headers.get("content-type", "").startswith("application/pdf")
     assert r.content[:4] == b"%PDF"
