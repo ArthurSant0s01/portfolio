@@ -5,6 +5,7 @@ from starlette.middleware.cors import CORSMiddleware
 from motor.motor_asyncio import AsyncIOMotorClient
 import os
 import io
+import html
 import asyncio
 import logging
 from pathlib import Path
@@ -22,6 +23,12 @@ import resend
 
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
+
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+)
+logger = logging.getLogger(__name__)
 
 # MongoDB connection
 mongo_url = os.environ['MONGO_URL']
@@ -93,16 +100,20 @@ async def get_status_checks():
 
 
 def _build_contact_email(payload: ContactCreate) -> str:
+    name = html.escape(payload.name)
+    email = html.escape(payload.email)
+    subject = html.escape(payload.subject) if payload.subject else "(no subject)"
+    message = html.escape(payload.message).replace("\n", "<br/>")
     return f"""
     <div style="font-family: Arial, sans-serif; background:#0A0A0A; padding:24px; color:#ffffff;">
       <table width="100%" style="max-width:600px; margin:auto; background:#121212; border-radius:12px; padding:24px;">
         <tr><td style="font-size:20px; font-weight:bold; color:#3B82F6;">New portfolio message</td></tr>
         <tr><td style="padding-top:12px; color:#A1A1AA;">From</td></tr>
-        <tr><td style="font-size:16px;">{payload.name} &lt;{payload.email}&gt;</td></tr>
+        <tr><td style="font-size:16px;">{name} &lt;{email}&gt;</td></tr>
         <tr><td style="padding-top:12px; color:#A1A1AA;">Subject</td></tr>
-        <tr><td style="font-size:16px;">{payload.subject or '(no subject)'}</td></tr>
+        <tr><td style="font-size:16px;">{subject}</td></tr>
         <tr><td style="padding-top:12px; color:#A1A1AA;">Message</td></tr>
-        <tr><td style="font-size:15px; line-height:1.6;">{payload.message}</td></tr>
+        <tr><td style="font-size:15px; line-height:1.6;">{message}</td></tr>
       </table>
     </div>
     """
@@ -232,12 +243,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-)
-logger = logging.getLogger(__name__)
 
 
 @app.on_event("shutdown")
