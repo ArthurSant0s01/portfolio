@@ -1,15 +1,24 @@
-from fastapi import FastAPI, APIRouter
+from fastapi import FastAPI, APIRouter, HTTPException
+from fastapi.responses import StreamingResponse
 from dotenv import load_dotenv
 from starlette.middleware.cors import CORSMiddleware
 from motor.motor_asyncio import AsyncIOMotorClient
 import os
+import io
+import asyncio
 import logging
 from pathlib import Path
-from pydantic import BaseModel, Field, ConfigDict
+from pydantic import BaseModel, Field, ConfigDict, EmailStr
 from typing import List
 import uuid
 from datetime import datetime, timezone
 
+from reportlab.lib.pagesizes import A4
+from reportlab.lib.units import mm
+from reportlab.lib import colors
+from reportlab.pdfgen import canvas
+
+import resend
 
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
@@ -19,54 +28,201 @@ mongo_url = os.environ['MONGO_URL']
 client = AsyncIOMotorClient(mongo_url)
 db = client[os.environ['DB_NAME']]
 
-# Create the main app without a prefix
-app = FastAPI()
+# Email config
+RESEND_API_KEY = os.environ.get('RESEND_API_KEY', '')
+SENDER_EMAIL = os.environ.get('SENDER_EMAIL', 'onboarding@resend.dev')
+OWNER_EMAIL = os.environ.get('OWNER_EMAIL', '')
+if RESEND_API_KEY:
+    resend.api_key = RESEND_API_KEY
 
-# Create a router with the /api prefix
+app = FastAPI()
 api_router = APIRouter(prefix="/api")
 
 
-# Define Models
+# ---------- Models ----------
 class StatusCheck(BaseModel):
-    model_config = ConfigDict(extra="ignore")  # Ignore MongoDB's _id field
-    
+    model_config = ConfigDict(extra="ignore")
     id: str = Field(default_factory=lambda: str(uuid.uuid4()))
     client_name: str
     timestamp: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
 
+
 class StatusCheckCreate(BaseModel):
     client_name: str
 
-# Add your routes to the router instead of directly to app
+
+class ContactCreate(BaseModel):
+    name: str
+    email: EmailStr
+    subject: str = ""
+    message: str
+
+
+class ContactMessage(BaseModel):
+    model_config = ConfigDict(extra="ignore")
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    name: str
+    email: str
+    subject: str = ""
+    message: str
+    created_at: str = Field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
+
+
+# ---------- Routes ----------
 @api_router.get("/")
 async def root():
-    return {"message": "Hello World"}
+    return {"message": "Portfolio API running"}
+
 
 @api_router.post("/status", response_model=StatusCheck)
 async def create_status_check(input: StatusCheckCreate):
-    status_dict = input.model_dump()
-    status_obj = StatusCheck(**status_dict)
-    
-    # Convert to dict and serialize datetime to ISO string for MongoDB
+    status_obj = StatusCheck(**input.model_dump())
     doc = status_obj.model_dump()
     doc['timestamp'] = doc['timestamp'].isoformat()
-    
-    _ = await db.status_checks.insert_one(doc)
+    await db.status_checks.insert_one(doc)
     return status_obj
+
 
 @api_router.get("/status", response_model=List[StatusCheck])
 async def get_status_checks():
-    # Exclude MongoDB's _id field from the query results
     status_checks = await db.status_checks.find({}, {"_id": 0}).to_list(1000)
-    
-    # Convert ISO string timestamps back to datetime objects
     for check in status_checks:
         if isinstance(check['timestamp'], str):
             check['timestamp'] = datetime.fromisoformat(check['timestamp'])
-    
     return status_checks
 
-# Include the router in the main app
+
+def _build_contact_email(payload: ContactCreate) -> str:
+    return f"""
+    <div style="font-family: Arial, sans-serif; background:#0A0A0A; padding:24px; color:#ffffff;">
+      <table width="100%" style="max-width:600px; margin:auto; background:#121212; border-radius:12px; padding:24px;">
+        <tr><td style="font-size:20px; font-weight:bold; color:#3B82F6;">New portfolio message</td></tr>
+        <tr><td style="padding-top:12px; color:#A1A1AA;">From</td></tr>
+        <tr><td style="font-size:16px;">{payload.name} &lt;{payload.email}&gt;</td></tr>
+        <tr><td style="padding-top:12px; color:#A1A1AA;">Subject</td></tr>
+        <tr><td style="font-size:16px;">{payload.subject or '(no subject)'}</td></tr>
+        <tr><td style="padding-top:12px; color:#A1A1AA;">Message</td></tr>
+        <tr><td style="font-size:15px; line-height:1.6;">{payload.message}</td></tr>
+      </table>
+    </div>
+    """
+
+
+@api_router.post("/contact")
+async def create_contact(payload: ContactCreate):
+    msg = ContactMessage(**payload.model_dump())
+    await db.contact_messages.insert_one(msg.model_dump())
+
+    email_sent = False
+    if RESEND_API_KEY and OWNER_EMAIL:
+        params = {
+            "from": SENDER_EMAIL,
+            "to": [OWNER_EMAIL],
+            "reply_to": payload.email,
+            "subject": f"Portfolio contact: {payload.subject or payload.name}",
+            "html": _build_contact_email(payload),
+        }
+        try:
+            await asyncio.to_thread(resend.Emails.send, params)
+            email_sent = True
+        except Exception as e:
+            logger.error(f"Failed to send email: {str(e)}")
+
+    return {"status": "success", "id": msg.id, "email_sent": email_sent}
+
+
+@api_router.get("/contact/messages", response_model=List[ContactMessage])
+async def list_contact_messages():
+    docs = await db.contact_messages.find({}, {"_id": 0}).sort("created_at", -1).to_list(500)
+    return docs
+
+
+def _generate_cv_pdf() -> bytes:
+    buf = io.BytesIO()
+    c = canvas.Canvas(buf, pagesize=A4)
+    w, h = A4
+    # Background
+    c.setFillColor(colors.HexColor("#0A0A0A"))
+    c.rect(0, 0, w, h, fill=1, stroke=0)
+    # Accent bar
+    c.setFillColor(colors.HexColor("#3B82F6"))
+    c.rect(0, h - 55 * mm, w, 55 * mm, fill=1, stroke=0)
+    c.setFillColor(colors.HexColor("#8B5CF6"))
+    c.rect(0, h - 55 * mm, w, 3, fill=1, stroke=0)
+
+    c.setFillColor(colors.white)
+    c.setFont("Helvetica-Bold", 30)
+    c.drawString(20 * mm, h - 28 * mm, "Arthur de Oliveira dos Santos")
+    c.setFont("Helvetica", 13)
+    c.drawString(20 * mm, h - 38 * mm, "Creative Developer  |  Videographer  |  Photographer  |  AI Enthusiast")
+    c.setFont("Helvetica", 10)
+    c.drawString(20 * mm, h - 47 * mm, "Portugal   -   Portuguese (Native), English (Intermediate)")
+
+    y = h - 70 * mm
+
+    def heading(text):
+        nonlocal y
+        c.setFillColor(colors.HexColor("#06B6D4"))
+        c.setFont("Helvetica-Bold", 13)
+        c.drawString(20 * mm, y, text)
+        c.setStrokeColor(colors.HexColor("#3B82F6"))
+        c.line(20 * mm, y - 2 * mm, w - 20 * mm, y - 2 * mm)
+        y -= 9 * mm
+
+    def line(text, bold=False, indent=0):
+        nonlocal y
+        c.setFillColor(colors.white if bold else colors.HexColor("#D4D4D8"))
+        c.setFont("Helvetica-Bold" if bold else "Helvetica", 11 if bold else 10)
+        c.drawString((20 + indent) * mm, y, text)
+        y -= 6 * mm
+
+    heading("Profile")
+    for t in [
+        "18-year-old creative professional based in Portugal, passionate about web",
+        "development, photography, video editing and artificial intelligence. Building",
+        "modern digital experiences that combine creativity, performance and innovation.",
+    ]:
+        line(t)
+    y -= 4 * mm
+
+    heading("Skills")
+    for t in [
+        "Web: React, Vite, TypeScript, JavaScript, HTML5, CSS3, Tailwind CSS",
+        "Tools: Git, GitHub, Vercel, Supabase",
+        "Creative: Premiere Pro, DaVinci Resolve, CapCut, Photoshop, Lightroom",
+        "AI: Artificial Intelligence, Prompt Engineering",
+    ]:
+        line(t)
+    y -= 4 * mm
+
+    heading("Projects")
+    line("SSDoces", bold=True)
+    line("Modern e-commerce for a confectionery. React, Vite, Supabase, Vercel.", indent=4)
+    line("Portfolio Website", bold=True)
+    line("Professional portfolio showcasing creative work.", indent=4)
+    line("Future AI Projects", bold=True)
+    line("AI automations and intelligent applications.", indent=4)
+    y -= 4 * mm
+
+    heading("Services")
+    line("Web Development, Video Editing, Photography, Social Media Content, AI Solutions, Landing Pages")
+
+    c.showPage()
+    c.save()
+    buf.seek(0)
+    return buf.read()
+
+
+@api_router.get("/cv")
+async def download_cv():
+    pdf = _generate_cv_pdf()
+    return StreamingResponse(
+        io.BytesIO(pdf),
+        media_type="application/pdf",
+        headers={"Content-Disposition": "attachment; filename=Arthur_de_Oliveira_CV.pdf"},
+    )
+
+
 app.include_router(api_router)
 
 app.add_middleware(
@@ -77,12 +233,12 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Configure logging
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
 )
 logger = logging.getLogger(__name__)
+
 
 @app.on_event("shutdown")
 async def shutdown_db_client():
