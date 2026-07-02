@@ -35,8 +35,9 @@
   },
   "home": {
     "whoOverline": "Quem sou",
-    "whoTitle": "Um criativo de 18 anos de Portugal que combina código, cinema e IA em experiências digitais modernas que ganham vida.",
-    "moreAbout": "Explorar Perfil",
+    "whoTitle": "Sou um desenvolvedor web e criador de experiências digitais, apaixonado por transformar ideias em soluções modernas, rápidas e intuitivas. Especializo-me na criação de websites totalmente responsivos, aplicações web e soluções digitais que combinam desenvolvimento web, inteligência artificial, design e criatividade para ajudar empresas e profissionais a destacarem-se no mundo digital.",
+    "whoBody": "Destaco-me pela disciplina, perseverança e compromisso com a excelência, procurando evoluir continuamente, aprender novas tecnologias e superar desafios através de soluções inovadoras. Em cada projeto, procuro aliar performance, experiência do utilizador, qualidade técnica e atenção aos detalhes para entregar resultados que geram impacto e valor real.",
+    "moreAbout": "A minha jornada",
     "aiBandOverline": "IA & Automação",
     "aiBandTitle": "A explorar o futuro com ferramentas inteligentes",
     "aiBandText": "De prompt engineering a automação e sites com IA — construo com a tecnologia que molda o amanhã.",

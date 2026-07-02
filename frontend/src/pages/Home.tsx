@@ -51,10 +51,22 @@ function Hero() {
   const { t } = useI18n();
   const reduceMotion = useReducedMotion();
   const ref = useRef(null);
+  const [isMobile, setIsMobile] = useState(
+    () => typeof window !== "undefined" && window.innerWidth < 768
+  );
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const yText = useTransform(scrollYProgress, [0, 1], [0, 120]);
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
   const { download } = useCvDownload();
+  // Disable parallax scroll effects on mobile to prevent content overlap during scroll
+  const heroMotionStyle = (reduceMotion || isMobile) ? {} : { y: yText, opacity };
 
   return (
     <section ref={ref} className="relative min-h-[100dvh] flex items-center overflow-x-hidden" data-testid="hero">
@@ -73,7 +85,7 @@ function Hero() {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-bg" />
       </div>
 
-      <motion.div style={{ y: yText, opacity }} className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 w-full py-28 sm:py-0">
+      <motion.div style={heroMotionStyle} className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 w-full py-28 sm:py-0">
         <Reveal>
           <span className="inline-flex items-center gap-2 glass rounded-full px-4 py-2 text-xs text-muted font-mono">
             <span className="w-2 h-2 rounded-full bg-brand-cyan animate-pulse" />
@@ -155,22 +167,27 @@ export default function Home() {
       </div>
 
       {/* Intro */}
-      <section className="max-w-7xl mx-auto px-5 sm:px-8 py-24 sm:py-32">
-        <div className="grid lg:grid-cols-12 gap-10 items-end">
-          <div className="lg:col-span-8">
-            <p className="overline mb-6">{t.home.whoOverline}</p>
-            <Reveal>
-              <p className="text-2xl sm:text-4xl font-light leading-snug tracking-tight">{t.home.whoTitle}</p>
-            </Reveal>
-          </div>
-          <div className="lg:col-span-4">
+      <section className="max-w-7xl mx-auto px-5 sm:px-8 py-16 sm:py-32">
+        <div className="max-w-3xl">
+          <p className="overline mb-6">{t.home.whoOverline}</p>
+          <Reveal>
+            <p className="text-xl sm:text-3xl font-light leading-relaxed tracking-tight">{t.home.whoTitle}</p>
+          </Reveal>
+          {t.home.whoBody && (
             <Reveal delay={0.1}>
-              <Link to="/about" data-testid="home-about-link" className="group inline-flex items-center gap-2 text-muted hover:text-white transition-colors">
-                {t.home.moreAbout}
-                <ArrowUpRight size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-              </Link>
+              <p className="mt-6 text-base sm:text-lg text-muted leading-relaxed">{t.home.whoBody}</p>
             </Reveal>
-          </div>
+          )}
+          <Reveal delay={0.2}>
+            <div className="mt-10">
+              <Magnetic>
+                <Link to="/about" data-testid="home-about-link" className="group inline-flex items-center gap-2 btn-glow text-white font-medium px-7 py-3.5 rounded-full">
+                  {t.home.moreAbout}
+                  <ArrowUpRight size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                </Link>
+              </Magnetic>
+            </div>
+          </Reveal>
         </div>
       </section>
 
