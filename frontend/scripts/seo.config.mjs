@@ -1,4 +1,4 @@
-export const defaultSiteUrl = "https://arthuroliveira.dev";
+export const defaultSiteUrl = "https://arthur-santos.vercel.app";
 
 export function normalizeSiteUrl(input) {
   const trimmed = input.trim().replace(/\/$/, "");

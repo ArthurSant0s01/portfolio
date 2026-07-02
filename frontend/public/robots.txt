@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
 
-Host: https://arthuroliveira.dev
-Sitemap: https://arthuroliveira.dev/sitemap.xml
+Host: https://arthur-santos.vercel.app
+Sitemap: https://arthur-santos.vercel.app/sitemap.xml

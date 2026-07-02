@@ -12,7 +12,7 @@ export const SEO_KEYWORDS =
 export const SEO_AUTHOR = "Arthur Santos";
 
 export const SEO_OG_IMAGE_ALT = "Arthur Santos | Portfolio preview image";
-export const DEFAULT_SITE_URL = "https://arthuroliveira.dev";
+export const DEFAULT_SITE_URL = "https://arthur-santos.vercel.app";
 export const DEFAULT_OG_IMAGE = "/og-image.png";
 export const DEFAULT_OG_IMAGE_WIDTH = "1200";
 export const DEFAULT_OG_IMAGE_HEIGHT = "630";

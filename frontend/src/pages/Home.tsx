@@ -115,16 +115,18 @@ function Hero() {
                 <ArrowUpRight size={18} className="group-hover:rotate-45 transition-transform" />
               </Link>
             </Magnetic>
-            <Magnetic>
-              <button onClick={() => download("en")} data-testid="hero-download-cv" className="inline-flex items-center gap-2 glass text-white font-medium px-7 py-3.5 rounded-full hover:border-white/30 transition-all">
-                <Download size={18} /> {t.common.downloadResume}
-              </button>
-            </Magnetic>
-            <Magnetic>
-              <Link to="/contact" data-testid="hero-contact" className="inline-flex items-center gap-2 text-muted hover:text-white font-medium px-5 py-3.5 transition-colors">
-                <Mail size={18} /> {t.common.contactMe}
-              </Link>
-            </Magnetic>
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-3">
+              <Magnetic>
+                <button onClick={() => download("en")} data-testid="hero-download-cv" className="inline-flex items-center gap-2 glass text-white font-medium px-7 py-3.5 rounded-full hover:border-white/30 transition-all">
+                  <Download size={18} /> {t.common.downloadResume}
+                </button>
+              </Magnetic>
+              <Magnetic>
+                <Link to="/contact" data-testid="hero-contact" className="inline-flex items-center gap-2 glass text-white font-medium px-7 py-3.5 rounded-full hover:border-white/30 transition-all sm:px-5 sm:text-muted sm:hover:text-white sm:border-transparent sm:bg-transparent sm:hover:border-transparent">
+                  <Mail size={18} /> {t.common.contactMe}
+                </Link>
+              </Magnetic>
+            </div>
           </div>
         </Reveal>
       </motion.div>
