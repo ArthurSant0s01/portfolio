@@ -35,11 +35,9 @@ def test_contact_create_and_persist(api):
     assert isinstance(data["id"], str) and len(data["id"]) > 0
     assert data["email_sent"] is False
 
-    # Verify persisted
+    # Public read endpoint must not expose contact messages
     r2 = api.get(f"{BASE_URL}/api/contact/messages")
-    assert r2.status_code == 200
-    msgs = r2.json()
-    assert any(m["id"] == data["id"] and m["email"] == payload["email"] for m in msgs)
+    assert r2.status_code in (401, 404)
 
 
 # POST /api/contact - full payload with new fields
@@ -61,14 +59,8 @@ def test_contact_full_payload(api):
     new_id = data["id"]
 
     r2 = api.get(f"{BASE_URL}/api/contact/messages")
-    assert r2.status_code == 200
-    msgs = r2.json()
-    match = next((m for m in msgs if m["id"] == new_id), None)
-    assert match is not None
-    assert match["company"] == payload["company"]
-    assert match["country"] == payload["country"]
-    assert match["service"] == payload["service"]
-    assert match["budget"] == payload["budget"]
+    assert r2.status_code in (401, 404)
+    assert isinstance(new_id, str) and len(new_id) > 0
 
 
 # POST /api/contact - invalid email

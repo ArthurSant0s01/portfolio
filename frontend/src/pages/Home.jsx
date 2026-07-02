@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import { motion, useScroll, useTransform, AnimatePresence, useReducedMotion } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import * as Icons from "lucide-react";
 import { ArrowUpRight, MapPin, Download, Mail } from "lucide-react";
@@ -13,20 +13,22 @@ import { useI18n } from "../i18n/I18nContext";
 import useCvDownload from "../hooks/useCvDownload";
 
 function RotatingRoles({ roles }) {
+  const reducedMotion = useReducedMotion();
   const [i, setI] = useState(0);
   useEffect(() => {
+    if (reducedMotion) return undefined;
     const id = setInterval(() => setI((v) => (v + 1) % roles.length), 2200);
     return () => clearInterval(id);
-  }, [roles.length]);
+  }, [roles.length, reducedMotion]);
   return (
     <span className="relative inline-block align-top h-[1.2em] overflow-hidden">
       <AnimatePresence mode="wait">
         <motion.span
           key={i}
-          initial={{ y: "100%", opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          exit={{ y: "-100%", opacity: 0 }}
-          transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+          initial={reducedMotion ? false : { y: "100%", opacity: 0 }}
+          animate={reducedMotion ? { opacity: 1 } : { y: 0, opacity: 1 }}
+          exit={reducedMotion ? { opacity: 0 } : { y: "-100%", opacity: 0 }}
+          transition={reducedMotion ? { duration: 0 } : { duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
           className="inline-block text-gradient"
         >
           {roles[i]}

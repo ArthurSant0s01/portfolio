@@ -13,8 +13,9 @@ import { Magnetic } from "../components/Magnetic";
 import { profile } from "../data/portfolio";
 import { useI18n } from "../i18n/I18nContext";
 import useCvDownload from "../hooks/useCvDownload";
+import { getBackendUrl } from "@/config/env";
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+const BACKEND_URL = getBackendUrl();
 
 export default function Contact() {
   const { t } = useI18n();
@@ -231,24 +232,25 @@ export default function Contact() {
                     </button>
                   </motion.div>
                 ) : (
-                  <motion.form key="form" onSubmit={submit} data-testid="contact-form" className="glass rounded-3xl p-7 sm:p-9 space-y-5" exit={{ opacity: 0 }}>
+                  <motion.form key="form" onSubmit={submit} data-testid="contact-form" className="glass rounded-3xl p-7 sm:p-9 space-y-5" exit={{ opacity: 0 }} noValidate>
                     <h3 className="text-lg font-bold">{t.contact.formTitle}</h3>
+                    <p className="sr-only" aria-live="polite">{sending ? t.common.sending : ""}</p>
                     <div className="grid sm:grid-cols-2 gap-5">
                       <div>
                         <label htmlFor="c-name" className="text-sm text-muted mb-2 block">{t.contact.nameLabel}</label>
-                        <input id="c-name" data-testid="contact-name" value={form.name} onChange={update("name")} placeholder={t.contact.namePlaceholder} className={inputClass} />
+                        <input id="c-name" required autoComplete="name" data-testid="contact-name" value={form.name} onChange={update("name")} placeholder={t.contact.namePlaceholder} className={inputClass} />
                       </div>
                       <div>
                         <label htmlFor="c-email" className="text-sm text-muted mb-2 block">{t.contact.emailLabel}</label>
-                        <input id="c-email" data-testid="contact-email-input" type="email" value={form.email} onChange={update("email")} placeholder={t.contact.emailPlaceholder} className={inputClass} />
+                        <input id="c-email" required autoComplete="email" data-testid="contact-email-input" type="email" value={form.email} onChange={update("email")} placeholder={t.contact.emailPlaceholder} className={inputClass} />
                       </div>
                       <div>
                         <label htmlFor="c-company" className="text-sm text-muted mb-2 block">{t.contact.companyLabel}</label>
-                        <input id="c-company" data-testid="contact-company" value={form.company} onChange={update("company")} placeholder={t.contact.companyPlaceholder} className={inputClass} />
+                        <input id="c-company" autoComplete="organization" data-testid="contact-company" value={form.company} onChange={update("company")} placeholder={t.contact.companyPlaceholder} className={inputClass} />
                       </div>
                       <div>
                         <label htmlFor="c-country" className="text-sm text-muted mb-2 block">{t.contact.countryLabel}</label>
-                        <input id="c-country" data-testid="contact-country" value={form.country} onChange={update("country")} placeholder={t.contact.countryPlaceholder} className={inputClass} />
+                        <input id="c-country" autoComplete="country-name" data-testid="contact-country" value={form.country} onChange={update("country")} placeholder={t.contact.countryPlaceholder} className={inputClass} />
                       </div>
                       <div>
                         <label htmlFor="c-service" className="text-sm text-muted mb-2 block">{t.contact.serviceLabel}</label>
@@ -266,10 +268,10 @@ export default function Contact() {
                     </div>
                     <div>
                       <label htmlFor="c-message" className="text-sm text-muted mb-2 block">{t.contact.messageLabel}</label>
-                      <textarea id="c-message" data-testid="contact-message" value={form.message} onChange={update("message")} placeholder={t.contact.messagePlaceholder} rows={5} className={`${inputClass} resize-none`} />
+                      <textarea id="c-message" required minLength={8} data-testid="contact-message" value={form.message} onChange={update("message")} placeholder={t.contact.messagePlaceholder} rows={5} className={`${inputClass} resize-none`} />
                     </div>
                     <label className="flex items-center gap-3 text-sm text-muted cursor-pointer">
-                      <input type="checkbox" data-testid="contact-privacy" checked={form.agree} onChange={update("agree")} className="w-4 h-4 rounded border-white/20 bg-white/5 accent-brand-blue" />
+                      <input type="checkbox" required data-testid="contact-privacy" checked={form.agree} onChange={update("agree")} className="w-4 h-4 rounded border-white/20 bg-white/5 accent-brand-blue" />
                       <span className="inline-flex items-center gap-1.5"><ShieldCheck size={15} className="text-brand-cyan" /> {t.contact.privacy}</span>
                     </label>
                     <motion.button type="submit" disabled={sending} whileTap={{ scale: 0.98 }} data-testid="contact-submit" className="w-full inline-flex items-center justify-center gap-2 btn-glow text-white font-medium px-7 py-4 rounded-xl disabled:opacity-60">

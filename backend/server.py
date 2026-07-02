@@ -1,4 +1,4 @@
-from fastapi import FastAPI, APIRouter, HTTPException
+from fastapi import FastAPI, APIRouter, HTTPException, Request, Header, status
 from fastapi.responses import StreamingResponse
 from dotenv import load_dotenv
 from starlette.middleware.cors import CORSMiddleware
@@ -8,11 +8,13 @@ import io
 import html
 import asyncio
 import logging
+import secrets
 from pathlib import Path
 from pydantic import BaseModel, Field, ConfigDict, EmailStr
-from typing import List
+from typing import List, Optional, Dict, Deque
 import uuid
 from datetime import datetime, timezone
+from collections import defaultdict, deque
 
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.units import mm
@@ -22,7 +24,9 @@ from reportlab.pdfgen import canvas
 import resend
 
 ROOT_DIR = Path(__file__).parent
-load_dotenv(ROOT_DIR / '.env')
+dotenv_path = ROOT_DIR / ".env"
+if dotenv_path.exists():
+    load_dotenv(dotenv_path)
 
 logging.basicConfig(
     level=logging.INFO,
@@ -31,14 +35,34 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # MongoDB connection
-mongo_url = os.environ['MONGO_URL']
+def _get_env(name: str, default: Optional[str] = None, *, required: bool = False) -> str:
+    value = os.getenv(name, default)
+    if required and (value is None or not str(value).strip()):
+        raise RuntimeError(f"Missing required environment variable: {name}")
+    return value or ""
+
+
+def _get_positive_int_env(name: str, default: int) -> int:
+    raw = _get_env(name, str(default))
+    try:
+        parsed = int(raw)
+        return parsed if parsed > 0 else default
+    except ValueError:
+        return default
+
+
+mongo_url = _get_env("MONGO_URL", required=True)
 client = AsyncIOMotorClient(mongo_url)
-db = client[os.environ['DB_NAME']]
+db = client[_get_env("DB_NAME", required=True)]
 
 # Email config
-RESEND_API_KEY = os.environ.get('RESEND_API_KEY', '')
-SENDER_EMAIL = os.environ.get('SENDER_EMAIL', 'onboarding@resend.dev')
-OWNER_EMAIL = os.environ.get('OWNER_EMAIL', '')
+RESEND_API_KEY = _get_env("RESEND_API_KEY", "")
+SENDER_EMAIL = _get_env("SENDER_EMAIL", "onboarding@resend.dev")
+OWNER_EMAIL = _get_env("OWNER_EMAIL", "")
+CONTACT_ADMIN_TOKEN = _get_env("CONTACT_ADMIN_TOKEN", "")
+CONTACT_RATE_LIMIT_WINDOW_SECONDS = _get_positive_int_env("CONTACT_RATE_LIMIT_WINDOW_SECONDS", 60)
+CONTACT_RATE_LIMIT_MAX_REQUESTS = _get_positive_int_env("CONTACT_RATE_LIMIT_MAX_REQUESTS", 5)
+_contact_rate_limiter: Dict[str, Deque[float]] = defaultdict(deque)
 if RESEND_API_KEY:
     resend.api_key = RESEND_API_KEY
 
@@ -136,7 +160,25 @@ def _build_contact_email(payload: ContactCreate) -> str:
 
 
 @api_router.post("/contact")
-async def create_contact(payload: ContactCreate):
+async def create_contact(payload: ContactCreate, request: Request):
+    client_ip = request.headers.get("x-forwarded-for", "").split(",")[0].strip()
+    if not client_ip:
+        client_ip = request.client.host if request.client else "unknown"
+    now = datetime.now(timezone.utc).timestamp()
+    window_start = now - CONTACT_RATE_LIMIT_WINDOW_SECONDS
+    history = _contact_rate_limiter[client_ip]
+    while history and history[0] < window_start:
+        history.popleft()
+    if not history and client_ip in _contact_rate_limiter:
+        _contact_rate_limiter.pop(client_ip, None)
+        history = _contact_rate_limiter[client_ip]
+    if len(history) >= CONTACT_RATE_LIMIT_MAX_REQUESTS:
+        raise HTTPException(
+            status_code=status.HTTP_429_TOO_MANY_REQUESTS,
+            detail="Too many contact requests. Please try again later.",
+        )
+    history.append(now)
+
     msg = ContactMessage(**payload.model_dump())
     await db.contact_messages.insert_one(msg.model_dump())
 
@@ -159,7 +201,14 @@ async def create_contact(payload: ContactCreate):
 
 
 @api_router.get("/contact/messages", response_model=List[ContactMessage])
-async def list_contact_messages():
+async def list_contact_messages(authorization: Optional[str] = Header(default=None)):
+    if not CONTACT_ADMIN_TOKEN:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Not found")
+    if not authorization or not authorization.startswith("Bearer "):
+        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Unauthorized")
+    token = authorization.replace("Bearer ", "", 1).strip()
+    if not secrets.compare_digest(token, CONTACT_ADMIN_TOKEN):
+        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Unauthorized")
     docs = await db.contact_messages.find({}, {"_id": 0}).sort("created_at", -1).to_list(500)
     return docs
 
@@ -275,10 +324,15 @@ async def download_cv(lang: str = "en"):
 
 app.include_router(api_router)
 
+cors_origins = [origin.strip() for origin in _get_env("CORS_ORIGINS", "").split(",") if origin.strip()]
+if not cors_origins:
+    cors_origins = ["http://localhost:3000", "http://localhost:5173"]
+allow_all_origins = "*" in cors_origins
+
 app.add_middleware(
     CORSMiddleware,
-    allow_credentials=True,
-    allow_origins=os.environ.get('CORS_ORIGINS', '*').split(','),
+    allow_credentials=not allow_all_origins,
+    allow_origins=cors_origins,
     allow_methods=["*"],
     allow_headers=["*"],
 )

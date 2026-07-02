@@ -1,21 +1,23 @@
 import { useEffect } from "react";
-import { motion, useMotionValue, useSpring } from "framer-motion";
+import { motion, useMotionValue, useSpring, useReducedMotion } from "framer-motion";
 
 // Global animated background: gradient mesh blobs + mouse-reactive glow.
 export default function Background() {
+  const reducedMotion = useReducedMotion();
   const x = useMotionValue(-500);
   const y = useMotionValue(-500);
-  const sx = useSpring(x, { stiffness: 60, damping: 20 });
-  const sy = useSpring(y, { stiffness: 60, damping: 20 });
+  const sx = useSpring(x, { stiffness: reducedMotion ? 120 : 60, damping: reducedMotion ? 40 : 20 });
+  const sy = useSpring(y, { stiffness: reducedMotion ? 120 : 60, damping: reducedMotion ? 40 : 20 });
 
   useEffect(() => {
+    if (reducedMotion) return undefined;
     const onMove = (e) => {
       x.set(e.clientX);
       y.set(e.clientY);
     };
     window.addEventListener("mousemove", onMove);
     return () => window.removeEventListener("mousemove", onMove);
-  }, [x, y]);
+  }, [x, y, reducedMotion]);
 
   return (
     <div className="fixed inset-0 -z-10 overflow-hidden bg-bg" aria-hidden>
@@ -25,7 +27,7 @@ export default function Background() {
         <div className="mesh-blob b3" />
       </div>
       <motion.div
-        style={{ x: sx, y: sy }}
+        style={{ x: reducedMotion ? -500 : sx, y: reducedMotion ? -500 : sy }}
         className="absolute -top-64 -left-64 w-[32rem] h-[32rem] rounded-full pointer-events-none"
       >
         <div

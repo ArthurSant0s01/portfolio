@@ -2,10 +2,10 @@
   "version": 2,
   "installCommand": "cd frontend && yarn install",
   "buildCommand": "cd frontend && yarn build",
-  "outputDirectory": "frontend/build",
+  "outputDirectory": "frontend/dist",
   "rewrites": [
     {
-      "source": "/(.*)",
+      "source": "/((?!.*\\.[^/]+$).*)",
       "destination": "/index.html"
     }
   ]

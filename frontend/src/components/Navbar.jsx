@@ -110,8 +110,9 @@ export default function Navbar() {
               className="xl:hidden text-white p-2"
               onClick={() => setOpen((v) => !v)}
               data-testid="nav-menu-toggle"
-              aria-label="Toggle menu"
+              aria-label={open ? "Close menu" : "Open menu"}
               aria-expanded={open}
+              aria-controls="mobile-menu-panel"
             >
               {open ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -127,6 +128,7 @@ export default function Navbar() {
             exit={{ opacity: 0, y: -10 }}
             className="xl:hidden mx-5 mt-3 glass-strong rounded-2xl p-4"
             data-testid="mobile-menu"
+            id="mobile-menu-panel"
           >
             {navLinks.map((l) => (
               <NavLink
