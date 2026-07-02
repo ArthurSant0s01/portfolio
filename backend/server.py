@@ -61,6 +61,7 @@ SENDER_EMAIL = _get_env("SENDER_EMAIL", "onboarding@resend.dev")
 OWNER_EMAIL = _get_env("OWNER_EMAIL", "")
 CONTACT_ADMIN_TOKEN = _get_env("CONTACT_ADMIN_TOKEN", "")
 TRUST_PROXY_HEADERS = _get_env("TRUST_PROXY_HEADERS", "false").lower() == "true"
+TRUSTED_PROXY_IPS = {ip.strip() for ip in _get_env("TRUSTED_PROXY_IPS", "").split(",") if ip.strip()}
 CONTACT_RATE_LIMIT_WINDOW_SECONDS = _get_positive_int_env("CONTACT_RATE_LIMIT_WINDOW_SECONDS", 60)
 CONTACT_RATE_LIMIT_MAX_REQUESTS = _get_positive_int_env("CONTACT_RATE_LIMIT_MAX_REQUESTS", 5)
 _contact_rate_limiter: Dict[str, Deque[float]] = defaultdict(deque)
@@ -163,7 +164,7 @@ def _build_contact_email(payload: ContactCreate) -> str:
 @api_router.post("/contact")
 async def create_contact(payload: ContactCreate, request: Request):
     client_ip = request.client.host if request.client else "unknown"
-    if TRUST_PROXY_HEADERS:
+    if TRUST_PROXY_HEADERS and (not TRUSTED_PROXY_IPS or client_ip in TRUSTED_PROXY_IPS):
         forwarded_ip = request.headers.get("x-forwarded-for", "").split(",")[0].strip()
         if forwarded_ip:
             client_ip = forwarded_ip
@@ -207,6 +208,8 @@ async def list_contact_messages(authorization: Optional[str] = Header(default=No
     if not authorization or not authorization.startswith("Bearer "):
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Unauthorized")
     token = authorization.replace("Bearer ", "", 1).strip()
+    if not token:
+        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Unauthorized")
     if not secrets.compare_digest(token, CONTACT_ADMIN_TOKEN):
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Unauthorized")
     docs = await db.contact_messages.find({}, {"_id": 0}).sort("created_at", -1).to_list(500)
@@ -331,6 +334,10 @@ if not cors_origins:
         raise RuntimeError("CORS_ORIGINS must be configured in production.")
     cors_origins = ["http://localhost:3000", "http://localhost:5173"]
 allow_all_origins = "*" in cors_origins
+if not allow_all_origins:
+    for origin in cors_origins:
+        if not (origin.startswith("http://") or origin.startswith("https://")):
+            raise RuntimeError(f"Invalid CORS origin: {origin}")
 
 app.add_middleware(
     CORSMiddleware,

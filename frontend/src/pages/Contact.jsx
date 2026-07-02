@@ -25,6 +25,7 @@ export default function Contact() {
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
   const [copied, setCopied] = useState(null);
+  const [statusMessage, setStatusMessage] = useState("");
 
   const wa = `https://wa.me/${profile.whatsapp}`;
   const update = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.type === "checkbox" ? e.target.checked : e.target.value }));
@@ -63,8 +64,15 @@ export default function Contact() {
 
   const submit = async (e) => {
     e.preventDefault();
-    if (!form.name || !form.email || !form.message) return toast.error(t.contact.validation);
-    if (!form.agree) return toast.error(t.contact.privacyError);
+    if (!form.name || !form.email || !form.message) {
+      setStatusMessage(t.contact.validation);
+      return toast.error(t.contact.validation);
+    }
+    if (!form.agree) {
+      setStatusMessage(t.contact.privacyError);
+      return toast.error(t.contact.privacyError);
+    }
+    setStatusMessage(t.common.sending);
     setSending(true);
     try {
       const { agree, ...payload } = form;
@@ -75,9 +83,11 @@ export default function Contact() {
       });
       if (!res.ok) throw new Error("failed");
       toast.success(t.contact.success);
+      setStatusMessage(t.contact.success);
       setForm({ name: "", email: "", company: "", country: "", service: "", budget: "", message: "", agree: false });
       setSent(true);
     } catch {
+      setStatusMessage(t.contact.error);
       toast.error(t.contact.error);
     } finally {
       setSending(false);
@@ -234,7 +244,7 @@ export default function Contact() {
                 ) : (
                   <motion.form key="form" onSubmit={submit} data-testid="contact-form" className="glass rounded-3xl p-7 sm:p-9 space-y-5" exit={{ opacity: 0 }} noValidate>
                     <h3 className="text-lg font-bold">{t.contact.formTitle}</h3>
-                    <p className="sr-only" aria-live="polite">{sending ? t.common.sending : ""}</p>
+                    <p className="sr-only" aria-live="polite">{sending ? t.common.sending : statusMessage}</p>
                     <div className="grid sm:grid-cols-2 gap-5">
                       <div>
                         <label htmlFor="c-name" className="text-sm text-muted mb-2 block">{t.contact.nameLabel}</label>
@@ -268,7 +278,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <label htmlFor="c-message" className="text-sm text-muted mb-2 block">{t.contact.messageLabel}</label>
-                      <textarea id="c-message" required minLength={8} data-testid="contact-message" value={form.message} onChange={update("message")} placeholder={t.contact.messagePlaceholder} rows={5} className={`${inputClass} resize-none`} />
+                      <textarea id="c-message" required minLength={8} maxLength={3000} data-testid="contact-message" value={form.message} onChange={update("message")} placeholder={t.contact.messagePlaceholder} rows={5} className={`${inputClass} resize-none`} />
                     </div>
                     <label className="flex items-center gap-3 text-sm text-muted cursor-pointer">
                       <input type="checkbox" required data-testid="contact-privacy" checked={form.agree} onChange={update("agree")} className="w-4 h-4 rounded border-white/20 bg-white/5 accent-brand-blue" />
