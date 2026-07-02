@@ -95,9 +95,11 @@ export default function Projects() {
               </div>
 
               <div className="mt-8 flex flex-wrap gap-3">
-                <a href={active.github} target="_blank" rel="noopener noreferrer" data-testid="project-github" className="inline-flex items-center gap-2 glass text-white text-sm font-medium px-5 py-3 rounded-full hover:border-white/30 transition-all">
-                  <Github size={16} /> {t.common.github}
-                </a>
+                {active.github && active.github !== "#" && (
+                  <a href={active.github} target="_blank" rel="noopener noreferrer" data-testid="project-github" className="inline-flex items-center gap-2 glass text-white text-sm font-medium px-5 py-3 rounded-full hover:border-white/30 transition-all">
+                    <Github size={16} /> {t.common.github}
+                  </a>
+                )}
                 <a href={active.demo} target="_blank" rel="noopener noreferrer" data-testid="project-demo" className="inline-flex items-center gap-2 btn-glow text-white text-sm font-medium px-5 py-3 rounded-full">
                   <ExternalLink size={16} /> {t.common.liveDemo}
                 </a>

@@ -127,7 +127,19 @@
         "result": "Uma experiência de compra fluida de ponta a ponta e um fluxo de gestão simples para o proprietário.",
         "tech": ["React", "Vite", "Supabase", "Vercel"],
         "icon": "ShoppingBag", "from": "#3B82F6", "to": "#06B6D4",
-        "github": "#", "demo": "#", "status": "Concluído"
+        "github": "https://github.com/ArthurSant0s01/SSDoces", "demo": "https://ssdoces.vercel.app", "status": "Concluído"
+      },
+      {
+        "id": "primecode",
+        "title": "PrimeCode",
+        "category": "Desenvolvimento Web",
+        "description": "Plataforma moderna para desenvolvimento de websites profissionais, landing pages, e-commerce e soluções digitais personalizadas, com foco em desempenho, design moderno e otimização para SEO.",
+        "problem": "Pequenas empresas e profissionais precisavam de uma forma rápida e profissional de criar uma presença online sem gastar muito.",
+        "solution": "Desenvolvi uma plataforma especializada na criação de websites modernos, rápidos e responsivos, utilizando tecnologias atuais e inteligência artificial para acelerar o desenvolvimento.",
+        "result": "Um website profissional, otimizado para SEO, rápido, totalmente responsivo e preparado para oferecer uma excelente experiência aos utilizadores.",
+        "tech": ["React", "TypeScript", "Vite", "Tailwind CSS", "Vercel"],
+        "icon": "Code2", "from": "#8B5CF6", "to": "#06B6D4",
+        "github": "https://github.com/ArthurSant0s01/Primecode", "demo": "https://primecode-pt.vercel.app", "status": "Concluído"
       },
       {
         "id": "portfolio",
