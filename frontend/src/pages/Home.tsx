@@ -57,8 +57,8 @@ function Hero() {
   const { download } = useCvDownload();
 
   return (
-    <section ref={ref} className="relative min-h-[95vh] flex items-center overflow-hidden" data-testid="hero">
-      <div className="absolute inset-0 z-0">
+    <section ref={ref} className="relative min-h-[100dvh] flex items-center overflow-x-hidden" data-testid="hero">
+      <div className="absolute inset-0 z-0 overflow-hidden">
         <Particles />
         <motion.div
           className="absolute top-1/4 -left-20 w-96 h-96 rounded-full bg-brand-blue/20 blur-3xl"
@@ -73,7 +73,7 @@ function Hero() {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-bg" />
       </div>
 
-      <motion.div style={{ y: yText, opacity }} className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 w-full">
+      <motion.div style={{ y: yText, opacity }} className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 w-full py-28 sm:py-0">
         <Reveal>
           <span className="inline-flex items-center gap-2 glass rounded-full px-4 py-2 text-xs text-muted font-mono">
             <span className="w-2 h-2 rounded-full bg-brand-cyan animate-pulse" />
@@ -108,25 +108,23 @@ function Hero() {
         </Reveal>
 
         <Reveal delay={0.42}>
-          <div className="mt-10 flex flex-wrap items-center gap-3">
+          <div className="mt-10 flex flex-col sm:flex-row flex-wrap items-start sm:items-center gap-3 pb-8">
             <Magnetic>
               <Link to="/projects" data-testid="hero-view-work" className="group inline-flex items-center gap-2 btn-glow text-white font-medium px-7 py-3.5 rounded-full">
                 {t.common.viewProjects}
                 <ArrowUpRight size={18} className="group-hover:rotate-45 transition-transform" />
               </Link>
             </Magnetic>
-            <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-3">
-              <Magnetic>
-                <button onClick={() => download("en")} data-testid="hero-download-cv" className="inline-flex items-center gap-2 glass text-white font-medium px-7 py-3.5 rounded-full hover:border-white/30 transition-all">
-                  <Download size={18} /> {t.common.downloadResume}
-                </button>
-              </Magnetic>
-              <Magnetic>
-                <Link to="/contact" data-testid="hero-contact" className="inline-flex items-center gap-2 glass text-white font-medium px-7 py-3.5 rounded-full hover:border-white/30 transition-all sm:px-5 sm:text-muted sm:hover:text-white sm:border-transparent sm:bg-transparent sm:hover:border-transparent">
-                  <Mail size={18} /> {t.common.contactMe}
-                </Link>
-              </Magnetic>
-            </div>
+            <Magnetic>
+              <button onClick={() => download("en")} data-testid="hero-download-cv" className="inline-flex items-center gap-2 glass text-white font-medium px-7 py-3.5 rounded-full hover:border-white/30 transition-all">
+                <Download size={18} /> {t.common.downloadResume}
+              </button>
+            </Magnetic>
+            <Magnetic>
+              <Link to="/contact" data-testid="hero-contact" className="inline-flex items-center gap-2 glass text-white font-medium px-7 py-3.5 rounded-full hover:border-white/30 transition-all sm:px-5 sm:text-muted sm:hover:text-white sm:border-transparent sm:bg-transparent sm:hover:border-transparent">
+                <Mail size={18} /> {t.common.contactMe}
+              </Link>
+            </Magnetic>
           </div>
         </Reveal>
       </motion.div>
