@@ -1,7 +1,7 @@
 // Static, non-translatable data (links, media config, route map).
 export const profile = {
   firstName: "Arthur",
-  fullName: "Arthur de Oliveira dos Santos",
+  fullName: "Arthur Santos",
   title: "Creative Developer • Web Developer • AI Enthusiast • Videographer • Photographer",
   email: "arthurdelo0813@gmail.com",
   whatsapp: "351930935667",

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title">
+  <title id="title">Arthur Santos app icon 512</title>
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3B82F6" />
+      <stop offset="50%" stop-color="#8B5CF6" />
+      <stop offset="100%" stop-color="#06B6D4" />
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="116" fill="#0A0A0A" />
+  <path d="M142 366V146h84.8c69.8 0 108.8 38.1 108.8 109.4S296.6 366 226.8 366H142Zm62.2-52h16.8c35.9 0 55.7-19 55.7-58.6s-19.8-57.4-55.7-57.4h-16.8V314Z" fill="url(#g)" />
+</svg>

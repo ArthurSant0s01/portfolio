@@ -16,7 +16,7 @@ export default function Resume() {
       <SEO title={t.meta.resume.title} description={t.meta.resume.description} path="/resume" />
 
       <section className="max-w-5xl mx-auto px-5 sm:px-8">
-        <SectionHeading overline={t.resume.overline} title={t.resume.title} subtitle={t.resume.subtitle} testid="resume-heading" />
+        <SectionHeading as="h1" overline={t.resume.overline} title={t.resume.title} subtitle={t.resume.subtitle} testid="resume-heading" />
 
         <Reveal delay={0.1}>
           <div className="mt-10 flex flex-wrap gap-3">

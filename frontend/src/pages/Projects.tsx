@@ -20,7 +20,7 @@ export default function Projects() {
       <SEO title={t.meta.projects.title} description={t.meta.projects.description} path="/projects" />
 
       <section className="max-w-7xl mx-auto px-5 sm:px-8">
-        <SectionHeading overline={t.projects.overline} title={t.projects.title} subtitle={t.projects.subtitle} testid="projects-heading" />
+        <SectionHeading as="h1" overline={t.projects.overline} title={t.projects.title} subtitle={t.projects.subtitle} testid="projects-heading" />
 
         <div className="mt-10 flex flex-wrap gap-3" data-testid="project-filters">
           {categories.map((c) => (
@@ -61,11 +61,11 @@ export default function Projects() {
       </section>
 
       {active && (
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="fixed inset-0 z-[100] flex items-center justify-center p-5 bg-black/70 backdrop-blur-sm" onClick={() => setActive(null)} data-testid="project-modal">
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="fixed inset-0 z-[100] flex items-center justify-center p-5 bg-black/70 backdrop-blur-sm" onClick={() => setActive(null)} data-testid="project-modal" role="dialog" aria-modal="true" aria-label="Project details modal">
           <motion.div initial={{ scale: 0.94, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} className="glass-strong rounded-3xl max-w-2xl w-full max-h-[88vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
             <div className="relative aspect-video overflow-hidden rounded-t-3xl">
               <GradientThumb iconName={active.icon} from={active.from} to={active.to} className="w-full h-full" />
-              <button onClick={() => setActive(null)} data-testid="project-modal-close" className="absolute top-4 right-4 w-10 h-10 rounded-full glass-strong flex items-center justify-center hover:bg-white hover:text-black transition-colors"><X size={18} /></button>
+              <button onClick={() => setActive(null)} aria-label="Close project details" data-testid="project-modal-close" className="absolute top-4 right-4 w-10 h-10 rounded-full glass-strong flex items-center justify-center hover:bg-white hover:text-black transition-colors"><X size={18} /></button>
             </div>
             <div className="p-8">
               <p className="overline mb-2">{active.category} · {active.status}</p>

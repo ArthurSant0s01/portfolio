@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { motion, useMotionValue, useSpring } from "framer-motion";
+import { motion, useMotionValue, useReducedMotion, useSpring } from "framer-motion";
 
 export default function CustomCursor() {
+  const reduceMotion = useReducedMotion();
   const [hovering, setHovering] = useState(false);
   const [hidden, setHidden] = useState(true);
   const x = useMotionValue(-100);
@@ -10,6 +11,8 @@ export default function CustomCursor() {
   const ringY = useSpring(y, { stiffness: 300, damping: 30 });
 
   useEffect(() => {
+    if (reduceMotion) return undefined;
+
     const move = (e) => {
       x.set(e.clientX);
       y.set(e.clientY);
@@ -25,7 +28,11 @@ export default function CustomCursor() {
       window.removeEventListener("mousemove", move);
       window.removeEventListener("mouseover", over);
     };
-  }, [x, y]);
+  }, [x, y, reduceMotion]);
+
+  if (reduceMotion) {
+    return null;
+  }
 
   return (
     <>

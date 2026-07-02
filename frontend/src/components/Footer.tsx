@@ -69,13 +69,13 @@ export default function Footer() {
           <div>
             <p className="overline mb-4">CV</p>
             <div className="flex flex-col gap-3">
-              <button onClick={() => download("en")} data-testid="footer-cv-en" className="inline-flex items-center gap-2 glass text-white text-sm px-4 py-2.5 rounded-full hover:border-white/30 transition-all">
+              <button type="button" onClick={() => download("en")} data-testid="footer-cv-en" className="inline-flex items-center gap-2 glass text-white text-sm px-4 py-2.5 rounded-full hover:border-white/30 transition-all">
                 <Download size={15} /> {t.footer.downloadCvEn}
               </button>
-              <button onClick={() => download("pt")} data-testid="footer-cv-pt" className="inline-flex items-center gap-2 glass text-white text-sm px-4 py-2.5 rounded-full hover:border-white/30 transition-all">
+              <button type="button" onClick={() => download("pt")} data-testid="footer-cv-pt" className="inline-flex items-center gap-2 glass text-white text-sm px-4 py-2.5 rounded-full hover:border-white/30 transition-all">
                 <Download size={15} /> {t.footer.downloadCvPt}
               </button>
-              <button onClick={backToTop} data-testid="footer-back-to-top" className="inline-flex items-center gap-2 text-muted hover:text-white text-sm px-4 py-2.5 transition-colors">
+              <button type="button" onClick={backToTop} data-testid="footer-back-to-top" className="inline-flex items-center gap-2 text-muted hover:text-white text-sm px-4 py-2.5 transition-colors">
                 <ArrowUp size={15} /> {t.footer.backToTop}
               </button>
             </div>

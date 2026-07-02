@@ -1,3 +1,4 @@
+import { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route, useLocation, Navigate } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { Toaster } from "sonner";
@@ -9,44 +10,57 @@ import Background from "@/components/Background";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-import Home from "@/pages/Home";
-import About from "@/pages/About";
-import Projects from "@/pages/Projects";
-import Photography from "@/pages/Photography";
-import Videography from "@/pages/Videography";
-import AI from "@/pages/AI";
-import Resume from "@/pages/Resume";
-import Contact from "@/pages/Contact";
+const Home = lazy(() => import("@/pages/Home"));
+const About = lazy(() => import("@/pages/About"));
+const Projects = lazy(() => import("@/pages/Projects"));
+const Photography = lazy(() => import("@/pages/Photography"));
+const Videography = lazy(() => import("@/pages/Videography"));
+const AI = lazy(() => import("@/pages/AI"));
+const Resume = lazy(() => import("@/pages/Resume"));
+const Contact = lazy(() => import("@/pages/Contact"));
+const NotFound = lazy(() => import("@/pages/NotFound"));
+
+function PageLoader() {
+  return <div className="sr-only" aria-live="polite">Loading page content</div>;
+}
 
 function AnimatedRoutes() {
   const location = useLocation();
   return (
-    <AnimatePresence mode="wait">
-      <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/photography" element={<Photography />} />
-        <Route path="/videography" element={<Videography />} />
-        <Route path="/ai" element={<AI />} />
-        <Route path="/resume" element={<Resume />} />
-        <Route path="/contact" element={<Contact />} />
-        {/* Legacy PT paths → new paths */}
-        <Route path="/sobre" element={<Navigate to="/about" replace />} />
-        <Route path="/projetos" element={<Navigate to="/projects" replace />} />
-        <Route path="/fotografia" element={<Navigate to="/photography" replace />} />
-        <Route path="/videos" element={<Navigate to="/videography" replace />} />
-        <Route path="/competencias" element={<Navigate to="/about" replace />} />
-        <Route path="/contacto" element={<Navigate to="/contact" replace />} />
-        <Route path="*" element={<Home />} />
-      </Routes>
-    </AnimatePresence>
+    <Suspense fallback={<PageLoader />}>
+      <AnimatePresence mode="wait">
+        <Routes location={location} key={location.pathname}>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/photography" element={<Photography />} />
+          <Route path="/videography" element={<Videography />} />
+          <Route path="/ai" element={<AI />} />
+          <Route path="/resume" element={<Resume />} />
+          <Route path="/contact" element={<Contact />} />
+          {/* Legacy PT paths -> new paths */}
+          <Route path="/sobre" element={<Navigate to="/about" replace />} />
+          <Route path="/projetos" element={<Navigate to="/projects" replace />} />
+          <Route path="/fotografia" element={<Navigate to="/photography" replace />} />
+          <Route path="/videos" element={<Navigate to="/videography" replace />} />
+          <Route path="/competencias" element={<Navigate to="/about" replace />} />
+          <Route path="/contacto" element={<Navigate to="/contact" replace />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </AnimatePresence>
+    </Suspense>
   );
 }
 
 function App() {
   return (
     <div className="App grain">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[200] focus:px-4 focus:py-2 focus:rounded-lg focus:bg-white focus:text-black"
+      >
+        Skip to main content
+      </a>
       <I18nProvider>
         <Background />
         <CustomCursor />

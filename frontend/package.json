@@ -52,6 +52,8 @@
     "zod": "3.24.4"
   },
   "scripts": {
+    "seo:generate": "node ./scripts/generate-seo.mjs",
+    "prebuild": "npm run seo:generate",
     "dev": "vite",
     "start": "vite",
     "build": "vite build",

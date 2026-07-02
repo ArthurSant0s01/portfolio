@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Arthur Santos favicon</title>
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3B82F6" />
+      <stop offset="50%" stop-color="#8B5CF6" />
+      <stop offset="100%" stop-color="#06B6D4" />
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="#0A0A0A" />
+  <path d="M20 46V18h10.5c8.7 0 13.5 4.7 13.5 13.8S39 46 30.3 46H20Zm8-6.6h2.1c4.4 0 6.8-2.4 6.8-7.6s-2.4-7.4-6.8-7.4H28v15Z" fill="url(#g)" />
+</svg>

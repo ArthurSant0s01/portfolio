@@ -16,7 +16,7 @@ export default function AI() {
       <SEO title={t.meta.ai.title} description={t.meta.ai.description} path="/ai" />
 
       <section className="max-w-7xl mx-auto px-5 sm:px-8">
-        <SectionHeading overline={t.ai.overline} title={t.ai.title} subtitle={t.ai.subtitle} testid="ai-heading" />
+        <SectionHeading as="h1" overline={t.ai.overline} title={t.ai.title} subtitle={t.ai.subtitle} testid="ai-heading" />
 
         <Reveal delay={0.1}>
           <div className="relative overflow-hidden rounded-3xl glass p-8 sm:p-12 mt-12">

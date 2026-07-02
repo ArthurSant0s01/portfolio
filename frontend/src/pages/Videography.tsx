@@ -29,7 +29,7 @@ export default function Videography() {
       <SEO title={t.meta.videography.title} description={t.meta.videography.description} path="/videography" />
 
       <section className="max-w-7xl mx-auto px-5 sm:px-8">
-        <SectionHeading overline={t.videography.overline} title={t.videography.title} subtitle={t.videography.subtitle} testid="videography-heading" />
+        <SectionHeading as="h1" overline={t.videography.overline} title={t.videography.title} subtitle={t.videography.subtitle} testid="videography-heading" />
 
         <div className="mt-14 pb-24">
           {!hasVideos ? (
@@ -40,7 +40,7 @@ export default function Videography() {
                 <Reveal key={v.title} delay={i * 0.05}>
                   <motion.button whileHover={{ y: -6 }} onClick={() => setActive(v)} data-testid={`video-card-${i}`} data-cursor="hover" className="group relative w-full text-left glass rounded-2xl overflow-hidden">
                     <div className="relative aspect-video overflow-hidden">
-                      <img src={v.thumbnail} alt={v.title} loading="lazy" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                      <img src={v.thumbnail} alt={`${v.title} video thumbnail from Arthur Santos videography portfolio`} loading="lazy" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                       <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors" />
                       <span className="absolute inset-0 flex items-center justify-center">
                         <span className="w-16 h-16 rounded-full glass-strong flex items-center justify-center group-hover:scale-110 transition-transform"><Play size={22} className="text-white ml-1" fill="white" /></span>
@@ -56,9 +56,9 @@ export default function Videography() {
       </section>
 
       {active && (
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="fixed inset-0 z-[100] flex items-center justify-center p-5 bg-black/80 backdrop-blur-sm" onClick={() => setActive(null)} data-testid="video-modal">
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="fixed inset-0 z-[100] flex items-center justify-center p-5 bg-black/80 backdrop-blur-sm" onClick={() => setActive(null)} data-testid="video-modal" role="dialog" aria-modal="true" aria-label="Video player modal">
           <motion.div initial={{ scale: 0.94, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} className="relative w-full max-w-4xl" onClick={(e) => e.stopPropagation()}>
-            <button onClick={() => setActive(null)} data-testid="video-modal-close" className="absolute -top-12 right-0 w-10 h-10 rounded-full glass-strong flex items-center justify-center hover:bg-white hover:text-black transition-colors"><X size={18} /></button>
+            <button onClick={() => setActive(null)} aria-label="Close video modal" data-testid="video-modal-close" className="absolute -top-12 right-0 w-10 h-10 rounded-full glass-strong flex items-center justify-center hover:bg-white hover:text-black transition-colors"><X size={18} /></button>
             <div className="rounded-2xl overflow-hidden glass-strong">
               {embed?.type === "iframe" ? (
                 <iframe title={active.title} className="w-full aspect-video" src={embed.src} allow="autoplay; fullscreen; picture-in-picture" allowFullScreen />

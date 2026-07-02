@@ -1,0 +1,36 @@
+{
+  "id": "/",
+  "name": "Arthur Santos | Portfolio",
+  "short_name": "Arthur Santos",
+  "description": "Official portfolio of Arthur Santos, Creative Developer based in Portugal.",
+  "start_url": "/",
+  "scope": "/",
+  "display_override": ["window-controls-overlay", "standalone"],
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0A0A0A",
+  "theme_color": "#0A0A0A",
+  "lang": "en",
+  "dir": "ltr",
+  "categories": ["portfolio", "developer", "photography", "videography"],
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

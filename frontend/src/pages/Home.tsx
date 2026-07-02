@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import { motion, useScroll, useTransform, AnimatePresence, useReducedMotion } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import * as Icons from "lucide-react";
 import { ArrowUpRight, MapPin, Download, Mail } from "lucide-react";
@@ -13,11 +13,22 @@ import { useI18n } from "../i18n/I18nContext";
 import useCvDownload from "../hooks/useCvDownload";
 
 function RotatingRoles({ roles }) {
+  const reduceMotion = useReducedMotion();
   const [i, setI] = useState(0);
+
   useEffect(() => {
+    if (reduceMotion) {
+      return undefined;
+    }
+
     const id = setInterval(() => setI((v) => (v + 1) % roles.length), 2200);
     return () => clearInterval(id);
-  }, [roles.length]);
+  }, [roles.length, reduceMotion]);
+
+  if (reduceMotion) {
+    return <span className="text-gradient">{roles[0]}</span>;
+  }
+
   return (
     <span className="relative inline-block align-top h-[1.2em] overflow-hidden">
       <AnimatePresence mode="wait">
@@ -38,6 +49,7 @@ function RotatingRoles({ roles }) {
 
 function Hero() {
   const { t } = useI18n();
+  const reduceMotion = useReducedMotion();
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const yText = useTransform(scrollYProgress, [0, 1], [0, 120]);
@@ -50,13 +62,13 @@ function Hero() {
         <Particles />
         <motion.div
           className="absolute top-1/4 -left-20 w-96 h-96 rounded-full bg-brand-blue/20 blur-3xl"
-          animate={{ y: [0, 40, 0], x: [0, 20, 0] }}
-          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+          animate={reduceMotion ? undefined : { y: [0, 40, 0], x: [0, 20, 0] }}
+          transition={reduceMotion ? undefined : { duration: 12, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div
           className="absolute bottom-1/4 right-0 w-[28rem] h-[28rem] rounded-full bg-brand-purple/20 blur-3xl"
-          animate={{ y: [0, -30, 0], x: [0, -20, 0] }}
-          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+          animate={reduceMotion ? undefined : { y: [0, -30, 0], x: [0, -20, 0] }}
+          transition={reduceMotion ? undefined : { duration: 15, repeat: Infinity, ease: "easeInOut" }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-bg" />
       </div>
@@ -123,7 +135,7 @@ function Hero() {
 export default function Home() {
   const { t } = useI18n();
   return (
-    <motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.4 }} data-testid="home-page">
+    <motion.main id="main-content" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.4 }} data-testid="home-page">
       <SEO title={t.meta.home.title} description={t.meta.home.description} path="/" />
       <Hero />
 

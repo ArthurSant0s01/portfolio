@@ -15,6 +15,7 @@ function LangSwitch({ compact }) {
       {["en", "pt"].map((l) => (
         <button
           key={l}
+          type="button"
           onClick={() => setLang(l)}
           data-testid={`lang-${l}`}
           aria-pressed={lang === l}
@@ -99,6 +100,7 @@ export default function Navbar() {
             </div>
             <Magnetic className="hidden lg:inline-block">
               <button
+                type="button"
                 onClick={() => download("en")}
                 data-testid="nav-download-cv"
                 className="inline-flex items-center gap-2 btn-glow text-white text-sm font-medium px-5 py-2.5 rounded-full"
@@ -107,11 +109,13 @@ export default function Navbar() {
               </button>
             </Magnetic>
             <button
+              type="button"
               className="xl:hidden text-white p-2"
               onClick={() => setOpen((v) => !v)}
               data-testid="nav-menu-toggle"
               aria-label="Toggle menu"
               aria-expanded={open}
+              aria-controls="mobile-navigation"
             >
               {open ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -122,6 +126,8 @@ export default function Navbar() {
       <AnimatePresence>
         {open && (
           <motion.nav
+            id="mobile-navigation"
+            aria-label="Mobile navigation"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
@@ -142,6 +148,7 @@ export default function Navbar() {
             <div className="mt-3 flex items-center justify-between gap-3 px-1">
               <LangSwitch compact />
               <button
+                type="button"
                 onClick={() => download("en")}
                 data-testid="mobile-download-cv"
                 className="inline-flex items-center gap-2 btn-glow text-white text-sm font-medium px-5 py-3 rounded-xl"

@@ -22,7 +22,7 @@ export default function Photography() {
       <SEO title={t.meta.photography.title} description={t.meta.photography.description} path="/photography" />
 
       <section className="max-w-7xl mx-auto px-5 sm:px-8">
-        <SectionHeading overline={t.photography.overline} title={t.photography.title} subtitle={t.photography.subtitle} testid="photography-heading" />
+        <SectionHeading as="h1" overline={t.photography.overline} title={t.photography.title} subtitle={t.photography.subtitle} testid="photography-heading" />
 
         {hasPhotos && (
           <div className="mt-10 flex flex-wrap gap-3" data-testid="photo-filters">
@@ -42,7 +42,7 @@ export default function Photography() {
               {list.map((p, i) => (
                 <Reveal key={p.title} delay={(i % 3) * 0.05} className="mb-5 break-inside-avoid">
                   <motion.button whileHover={{ scale: 1.01 }} onClick={() => setActive(p)} data-testid={`photo-card-${i}`} data-cursor="hover" className="group relative block w-full overflow-hidden rounded-2xl glass">
-                    <img src={p.image} alt={p.title} loading="lazy" className="w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                    <img src={p.image} alt={`${p.title} in the ${p.category} photography collection by Arthur Santos`} loading="lazy" className="w-full object-cover transition-transform duration-700 group-hover:scale-105" />
                     <div className="absolute inset-0 bg-gradient-to-t from-bg/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                     <div className="absolute bottom-0 left-0 right-0 p-5 translate-y-3 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all">
                       <p className="overline mb-1">{p.category}</p>
@@ -57,10 +57,10 @@ export default function Photography() {
       </section>
 
       {active && (
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="fixed inset-0 z-[100] flex items-center justify-center p-5 bg-black/85 backdrop-blur-sm" onClick={() => setActive(null)} data-testid="photo-modal">
-          <button onClick={() => setActive(null)} data-testid="photo-modal-close" className="absolute top-6 right-6 w-11 h-11 rounded-full glass-strong flex items-center justify-center hover:bg-white hover:text-black transition-colors"><X size={20} /></button>
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="fixed inset-0 z-[100] flex items-center justify-center p-5 bg-black/85 backdrop-blur-sm" onClick={() => setActive(null)} data-testid="photo-modal" role="dialog" aria-modal="true" aria-label="Photo preview modal">
+          <button onClick={() => setActive(null)} aria-label="Close photo preview" data-testid="photo-modal-close" className="absolute top-6 right-6 w-11 h-11 rounded-full glass-strong flex items-center justify-center hover:bg-white hover:text-black transition-colors"><X size={20} /></button>
           <motion.div initial={{ scale: 0.94 }} animate={{ scale: 1 }} onClick={(e) => e.stopPropagation()} className="max-w-4xl">
-            <img src={active.image} alt={active.title} className="max-h-[82vh] w-auto rounded-2xl" />
+            <img src={active.image} alt={`${active.title} enlarged preview from Arthur Santos photography portfolio`} loading="eager" className="max-h-[82vh] w-auto rounded-2xl" />
             <div className="mt-4 text-center"><p className="overline mb-1">{active.category}</p><h3 className="text-xl font-bold">{active.title}</h3></div>
           </motion.div>
         </motion.div>

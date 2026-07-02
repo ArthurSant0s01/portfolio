@@ -111,7 +111,7 @@ export default function Contact() {
       <SEO title={t.meta.contact.title} description={t.meta.contact.description} path="/contact" />
 
       <section className="max-w-7xl mx-auto px-5 sm:px-8 pb-24">
-        <SectionHeading overline={t.contact.overline} title={t.contact.title} subtitle={t.contact.subtitle} testid="contact-heading" />
+        <SectionHeading as="h1" overline={t.contact.overline} title={t.contact.title} subtitle={t.contact.subtitle} testid="contact-heading" />
 
         {/* Availability */}
         <Reveal delay={0.05}>

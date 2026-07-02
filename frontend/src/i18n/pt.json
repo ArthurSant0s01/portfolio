@@ -1,13 +1,13 @@
 {
   "meta": {
-    "home": { "title": "Arthur de Oliveira — Creative Developer & Contador Visual", "description": "Creative Developer multidisciplinar que cria experiências digitais modernas em desenvolvimento web, IA, fotografia e videografia. Em Portugal." },
-    "about": { "title": "Sobre — Arthur de Oliveira", "description": "A história, missão, valores e competências de Arthur de Oliveira — Creative Developer, entusiasta de IA e contador visual." },
-    "projects": { "title": "Projetos — Arthur de Oliveira", "description": "Projetos selecionados de desenvolvimento web, criativos e de IA, com problema, solução e resultado." },
-    "photography": { "title": "Fotografia — Arthur de Oliveira", "description": "Uma galeria de fotografia — retratos, estúdio e rua." },
-    "videography": { "title": "Videografia — Arthur de Oliveira", "description": "Edição cinematográfica, showreels e curtas-metragens." },
-    "ai": { "title": "IA & Automação — Arthur de Oliveira", "description": "Prompt engineering, sites com IA, automação, chatbots e ferramentas de IA." },
-    "resume": { "title": "Currículo — Arthur de Oliveira", "description": "Educação, experiência, competências e idiomas. Descarregue o CV em inglês ou português." },
-    "contact": { "title": "Contacto — Arthur de Oliveira", "description": "Vamos criar algo. Contacte para projetos de web, IA, fotografia e vídeo." }
+    "home": { "title": "Arthur Santos | Portfolio", "description": "Official portfolio of Arthur Santos, Creative Developer based in Portugal. Explore my projects in Web Development, React, TypeScript, Artificial Intelligence, Photography and Videography." },
+    "about": { "title": "Arthur Santos | Portfolio", "description": "Official portfolio of Arthur Santos, Creative Developer based in Portugal. Explore my projects in Web Development, React, TypeScript, Artificial Intelligence, Photography and Videography." },
+    "projects": { "title": "Arthur Santos | Portfolio", "description": "Official portfolio of Arthur Santos, Creative Developer based in Portugal. Explore my projects in Web Development, React, TypeScript, Artificial Intelligence, Photography and Videography." },
+    "photography": { "title": "Arthur Santos | Portfolio", "description": "Official portfolio of Arthur Santos, Creative Developer based in Portugal. Explore my projects in Web Development, React, TypeScript, Artificial Intelligence, Photography and Videography." },
+    "videography": { "title": "Arthur Santos | Portfolio", "description": "Official portfolio of Arthur Santos, Creative Developer based in Portugal. Explore my projects in Web Development, React, TypeScript, Artificial Intelligence, Photography and Videography." },
+    "ai": { "title": "Arthur Santos | Portfolio", "description": "Official portfolio of Arthur Santos, Creative Developer based in Portugal. Explore my projects in Web Development, React, TypeScript, Artificial Intelligence, Photography and Videography." },
+    "resume": { "title": "Arthur Santos | Portfolio", "description": "Official portfolio of Arthur Santos, Creative Developer based in Portugal. Explore my projects in Web Development, React, TypeScript, Artificial Intelligence, Photography and Videography." },
+    "contact": { "title": "Arthur Santos | Portfolio", "description": "Official portfolio of Arthur Santos, Creative Developer based in Portugal. Explore my projects in Web Development, React, TypeScript, Artificial Intelligence, Photography and Videography." }
   },
   "nav": {
     "home": "Início", "about": "Sobre", "projects": "Projetos", "photography": "Fotografia",
@@ -28,7 +28,7 @@
     "subtitle": "Desenho e desenvolvo experiências digitais premium — combinando desenvolvimento web, inteligência artificial, fotografia e videografia num trabalho que ganha vida."
   },
   "branding": {
-    "name": "Arthur de Oliveira",
+    "name": "Arthur Santos",
     "roles": ["Creative Developer", "Entusiasta de IA", "Web Developer", "Videógrafo", "Fotógrafo"],
     "available": "Freelancer Disponível",
     "location": "Guimarães, Portugal"
@@ -258,7 +258,7 @@
     "downloadCvEn": "Descarregar Currículo",
     "backToTop": "Voltar ao topo",
     "builtWith": "Feito com React · Vite · TypeScript · Tailwind CSS",
-    "designedBy": "Desenhado & Desenvolvido por Arthur de Oliveira",
+    "designedBy": "Desenhado & Desenvolvido por Arthur Santos",
     "rights": "Todos os direitos reservados."
   }
 }
