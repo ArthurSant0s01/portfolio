@@ -63,6 +63,10 @@ class ContactCreate(BaseModel):
     email: EmailStr
     subject: str = ""
     message: str
+    company: str = ""
+    country: str = ""
+    service: str = ""
+    budget: str = ""
 
 
 class ContactMessage(BaseModel):
@@ -72,6 +76,10 @@ class ContactMessage(BaseModel):
     email: str
     subject: str = ""
     message: str
+    company: str = ""
+    country: str = ""
+    service: str = ""
+    budget: str = ""
     created_at: str = Field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
 
 
@@ -104,12 +112,20 @@ def _build_contact_email(payload: ContactCreate) -> str:
     email = html.escape(payload.email)
     subject = html.escape(payload.subject) if payload.subject else "(no subject)"
     message = html.escape(payload.message).replace("\n", "<br/>")
+    company = html.escape(payload.company) or "-"
+    country = html.escape(payload.country) or "-"
+    service = html.escape(payload.service) or "-"
+    budget = html.escape(payload.budget) or "-"
     return f"""
     <div style="font-family: Arial, sans-serif; background:#0A0A0A; padding:24px; color:#ffffff;">
       <table width="100%" style="max-width:600px; margin:auto; background:#121212; border-radius:12px; padding:24px;">
         <tr><td style="font-size:20px; font-weight:bold; color:#3B82F6;">New portfolio message</td></tr>
         <tr><td style="padding-top:12px; color:#A1A1AA;">From</td></tr>
         <tr><td style="font-size:16px;">{name} &lt;{email}&gt;</td></tr>
+        <tr><td style="padding-top:12px; color:#A1A1AA;">Company / Country</td></tr>
+        <tr><td style="font-size:15px;">{company} · {country}</td></tr>
+        <tr><td style="padding-top:12px; color:#A1A1AA;">Service / Budget</td></tr>
+        <tr><td style="font-size:15px;">{service} · {budget}</td></tr>
         <tr><td style="padding-top:12px; color:#A1A1AA;">Subject</td></tr>
         <tr><td style="font-size:16px;">{subject}</td></tr>
         <tr><td style="padding-top:12px; color:#A1A1AA;">Message</td></tr>

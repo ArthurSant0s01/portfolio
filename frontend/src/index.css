@@ -75,6 +75,14 @@ code, .font-mono {
     background-clip: text;
     -webkit-text-fill-color: transparent;
   }
+  .text-gradient-animated {
+    background: linear-gradient(120deg, #3B82F6, #8B5CF6, #06B6D4, #3B82F6);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmerText 6s linear infinite;
+  }
   .overline {
     font-family: 'JetBrains Mono', monospace;
     text-transform: uppercase;
@@ -168,4 +176,8 @@ code, .font-mono {
 @keyframes marquee {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
+}
+
+@keyframes shimmerText {
+  to { background-position: 200% center; }
 }

@@ -42,6 +42,35 @@ def test_contact_create_and_persist(api):
     assert any(m["id"] == data["id"] and m["email"] == payload["email"] for m in msgs)
 
 
+# POST /api/contact - full payload with new fields
+def test_contact_full_payload(api):
+    payload = {
+        "name": "TEST_FullUser",
+        "email": "test_full@example.com",
+        "company": "TEST_Acme",
+        "country": "Portugal",
+        "service": "Web Development",
+        "budget": "1000-5000",
+        "message": "TEST_Full message body"
+    }
+    r = api.post(f"{BASE_URL}/api/contact", json=payload)
+    assert r.status_code == 200, r.text
+    data = r.json()
+    assert data["status"] == "success"
+    assert data["email_sent"] is False
+    new_id = data["id"]
+
+    r2 = api.get(f"{BASE_URL}/api/contact/messages")
+    assert r2.status_code == 200
+    msgs = r2.json()
+    match = next((m for m in msgs if m["id"] == new_id), None)
+    assert match is not None
+    assert match["company"] == payload["company"]
+    assert match["country"] == payload["country"]
+    assert match["service"] == payload["service"]
+    assert match["budget"] == payload["budget"]
+
+
 # POST /api/contact - invalid email
 def test_contact_invalid_email(api):
     r = api.post(f"{BASE_URL}/api/contact", json={

@@ -31,7 +31,7 @@
     "name": "Arthur de Oliveira",
     "roles": ["Creative Developer", "Entusiasta de IA", "Web Developer", "Videógrafo", "Fotógrafo"],
     "available": "Freelancer Disponível",
-    "location": "Portugal"
+    "location": "Guimarães, Portugal"
   },
   "home": {
     "whoOverline": "Quem sou",
@@ -219,15 +219,46 @@
     "successText": "Obrigado pelo contacto — responderei assim que possível.",
     "sendAnother": "Enviar outra",
     "infoEmail": "Email", "infoLocation": "Localização", "infoFollow": "Siga-me",
-    "whatsapp": "WhatsApp"
+    "whatsapp": "WhatsApp",
+    "formTitle": "Enviar mensagem",
+    "companyLabel": "Empresa", "companyPlaceholder": "A sua empresa (opcional)",
+    "countryLabel": "País", "countryPlaceholder": "O seu país",
+    "serviceLabel": "Serviço Pretendido", "servicePlaceholder": "Selecione um serviço",
+    "budgetLabel": "Orçamento Estimado", "budgetPlaceholder": "ex. €500 - €1000",
+    "privacy": "Concordo com a política de privacidade.",
+    "privacyError": "Por favor, aceite a política de privacidade.",
+    "copy": "Copiar", "copied": "Copiado!",
+    "quickTitle": "Ações rápidas",
+    "actions": { "email": "Enviar Email", "whatsapp": "Falar no WhatsApp", "cvPt": "Descarregar CV (Português)", "cvEn": "Descarregar Currículo (Inglês)", "github": "Abrir GitHub", "linkedin": "Abrir LinkedIn", "instagram": "Abrir Instagram", "maps": "Ver no Google Maps", "schedule": "Agendar Reunião" },
+    "availabilityTitle": "Disponibilidade",
+    "availability": ["Disponível para Freelance", "Aberto a Trabalho Remoto", "Aberto a Oportunidades Internacionais"],
+    "letsWorkTitle": "Vamos Trabalhar Juntos",
+    "letsWork": [
+      { "title": "Precisa de um Website?", "text": "Sites rápidos, modernos e responsivos que convertem.", "icon": "Rocket" },
+      { "title": "Precisa de Conteúdo Criativo?", "text": "Fotografia, videografia e edições que se destacam.", "icon": "Clapperboard" },
+      { "title": "Quer Soluções de IA?", "text": "Automações e ferramentas inteligentes à sua medida.", "icon": "Sparkles" }
+    ],
+    "serviceOptions": ["Desenvolvimento Web", "Landing Pages", "Sites de Portfólio", "Soluções de IA", "Automação", "Fotografia", "Videografia", "Edição de Vídeo", "Criação de Conteúdo", "Marketing Digital", "Outro"],
+    "mapsTitle": "Onde estou baseado",
+    "openMaps": "Abrir no Google Maps",
+    "calendlyTitle": "Agendar Reunião",
+    "calendlyText": "Marque uma chamada rápida para falar do seu projeto.",
+    "calendlyPlaceholder": "Calendly ainda não ligado — adicione o seu link do Calendly em src/data/portfolio.js (profile.calendly) para ativar aqui.",
+    "finalMessage": "Vamos construir algo incrível juntos."
   },
   "footer": {
     "tagline": "A transformar ideias em experiências digitais modernas através de desenvolvimento web, produção de vídeo e inteligência artificial.",
+    "role": "Creative Developer",
     "navTitle": "Navegação",
-    "elsewhereTitle": "Noutros sítios",
+    "quickLinks": "Links Rápidos",
+    "elsewhereTitle": "Redes Sociais",
     "letstalk": "Vamos Falar",
     "letsCreate": "Vamos criar juntos",
-    "builtWith": "Feito com React · Vite · Framer Motion",
+    "downloadCvPt": "Descarregar CV",
+    "downloadCvEn": "Descarregar Currículo",
+    "backToTop": "Voltar ao topo",
+    "builtWith": "Feito com React · Vite · TypeScript · Tailwind CSS",
+    "designedBy": "Desenhado & Desenvolvido por Arthur de Oliveira",
     "rights": "Todos os direitos reservados."
   }
 }

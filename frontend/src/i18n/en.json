@@ -31,7 +31,7 @@
     "name": "Arthur de Oliveira",
     "roles": ["Creative Developer", "AI Enthusiast", "Web Developer", "Videographer", "Photographer"],
     "available": "Freelancer Available",
-    "location": "Portugal"
+    "location": "Guimarães, Portugal"
   },
   "home": {
     "whoOverline": "Who I am",
@@ -219,15 +219,46 @@
     "successText": "Thanks for reaching out — I'll reply as soon as possible.",
     "sendAnother": "Send another",
     "infoEmail": "Email", "infoLocation": "Location", "infoFollow": "Follow along",
-    "whatsapp": "WhatsApp"
+    "whatsapp": "WhatsApp",
+    "formTitle": "Send a message",
+    "companyLabel": "Company", "companyPlaceholder": "Your company (optional)",
+    "countryLabel": "Country", "countryPlaceholder": "Your country",
+    "serviceLabel": "Service Required", "servicePlaceholder": "Select a service",
+    "budgetLabel": "Estimated Budget", "budgetPlaceholder": "e.g. €500 - €1000",
+    "privacy": "I agree with the privacy policy.",
+    "privacyError": "Please accept the privacy policy.",
+    "copy": "Copy", "copied": "Copied!",
+    "quickTitle": "Quick actions",
+    "actions": { "email": "Send Email", "whatsapp": "Chat on WhatsApp", "cvPt": "Download CV (Português)", "cvEn": "Download Resume (English)", "github": "Open GitHub", "linkedin": "Open LinkedIn", "instagram": "Open Instagram", "maps": "View on Google Maps", "schedule": "Schedule a Meeting" },
+    "availabilityTitle": "Availability",
+    "availability": ["Available for Freelance", "Open to Remote Work", "Open to International Opportunities"],
+    "letsWorkTitle": "Let's Work Together",
+    "letsWork": [
+      { "title": "Looking for a Website?", "text": "Fast, modern and responsive websites that convert.", "icon": "Rocket" },
+      { "title": "Need Creative Content?", "text": "Photography, videography and edits that stand out.", "icon": "Clapperboard" },
+      { "title": "Want AI Solutions?", "text": "Automations and intelligent tools tailored to you.", "icon": "Sparkles" }
+    ],
+    "serviceOptions": ["Web Development", "Landing Pages", "Portfolio Websites", "AI Solutions", "Automation", "Photography", "Videography", "Video Editing", "Content Creation", "Digital Marketing", "Other"],
+    "mapsTitle": "Where I'm based",
+    "openMaps": "Open in Google Maps",
+    "calendlyTitle": "Schedule a Meeting",
+    "calendlyText": "Book a quick call to discuss your project.",
+    "calendlyPlaceholder": "Calendly not connected yet — add your Calendly link in src/data/portfolio.js (profile.calendly) to enable booking here.",
+    "finalMessage": "Let's build something amazing together."
   },
   "footer": {
     "tagline": "Transforming ideas into modern digital experiences through web development, video production and artificial intelligence.",
+    "role": "Creative Developer",
     "navTitle": "Navigation",
-    "elsewhereTitle": "Elsewhere",
+    "quickLinks": "Quick Links",
+    "elsewhereTitle": "Social Media",
     "letstalk": "Let's Talk",
     "letsCreate": "Let's create together",
-    "builtWith": "Built with React · Vite · Framer Motion",
+    "downloadCvPt": "Download CV",
+    "downloadCvEn": "Download Resume",
+    "backToTop": "Back to top",
+    "builtWith": "Built with React · Vite · TypeScript · Tailwind CSS",
+    "designedBy": "Designed & Developed by Arthur de Oliveira",
     "rights": "All rights reserved."
   }
 }
