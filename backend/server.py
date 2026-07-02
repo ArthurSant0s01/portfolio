@@ -60,6 +60,7 @@ RESEND_API_KEY = _get_env("RESEND_API_KEY", "")
 SENDER_EMAIL = _get_env("SENDER_EMAIL", "onboarding@resend.dev")
 OWNER_EMAIL = _get_env("OWNER_EMAIL", "")
 CONTACT_ADMIN_TOKEN = _get_env("CONTACT_ADMIN_TOKEN", "")
+TRUST_PROXY_HEADERS = _get_env("TRUST_PROXY_HEADERS", "false").lower() == "true"
 CONTACT_RATE_LIMIT_WINDOW_SECONDS = _get_positive_int_env("CONTACT_RATE_LIMIT_WINDOW_SECONDS", 60)
 CONTACT_RATE_LIMIT_MAX_REQUESTS = _get_positive_int_env("CONTACT_RATE_LIMIT_MAX_REQUESTS", 5)
 _contact_rate_limiter: Dict[str, Deque[float]] = defaultdict(deque)
@@ -161,17 +162,16 @@ def _build_contact_email(payload: ContactCreate) -> str:
 
 @api_router.post("/contact")
 async def create_contact(payload: ContactCreate, request: Request):
-    client_ip = request.headers.get("x-forwarded-for", "").split(",")[0].strip()
-    if not client_ip:
-        client_ip = request.client.host if request.client else "unknown"
+    client_ip = request.client.host if request.client else "unknown"
+    if TRUST_PROXY_HEADERS:
+        forwarded_ip = request.headers.get("x-forwarded-for", "").split(",")[0].strip()
+        if forwarded_ip:
+            client_ip = forwarded_ip
     now = datetime.now(timezone.utc).timestamp()
     window_start = now - CONTACT_RATE_LIMIT_WINDOW_SECONDS
     history = _contact_rate_limiter[client_ip]
     while history and history[0] < window_start:
         history.popleft()
-    if not history and client_ip in _contact_rate_limiter:
-        _contact_rate_limiter.pop(client_ip, None)
-        history = _contact_rate_limiter[client_ip]
     if len(history) >= CONTACT_RATE_LIMIT_MAX_REQUESTS:
         raise HTTPException(
             status_code=status.HTTP_429_TOO_MANY_REQUESTS,
@@ -326,6 +326,9 @@ app.include_router(api_router)
 
 cors_origins = [origin.strip() for origin in _get_env("CORS_ORIGINS", "").split(",") if origin.strip()]
 if not cors_origins:
+    is_production = _get_env("NODE_ENV", "").lower() == "production"
+    if is_production:
+        raise RuntimeError("CORS_ORIGINS must be configured in production.")
     cors_origins = ["http://localhost:3000", "http://localhost:5173"]
 allow_all_origins = "*" in cors_origins
 

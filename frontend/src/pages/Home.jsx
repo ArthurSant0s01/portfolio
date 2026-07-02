@@ -16,7 +16,7 @@ function RotatingRoles({ roles }) {
   const reducedMotion = useReducedMotion();
   const [i, setI] = useState(0);
   useEffect(() => {
-    if (reducedMotion) return undefined;
+    if (reducedMotion) return;
     const id = setInterval(() => setI((v) => (v + 1) % roles.length), 2200);
     return () => clearInterval(id);
   }, [roles.length, reducedMotion]);

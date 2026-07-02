@@ -22,7 +22,7 @@ const Contact = lazy(() => import("@/pages/Contact"));
 function AnimatedRoutes() {
   const location = useLocation();
   return (
-    <Suspense fallback={<div className="min-h-screen" aria-hidden />}>
+    <Suspense fallback={<div className="min-h-screen"><p className="sr-only" role="status">Loading page...</p></div>}>
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<Home />} />
