@@ -4,6 +4,7 @@ import { ArrowUpRight, Check, X } from "lucide-react";
 import SEO from "../components/SEO";
 import { Reveal } from "../components/Reveal";
 import { Page, SectionHeading } from "../components/Primitives";
+import { GradientThumb } from "../components/Visuals";
 import { projects } from "../data/portfolio";
 
 const categories = ["All", ...Array.from(new Set(projects.map((p) => p.category)))];
@@ -46,10 +47,9 @@ export default function Projects() {
                 data-cursor="hover"
               >
                 <div className="relative aspect-[16/10] overflow-hidden">
-                  <img src={p.image} alt={p.title} loading="lazy" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-bg/90 via-transparent to-transparent" />
-                  <span className="absolute top-4 left-4 text-xs font-mono glass px-3 py-1 rounded-full">{p.status}</span>
-                  <span className="absolute top-4 right-4 w-10 h-10 rounded-full glass-strong flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                  <GradientThumb iconName={p.icon} from={p.from} to={p.to} className="w-full h-full transition-transform duration-700 group-hover:scale-105" />
+                  <span className="absolute top-4 left-4 text-xs font-mono glass px-3 py-1 rounded-full z-10">{p.status}</span>
+                  <span className="absolute top-4 right-4 w-10 h-10 rounded-full glass-strong flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity z-10">
                     <ArrowUpRight size={18} />
                   </span>
                 </div>
@@ -87,7 +87,7 @@ export default function Projects() {
             onClick={(e) => e.stopPropagation()}
           >
             <div className="relative aspect-video overflow-hidden rounded-t-3xl">
-              <img src={active.image} alt={active.title} className="w-full h-full object-cover" />
+              <GradientThumb iconName={active.icon} from={active.from} to={active.to} className="w-full h-full" />
               <button
                 onClick={() => setActive(null)}
                 data-testid="project-modal-close"

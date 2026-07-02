@@ -25,12 +25,9 @@ export const profile = {
 };
 
 export const mediaConfig = {
-  heroPoster:
-    "https://images.unsplash.com/photo-1718844054440-22acf5d5c8f0?q=80&w=2400&auto=format&fit=crop",
-  heroVideo:
-    "https://videos.pexels.com/video-files/3129671/3129671-uhd_2560_1440_30fps.mp4",
-  sampleVideo:
-    "https://videos.pexels.com/video-files/3129671/3129671-uhd_2560_1440_30fps.mp4",
+  // No stock media — hero uses an animated gradient mesh.
+  // Add your own showreel URL here when ready (used by the Videos lightbox).
+  sampleVideo: "",
 };
 
 export const stats = [
@@ -162,8 +159,9 @@ export const projects = [
       "Email Notifications",
     ],
     status: "Completed",
-    image:
-      "https://images.unsplash.com/photo-1487014679447-9f8336841d58?q=80&w=1600&auto=format&fit=crop",
+    icon: "ShoppingBag",
+    from: "#3B82F6",
+    to: "#06B6D4",
     link: "#",
     featured: true,
   },
@@ -175,8 +173,9 @@ export const projects = [
     tech: ["React", "Vite", "Tailwind CSS", "Framer Motion"],
     features: ["Premium Design", "Animations", "SEO Optimized", "Responsive"],
     status: "Completed",
-    image:
-      "https://images.unsplash.com/photo-1566410824233-a8011929225c?q=80&w=1600&auto=format&fit=crop",
+    icon: "LayoutTemplate",
+    from: "#8B5CF6",
+    to: "#3B82F6",
     link: "#",
     featured: true,
   },
@@ -188,102 +187,21 @@ export const projects = [
     tech: ["AI", "Prompt Engineering", "Automation"],
     features: ["Automations", "Intelligent Apps", "Coming Soon"],
     status: "In Progress",
-    image:
-      "https://images.pexels.com/photos/11650976/pexels-photo-11650976.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    icon: "Sparkles",
+    from: "#06B6D4",
+    to: "#8B5CF6",
     link: "#",
     featured: true,
   },
 ];
 
-export const videos = [
-  {
-    title: "Cinematic Reel 2025",
-    category: "Showreel",
-    thumbnail:
-      "https://images.pexels.com/photos/8089248/pexels-photo-8089248.jpeg?auto=compress&cs=tinysrgb&w=1600",
-  },
-  {
-    title: "Neon Nights",
-    category: "Music Video",
-    thumbnail:
-      "https://images.unsplash.com/photo-1672872476232-da16b45c9001?q=80&w=1600&auto=format&fit=crop",
-  },
-  {
-    title: "Behind The Scenes",
-    category: "Documentary",
-    thumbnail:
-      "https://images.pexels.com/photos/5026523/pexels-photo-5026523.jpeg?auto=compress&cs=tinysrgb&w=1600",
-  },
-  {
-    title: "Brand Story",
-    category: "Commercial",
-    thumbnail:
-      "https://images.pexels.com/photos/3990404/pexels-photo-3990404.jpeg?auto=compress&cs=tinysrgb&w=1600",
-  },
-  {
-    title: "Studio Session",
-    category: "Short Film",
-    thumbnail:
-      "https://images.unsplash.com/photo-1577190651915-bf62d54d5b36?q=80&w=1600&auto=format&fit=crop",
-  },
-  {
-    title: "Live On Stage",
-    category: "Event",
-    thumbnail:
-      "https://images.unsplash.com/photo-1612544409025-e1f6a56c1152?q=80&w=1600&auto=format&fit=crop",
-  },
-];
+// Ready to grow: add entries as { title, category, thumbnail?, videoUrl? }.
+// While empty, the Videos page shows an elegant "coming soon" state automatically.
+export const videos = [];
 
-export const photos = [
-  {
-    title: "Golden Hour",
-    category: "Portrait",
-    image:
-      "https://images.unsplash.com/photo-1536766768598-e09213fdcf22?q=80&w=1400&auto=format&fit=crop",
-  },
-  {
-    title: "Blue Mood",
-    category: "Portrait",
-    image:
-      "https://images.unsplash.com/photo-1568038479111-87bf80659645?q=80&w=1400&auto=format&fit=crop",
-  },
-  {
-    title: "Red Light",
-    category: "Studio",
-    image:
-      "https://images.pexels.com/photos/21316136/pexels-photo-21316136.jpeg?auto=compress&cs=tinysrgb&w=1400",
-  },
-  {
-    title: "Fog & Leather",
-    category: "Editorial",
-    image:
-      "https://images.pexels.com/photos/33681513/pexels-photo-33681513.jpeg?auto=compress&cs=tinysrgb&w=1400",
-  },
-  {
-    title: "Street Gaze",
-    category: "Street",
-    image:
-      "https://images.unsplash.com/photo-1552699611-e2c208d5d9cf?q=80&w=1400&auto=format&fit=crop",
-  },
-  {
-    title: "Soft Focus",
-    category: "Portrait",
-    image:
-      "https://images.unsplash.com/photo-1674932668403-33398b81c92f?q=80&w=1400&auto=format&fit=crop",
-  },
-  {
-    title: "Low Key",
-    category: "Studio",
-    image:
-      "https://images.pexels.com/photos/20583484/pexels-photo-20583484.jpeg?auto=compress&cs=tinysrgb&w=1400",
-  },
-  {
-    title: "Studio Setup",
-    category: "Behind The Scenes",
-    image:
-      "https://images.unsplash.com/photo-1471341971476-ae15ff5dd4ea?q=80&w=1400&auto=format&fit=crop",
-  },
-];
+// Ready to grow: add entries as { title, category, image? }.
+// While empty, the Photography page shows an elegant "coming soon" state automatically.
+export const photos = [];
 
 export const testimonials = [
   // Prepared for future clients — add entries here as { name, role, quote, avatar }.

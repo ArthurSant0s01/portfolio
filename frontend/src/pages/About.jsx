@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Download, MapPin, Languages } from "lucide-react";
+import { Download, MapPin, Languages, Code2, Camera, Clapperboard } from "lucide-react";
 import SEO from "../components/SEO";
 import { Reveal } from "../components/Reveal";
 import { Page, SectionHeading } from "../components/Primitives";
@@ -19,12 +19,38 @@ export default function About() {
           <div className="lg:col-span-5">
             <Reveal>
               <div className="relative rounded-3xl overflow-hidden glass p-2">
-                <img
-                  src="https://images.pexels.com/photos/30681560/pexels-photo-30681560.jpeg?auto=compress&cs=tinysrgb&w=1200"
-                  alt="Arthur — creative developer and photographer"
-                  loading="lazy"
-                  className="w-full aspect-[3/4] object-cover rounded-2xl"
-                />
+                <div
+                  className="relative w-full aspect-[3/4] rounded-2xl overflow-hidden flex items-center justify-center"
+                  style={{
+                    background:
+                      "radial-gradient(120% 120% at 0% 0%, rgba(59,130,246,0.4) 0%, transparent 45%), radial-gradient(120% 120% at 100% 100%, rgba(139,92,246,0.4) 0%, transparent 45%), radial-gradient(90% 90% at 50% 100%, rgba(6,182,212,0.25) 0%, transparent 55%), #0A0A0A",
+                  }}
+                  aria-hidden
+                >
+                  <div
+                    className="absolute inset-0 opacity-[0.10]"
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(rgba(255,255,255,.6) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.6) 1px, transparent 1px)",
+                      backgroundSize: "36px 36px",
+                    }}
+                  />
+                  <div className="absolute top-8 left-8 w-24 h-24 rounded-full bg-brand-blue/30 blur-2xl" />
+                  <div className="absolute bottom-24 right-8 w-28 h-28 rounded-full bg-brand-purple/30 blur-2xl" />
+                  <div className="relative text-center">
+                    <span className="block text-8xl font-black tracking-tighter text-gradient leading-none">A.</span>
+                    <span className="mt-4 block overline">Creative Developer</span>
+                  </div>
+                  <div className="absolute top-6 right-6 w-11 h-11 rounded-xl glass-strong flex items-center justify-center">
+                    <Code2 size={18} className="text-brand-cyan" />
+                  </div>
+                  <div className="absolute bottom-28 left-6 w-11 h-11 rounded-xl glass-strong flex items-center justify-center">
+                    <Camera size={18} className="text-brand-purple" />
+                  </div>
+                  <div className="absolute top-1/2 right-8 w-11 h-11 rounded-xl glass-strong flex items-center justify-center">
+                    <Clapperboard size={18} className="text-brand-blue" />
+                  </div>
+                </div>
                 <div className="absolute bottom-6 left-6 right-6 glass-strong rounded-2xl p-4 flex items-center gap-3">
                   <MapPin size={18} className="text-brand-cyan" />
                   <div>

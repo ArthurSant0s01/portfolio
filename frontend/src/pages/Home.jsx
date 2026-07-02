@@ -6,7 +6,8 @@ import { ArrowUpRight, MapPin, Download } from "lucide-react";
 import SEO from "../components/SEO";
 import { Reveal, MeshBackground } from "../components/Reveal";
 import { Counter, SectionHeading } from "../components/Primitives";
-import { profile, mediaConfig, stats, services, projects } from "../data/portfolio";
+import { profile, stats, services, projects } from "../data/portfolio";
+import { GradientThumb } from "../components/Visuals";
 import useCvDownload from "../hooks/useCvDownload";
 
 function Hero() {
@@ -19,18 +20,19 @@ function Hero() {
   return (
     <section ref={ref} className="relative min-h-[92vh] flex items-center overflow-hidden" data-testid="hero">
       <div className="absolute inset-0 z-0">
-        <video
-          className="w-full h-full object-cover opacity-40"
-          autoPlay
-          muted
-          loop
-          playsInline
-          poster={mediaConfig.heroPoster}
-        >
-          <source src={mediaConfig.heroVideo} type="video/mp4" />
-        </video>
-        <div className="absolute inset-0 bg-gradient-to-b from-bg/70 via-bg/60 to-bg" />
         <MeshBackground />
+        <div
+          className="absolute inset-0 opacity-[0.05]"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(255,255,255,.6) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.6) 1px, transparent 1px)",
+            backgroundSize: "42px 42px",
+            maskImage: "radial-gradient(circle at 70% 40%, black, transparent 70%)",
+            WebkitMaskImage: "radial-gradient(circle at 70% 40%, black, transparent 70%)",
+          }}
+          aria-hidden
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-bg" />
       </div>
 
       <motion.div style={{ y: yText, opacity }} className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 w-full">
@@ -189,9 +191,8 @@ export default function Home() {
               <Link to="/projetos" data-testid={`home-project-${i}`}>
                 <motion.div whileHover={{ y: -8 }} className="group glass rounded-2xl overflow-hidden h-full">
                   <div className="relative aspect-[4/3] overflow-hidden">
-                    <img src={p.image} alt={p.title} loading="lazy" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-bg via-transparent to-transparent" />
-                    <span className="absolute top-4 left-4 text-xs font-mono glass px-3 py-1 rounded-full">{p.status}</span>
+                    <GradientThumb iconName={p.icon} from={p.from} to={p.to} className="w-full h-full transition-transform duration-700 group-hover:scale-105" />
+                    <span className="absolute top-4 left-4 text-xs font-mono glass px-3 py-1 rounded-full z-10">{p.status}</span>
                   </div>
                   <div className="p-6">
                     <p className="overline mb-2">{p.category}</p>
