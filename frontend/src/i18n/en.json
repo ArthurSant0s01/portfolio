@@ -794,7 +794,8 @@
     "calendlyTitle": "Schedule a Meeting",
     "calendlyText": "Book a quick call to discuss your project.",
     "calendlyPlaceholder": "Calendly not connected yet — add your Calendly link in src/data/portfolio.js (profile.calendly) to enable booking here.",
-    "finalMessage": "Let's build something amazing together."
+    "finalMessage": "Let's build something amazing together.",
+    "emailFallback": "Automatic delivery is unavailable. An email draft has been opened; check the recipient and press Send."
   },
   "footer": {
     "tagline": "Transforming ideas into modern digital experiences through web development, video production and artificial intelligence.",
