@@ -1,14 +1,13 @@
 import { motion, useReducedMotion } from "framer-motion";
 
-export const Reveal = ({ children, delay = 0, y = 24, className = "", ...rest }) => {
+export const Reveal = ({ children, delay = 0, y = 12, className = "", ...rest }) => {
   const reduceMotion = useReducedMotion();
-
   return (
     <motion.div
       initial={reduceMotion ? false : { opacity: 0, y }}
-      whileInView={reduceMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={reduceMotion ? { duration: 0 } : { duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] }}
+      whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-48px" }}
+      transition={reduceMotion ? { duration: 0 } : { duration: 0.35, delay: Math.min(delay, 0.08), ease: "easeOut" }}
       className={className}
       {...rest}
     >
