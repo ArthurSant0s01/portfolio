@@ -67,7 +67,7 @@ function Hero() {
   const heroMotionStyle = (reduceMotion || isMobile) ? {} : { y: yText, opacity };
 
   return (
-    <section ref={ref} className="relative min-h-[100dvh] flex items-center overflow-x-hidden" data-testid="hero">
+    <section ref={ref} className="relative min-h-[100svh] flex items-center overflow-x-hidden pt-28 pb-14 sm:pt-32 sm:pb-12 lg:pt-24 lg:pb-0" data-testid="hero">
       <div className="absolute inset-0 z-0 overflow-hidden">
         <Particles />
         <motion.div
@@ -83,7 +83,7 @@ function Hero() {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-bg" />
       </div>
 
-      <motion.div style={heroMotionStyle} className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 w-full py-28 sm:py-0">
+      <motion.div style={heroMotionStyle} className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 w-full min-w-0">
         <Reveal>
           <span className="inline-flex items-center gap-2 glass rounded-full px-4 py-2 text-xs text-muted font-mono">
             <span className="w-2 h-2 rounded-full bg-brand-cyan animate-pulse" />
@@ -95,12 +95,12 @@ function Hero() {
           <p className="mt-8 overline text-brand-cyan">{t.hero.role}</p>
         </Reveal>
 
-        <h1 className="mt-3 text-5xl sm:text-7xl lg:text-[6.5rem] font-black tracking-tighter leading-[0.95]">
+        <h1 className="mt-3 w-full max-w-full text-[clamp(2.55rem,7.6vw,6.5rem)] sm:text-7xl lg:text-[6.5rem] font-black tracking-tighter leading-[0.9] [overflow-wrap:break-word]">
           <Reveal y={40} delay={0.1}>{t.hero.title}</Reveal>
         </h1>
 
         <Reveal delay={0.2}>
-          <div className="mt-5 text-2xl sm:text-4xl font-light tracking-tight">
+          <div className="mt-5 text-[clamp(1.35rem,4.5vw,2.25rem)] font-light tracking-tight">
             <RotatingRoles roles={t.branding.roles} />
           </div>
         </Reveal>
