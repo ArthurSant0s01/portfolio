@@ -430,7 +430,8 @@
           "Planeamento temporal e regras de calendário",
           "Testes automatizados e validação"
         ],
-        "github": "https://github.com/ArthurSant0s01/syllabus-starlight-planner"
+        "github": "https://github.com/ArthurSant0s01/syllabus-starlight-planner",
+        "demo": "https://planneruminho.vercel.app"
       },
       {
         "id": "planner-os",
@@ -457,7 +458,8 @@
           "Modelação de dados e planeamento técnico",
           "Design de sistemas e experiência do utilizador"
         ],
-        "github": "https://github.com/ArthurSant0s01/plannerOS"
+        "github": "https://github.com/ArthurSant0s01/plannerOS",
+        "demo": "https://artplanner-one.vercel.app"
       },
       {
         "id": "eurorail",
@@ -576,8 +578,8 @@
     "accessLabels": {
       "ssdoces": "Abrir loja",
       "primecode": "Visitar website",
-      "campus-os": "Ver repositório",
-      "planner-os": "Ver repositório",
+      "campus-os": "Abrir Campus OS",
+      "planner-os": "Abrir Planner OS",
       "real-estate": "Ver demonstração",
       "golden-archways": "Ver projeto",
       "portfolio": "Abrir portfólio",
