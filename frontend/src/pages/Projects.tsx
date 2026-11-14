@@ -102,8 +102,9 @@ export default function Projects() {
                 )}
                 {active.demo && active.demo !== "#" && (
                   <a href={active.demo} target="_blank" rel="noopener noreferrer" data-testid="project-demo" className="inline-flex items-center gap-2 btn-glow text-white text-sm font-medium px-5 py-3 rounded-full">
-                  <ExternalLink size={16} /> {t.common.liveDemo}
-                </a>
+                    <ExternalLink size={16} /> {t.common.liveDemo}
+                  </a>
+                )} 
               </div>
             </div>
           </motion.div>
