@@ -63,7 +63,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
         <div className={`flex items-center justify-between rounded-2xl px-4 sm:px-6 py-3 transition-all duration-300 ${scrolled ? "glass-strong shadow-lg" : "bg-transparent"}`}>
           <Link to="/" data-testid="nav-logo" className="font-black text-lg sm:text-xl tracking-tight" aria-label={profile.fullName}>
-            {profile.fullName}<span className="text-gradient">.</span>
+            <span className="mr-2 inline-flex h-8 w-8 items-center justify-center rounded-lg border border-white/10 bg-gradient-to-br from-blue-500/20 via-violet-500/20 to-cyan-500/20 text-gradient font-black text-lg" aria-hidden="true">A</span>{profile.fullName}<span className="text-gradient">.</span>
           </Link>
 
           <nav className="hidden xl:flex items-center gap-0.5" aria-label="Main navigation">
