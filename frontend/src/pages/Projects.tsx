@@ -38,7 +38,20 @@ export default function Projects() {
             const access = getAccess(project);
             return (
               <Reveal key={project.id} delay={Math.min(i, 3) * 0.025} y={12}>
-                <article className="project-card glass rounded-2xl overflow-hidden h-full flex flex-col">
+                <article
+                  className="project-card glass rounded-2xl overflow-hidden h-full flex flex-col cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:border-white/25 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cyan-400"
+                  role="button"
+                  tabIndex={0}
+                  aria-haspopup="dialog"
+                  aria-label={`${t.common.more}: ${project.title}`}
+                  onClick={() => setActive(project)}
+                  onKeyDown={(event) => {
+                    if (event.key === "Enter" || event.key === " ") {
+                      event.preventDefault();
+                      setActive(project);
+                    }
+                  }}
+                >
                   <div className="relative aspect-[16/10] overflow-hidden bg-black/30">
                     {project.image ? (
                       <img src={project.image} alt={`${project.title} — ${t.projects.visualNote}`} loading="lazy" decoding="async"
@@ -57,9 +70,9 @@ export default function Projects() {
                       {project.tech.length > 5 && <span className="text-[11px] font-mono px-2.5 py-1 text-muted">+{project.tech.length - 5}</span>}
                     </div>
                     <div className="mt-auto pt-6 flex flex-wrap gap-2">
-                      <button type="button" onClick={() => setActive(project)} className="inline-flex items-center gap-2 glass rounded-full px-4 py-2.5 text-sm hover:border-white/30 transition-colors">
+                      <span className="inline-flex items-center gap-2 glass rounded-full px-4 py-2.5 text-sm transition-colors group-hover:border-white/30">
                         {t.common.more} <ArrowUpRight size={15} />
-                      </button>
+                      </span>
                     </div>
                   </div>
                 </article>
