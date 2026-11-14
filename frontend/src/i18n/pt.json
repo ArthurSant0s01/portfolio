@@ -794,7 +794,8 @@
     "calendlyTitle": "Agendar Reunião",
     "calendlyText": "Marque uma chamada rápida para falar do seu projeto.",
     "calendlyPlaceholder": "Calendly ainda não ligado — adicione o seu link do Calendly em src/data/portfolio.js (profile.calendly) para ativar aqui.",
-    "finalMessage": "Vamos construir algo incrível juntos."
+    "finalMessage": "Vamos construir algo incrível juntos.",
+    "emailFallback": "O envio automático não está disponível. Abrimos um rascunho no teu programa de email; confirma o destinatário e carrega em Enviar."
   },
   "footer": {
     "tagline": "A transformar ideias em experiências digitais modernas através de desenvolvimento web, produção de vídeo e inteligência artificial.",
