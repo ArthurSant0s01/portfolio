@@ -126,7 +126,7 @@ code, .font-mono {
 .mesh-blob {
   position: absolute;
   border-radius: 50%;
-  filter: blur(56px);
+  filter: blur(40px);
   opacity: 0.28;
   will-change: transform;
 }
