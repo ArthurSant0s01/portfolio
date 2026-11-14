@@ -429,7 +429,8 @@
           "Gestão de estado e persistência de dados",
           "Planeamento temporal e regras de calendário",
           "Testes automatizados e validação"
-        ]
+        ],
+        "github": "https://github.com/ArthurSant0s01/syllabus-starlight-planner"
       },
       {
         "id": "planner-os",
@@ -455,7 +456,8 @@
           "Levantamento de requisitos e regras de negócio",
           "Modelação de dados e planeamento técnico",
           "Design de sistemas e experiência do utilizador"
-        ]
+        ],
+        "github": "https://github.com/ArthurSant0s01/plannerOS"
       },
       {
         "id": "eurorail",
@@ -509,7 +511,8 @@
           "Design responsivo",
           "Animações e microinterações"
         ],
-        "image": "https://image.thum.io/get/width/1200/crop/675/noanimate/https://premium-real-estate-website.vercel.app"
+        "image": "https://image.thum.io/get/width/1200/crop/675/noanimate/https://premium-real-estate-website.vercel.app",
+        "github": "https://github.com/ArthurSant0s01/premium-real-estate-website"
       },
       {
         "id": "golden-archways",
@@ -535,7 +538,8 @@
           "Componentização e reutilização",
           "Desenvolvimento com TypeScript",
           "Exploração de layouts e experiência digital"
-        ]
+        ],
+        "github": "https://github.com/ArthurSant0s01/golden-archways-showcase"
       },
       {
         "id": "portfolio",
