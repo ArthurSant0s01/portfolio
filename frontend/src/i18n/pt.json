@@ -1,35 +1,90 @@
 {
   "meta": {
-    "home": { "title": "Arthur Santos | Portfolio", "description": "Official portfolio of Arthur Santos, Creative Developer based in Portugal. Explore my projects in Web Development, React, TypeScript, Artificial Intelligence, Photography and Videography." },
-    "about": { "title": "Arthur Santos | Portfolio", "description": "Official portfolio of Arthur Santos, Creative Developer based in Portugal. Explore my projects in Web Development, React, TypeScript, Artificial Intelligence, Photography and Videography." },
-    "projects": { "title": "Arthur Santos | Portfolio", "description": "Official portfolio of Arthur Santos, Creative Developer based in Portugal. Explore my projects in Web Development, React, TypeScript, Artificial Intelligence, Photography and Videography." },
-    "photography": { "title": "Arthur Santos | Portfolio", "description": "Official portfolio of Arthur Santos, Creative Developer based in Portugal. Explore my projects in Web Development, React, TypeScript, Artificial Intelligence, Photography and Videography." },
-    "videography": { "title": "Arthur Santos | Portfolio", "description": "Official portfolio of Arthur Santos, Creative Developer based in Portugal. Explore my projects in Web Development, React, TypeScript, Artificial Intelligence, Photography and Videography." },
-    "ai": { "title": "Arthur Santos | Portfolio", "description": "Official portfolio of Arthur Santos, Creative Developer based in Portugal. Explore my projects in Web Development, React, TypeScript, Artificial Intelligence, Photography and Videography." },
-    "resume": { "title": "Arthur Santos | Portfolio", "description": "Official portfolio of Arthur Santos, Creative Developer based in Portugal. Explore my projects in Web Development, React, TypeScript, Artificial Intelligence, Photography and Videography." },
-    "contact": { "title": "Arthur Santos | Portfolio", "description": "Official portfolio of Arthur Santos, Creative Developer based in Portugal. Explore my projects in Web Development, React, TypeScript, Artificial Intelligence, Photography and Videography." }
+    "home": {
+      "title": "Arthur Santos | Portfolio",
+      "description": "Official portfolio of Arthur Santos, Creative Developer based in Portugal. Explore my projects in Web Development, React, TypeScript, Artificial Intelligence, Photography and Videography."
+    },
+    "about": {
+      "title": "Arthur Santos | Portfolio",
+      "description": "Official portfolio of Arthur Santos, Creative Developer based in Portugal. Explore my projects in Web Development, React, TypeScript, Artificial Intelligence, Photography and Videography."
+    },
+    "projects": {
+      "title": "Arthur Santos | Portfolio",
+      "description": "Official portfolio of Arthur Santos, Creative Developer based in Portugal. Explore my projects in Web Development, React, TypeScript, Artificial Intelligence, Photography and Videography."
+    },
+    "photography": {
+      "title": "Arthur Santos | Portfolio",
+      "description": "Official portfolio of Arthur Santos, Creative Developer based in Portugal. Explore my projects in Web Development, React, TypeScript, Artificial Intelligence, Photography and Videography."
+    },
+    "videography": {
+      "title": "Arthur Santos | Portfolio",
+      "description": "Official portfolio of Arthur Santos, Creative Developer based in Portugal. Explore my projects in Web Development, React, TypeScript, Artificial Intelligence, Photography and Videography."
+    },
+    "ai": {
+      "title": "Arthur Santos | Portfolio",
+      "description": "Official portfolio of Arthur Santos, Creative Developer based in Portugal. Explore my projects in Web Development, React, TypeScript, Artificial Intelligence, Photography and Videography."
+    },
+    "resume": {
+      "title": "Arthur Santos | Portfolio",
+      "description": "Official portfolio of Arthur Santos, Creative Developer based in Portugal. Explore my projects in Web Development, React, TypeScript, Artificial Intelligence, Photography and Videography."
+    },
+    "contact": {
+      "title": "Arthur Santos | Portfolio",
+      "description": "Official portfolio of Arthur Santos, Creative Developer based in Portugal. Explore my projects in Web Development, React, TypeScript, Artificial Intelligence, Photography and Videography."
+    }
   },
   "nav": {
-    "home": "Início", "about": "Sobre", "projects": "Projetos", "photography": "Fotografia",
-    "videography": "Videografia", "ai": "IA", "resume": "Currículo", "contact": "Contacto", "downloadCv": "Descarregar CV"
+    "home": "Início",
+    "about": "Sobre",
+    "projects": "Projetos",
+    "photography": "Fotografia",
+    "videography": "Videografia",
+    "ai": "IA",
+    "resume": "Currículo",
+    "contact": "Contacto",
+    "downloadCv": "Descarregar CV"
   },
   "common": {
-    "comingSoon": "Em breve", "workWithMe": "Trabalhe comigo", "viewProjects": "Ver Projetos",
-    "downloadResume": "Descarregar Currículo", "contactMe": "Contacte-me", "allProjects": "Todos os projetos",
-    "all": "Todos", "liveDemo": "Ver Online", "github": "GitHub", "viewCase": "Ver Case Study",
-    "close": "Fechar", "problem": "Problema", "solution": "Solução", "result": "Resultado",
-    "sendMessage": "Enviar Mensagem", "sending": "A enviar...", "more": "Saber mais", "getInTouch": "Entrar em contacto"
+    "comingSoon": "Em breve",
+    "workWithMe": "Trabalhe comigo",
+    "viewProjects": "Ver Projetos",
+    "downloadResume": "Descarregar Currículo",
+    "contactMe": "Contacte-me",
+    "allProjects": "Todos os projetos",
+    "all": "Todos",
+    "liveDemo": "Ver Online",
+    "github": "GitHub",
+    "viewCase": "Ver Case Study",
+    "close": "Fechar",
+    "problem": "Problema",
+    "solution": "Solução",
+    "result": "Resultado",
+    "sendMessage": "Enviar Mensagem",
+    "sending": "A enviar...",
+    "more": "Saber mais",
+    "getInTouch": "Entrar em contacto"
   },
   "hero": {
     "badge": "Freelancer Disponível · Portugal",
     "role": "Creative Developer",
     "title": "A Criar Experiências Digitais Modernas",
-    "disciplines": ["Desenvolvimento Web", "Inteligência Artificial", "Fotografia", "Videografia"],
+    "disciplines": [
+      "Desenvolvimento Web",
+      "Inteligência Artificial",
+      "Fotografia",
+      "Videografia"
+    ],
     "subtitle": "Desenho e desenvolvo experiências digitais premium — combinando desenvolvimento web, inteligência artificial, fotografia e videografia num trabalho que ganha vida."
   },
   "branding": {
     "name": "Arthur Santos",
-    "roles": ["Creative Developer", "Entusiasta de IA", "Web Developer", "Videógrafo", "Fotógrafo"],
+    "roles": [
+      "Creative Developer",
+      "Entusiasta de IA",
+      "Web Developer",
+      "Videógrafo",
+      "Fotógrafo"
+    ],
     "available": "Freelancer Disponível",
     "location": "Guimarães, Portugal"
   },
@@ -48,24 +103,75 @@
     "title": "Serviços",
     "subtitle": "Do conceito ao lançamento — um conjunto completo de competências criativas e técnicas.",
     "items": [
-      { "title": "Desenvolvimento Web", "description": "Apps rápidas, modernas e responsivas com React, Vite e Tailwind.", "icon": "Code2" },
-      { "title": "Landing Pages", "description": "Páginas de alta conversão com design e movimento premium.", "icon": "LayoutTemplate" },
-      { "title": "Sites de Portfólio", "description": "Sites pessoais elegantes que se destacam e escalam.", "icon": "MonitorSmartphone" },
-      { "title": "Edição de Vídeo", "description": "Edições cinematográficas com Premiere Pro e DaVinci Resolve.", "icon": "Clapperboard" },
-      { "title": "Fotografia", "description": "Fotografia com atmosfera, narrativa e retoque.", "icon": "Camera" },
-      { "title": "Criação de Conteúdo", "description": "Conteúdo apelativo para redes sociais.", "icon": "Share2" },
-      { "title": "Soluções de IA", "description": "Apps e integrações inteligentes com IA moderna.", "icon": "Sparkles" },
-      { "title": "Automação", "description": "Fluxos que poupam tempo e eliminam trabalho repetitivo.", "icon": "Workflow" },
-      { "title": "UI Design", "description": "Interfaces limpas e acessíveis, desenhadas com intenção.", "icon": "PenTool" }
+      {
+        "title": "Desenvolvimento Web",
+        "description": "Apps rápidas, modernas e responsivas com React, Vite e Tailwind.",
+        "icon": "Code2"
+      },
+      {
+        "title": "Landing Pages",
+        "description": "Páginas de alta conversão com design e movimento premium.",
+        "icon": "LayoutTemplate"
+      },
+      {
+        "title": "Sites de Portfólio",
+        "description": "Sites pessoais elegantes que se destacam e escalam.",
+        "icon": "MonitorSmartphone"
+      },
+      {
+        "title": "Edição de Vídeo",
+        "description": "Edições cinematográficas com Premiere Pro e DaVinci Resolve.",
+        "icon": "Clapperboard"
+      },
+      {
+        "title": "Fotografia",
+        "description": "Fotografia com atmosfera, narrativa e retoque.",
+        "icon": "Camera"
+      },
+      {
+        "title": "Criação de Conteúdo",
+        "description": "Conteúdo apelativo para redes sociais.",
+        "icon": "Share2"
+      },
+      {
+        "title": "Soluções de IA",
+        "description": "Apps e integrações inteligentes com IA moderna.",
+        "icon": "Sparkles"
+      },
+      {
+        "title": "Automação",
+        "description": "Fluxos que poupam tempo e eliminam trabalho repetitivo.",
+        "icon": "Workflow"
+      },
+      {
+        "title": "UI Design",
+        "description": "Interfaces limpas e acessíveis, desenhadas com intenção.",
+        "icon": "PenTool"
+      }
     ]
   },
   "stats": {
     "items": [
-      { "label": "Projetos Concluídos", "value": 25, "suffix": "+" },
-      { "label": "Tecnologias Aprendidas", "value": 20, "suffix": "+" },
-      { "label": "Horas de Estudo", "value": 2000, "suffix": "+" },
-      { "label": "Cafés Consumidos", "value": 1500, "suffix": "+" },
-      { "label": "Satisfação de Clientes", "value": 100, "suffix": "%" }
+      {
+        "label": "Projetos selecionados",
+        "value": 8,
+        "suffix": ""
+      },
+      {
+        "label": "Produtos digitais",
+        "value": 4,
+        "suffix": ""
+      },
+      {
+        "label": "Áreas de trabalho",
+        "value": 4,
+        "suffix": ""
+      },
+      {
+        "label": "Idiomas",
+        "value": 2,
+        "suffix": ""
+      }
     ]
   },
   "about": {
@@ -81,22 +187,63 @@
     "mindset": "Curioso por natureza, obcecado por detalhes por hábito. Trato cada projeto como um ofício — aprendo depressa, itero muito e cuido dos pormenores.",
     "valuesTitle": "Valores",
     "values": [
-      { "title": "Criatividade", "text": "Ideias primeiro — design que surpreende e encanta.", "icon": "Palette" },
-      { "title": "Curiosidade", "text": "Sempre a aprender, sempre a explorar o próximo passo.", "icon": "Compass" },
-      { "title": "Qualidade", "text": "Os detalhes importam. O acabamento não é opcional.", "icon": "Gem" },
-      { "title": "Consistência", "text": "Aparecer, iterar e manter o padrão elevado.", "icon": "Repeat" }
+      {
+        "title": "Criatividade",
+        "text": "Ideias primeiro — design que surpreende e encanta.",
+        "icon": "Palette"
+      },
+      {
+        "title": "Curiosidade",
+        "text": "Sempre a aprender, sempre a explorar o próximo passo.",
+        "icon": "Compass"
+      },
+      {
+        "title": "Qualidade",
+        "text": "Os detalhes importam. O acabamento não é opcional.",
+        "icon": "Gem"
+      },
+      {
+        "title": "Consistência",
+        "text": "Aparecer, iterar e manter o padrão elevado.",
+        "icon": "Repeat"
+      }
     ],
     "softTitle": "Soft Skills",
-    "soft": ["Comunicação", "Resolução de Problemas", "Adaptabilidade", "Atenção ao Detalhe", "Gestão de Tempo", "Trabalho em Equipa", "Criatividade", "Aprendizagem Contínua"],
+    "soft": [
+      "Comunicação",
+      "Resolução de Problemas",
+      "Adaptabilidade",
+      "Atenção ao Detalhe",
+      "Gestão de Tempo",
+      "Trabalho em Equipa",
+      "Criatividade",
+      "Aprendizagem Contínua"
+    ],
     "journeyTitle": "Percurso de Aprendizagem",
     "journeySubtitle": "Uma linha do tempo de crescimento em código, cinema e criatividade."
   },
   "timeline": {
     "items": [
-      { "year": "2024", "title": "Comecei a Programar", "text": "Comecei a aprender HTML, CSS e JavaScript e descobri a paixão por construir." },
-      { "year": "2025", "title": "Primeiros Websites", "text": "Lancei projetos reais e aprofundei-me no ecossistema React." },
-      { "year": "2026", "title": "Creative Developer · Portfólio Lançado", "text": "Estabeleci uma prática multidisciplinar e lancei este portfólio." },
-      { "year": "Futuro", "title": "IA · Freelance · Estúdio Criativo", "text": "Construir soluções de IA, crescer como freelancer e fundar um estúdio criativo." }
+      {
+        "year": "2024",
+        "title": "Comecei a Programar",
+        "text": "Comecei a aprender HTML, CSS e JavaScript e descobri a paixão por construir."
+      },
+      {
+        "year": "2025",
+        "title": "Primeiros Websites",
+        "text": "Lancei projetos reais e aprofundei-me no ecossistema React."
+      },
+      {
+        "year": "2026",
+        "title": "Creative Developer · Portfólio Lançado",
+        "text": "Estabeleci uma prática multidisciplinar e lancei este portfólio."
+      },
+      {
+        "year": "Futuro",
+        "title": "IA · Freelance · Estúdio Criativo",
+        "text": "Construir soluções de IA, crescer como freelancer e fundar um estúdio criativo."
+      }
     ]
   },
   "skills": {
@@ -104,68 +251,273 @@
     "title": "Competências",
     "subtitle": "Uma mistura de domínio técnico e fluência criativa em várias áreas.",
     "categories": [
-      { "name": "Frontend", "icon": "Code2", "description": "Interfaces modernas e responsivas.", "items": ["React", "Vite", "TypeScript", "JavaScript", "HTML5", "CSS3", "Tailwind CSS"] },
-      { "name": "Backend", "icon": "Server", "description": "APIs, dados e serviços.", "items": ["Node.js", "Supabase", "REST APIs", "MongoDB"] },
-      { "name": "Edição de Vídeo", "icon": "Clapperboard", "description": "Pós-produção cinematográfica.", "items": ["Premiere Pro", "DaVinci Resolve", "CapCut"] },
-      { "name": "Fotografia", "icon": "Camera", "description": "Imagens com narrativa.", "items": ["Composição", "Lightroom", "Retoque"] },
-      { "name": "IA", "icon": "Sparkles", "description": "Integrações inteligentes.", "items": ["Prompt Engineering", "Integração de IA", "Automação"] },
-      { "name": "Marketing", "icon": "Megaphone", "description": "Alcance e envolvimento.", "items": ["Redes Sociais", "Estratégia de Conteúdo", "SEO"] },
-      { "name": "Design", "icon": "PenTool", "description": "UI limpa e intencional.", "items": ["UI Design", "Figma", "Photoshop"] },
-      { "name": "Ferramentas", "icon": "Wrench", "description": "Publicar com confiança.", "items": ["Git", "GitHub", "Vercel", "VS Code"] }
+      {
+        "name": "Frontend",
+        "icon": "Code2",
+        "description": "Interfaces modernas e responsivas.",
+        "items": [
+          "React",
+          "Vite",
+          "TypeScript",
+          "JavaScript",
+          "HTML5",
+          "CSS3",
+          "Tailwind CSS"
+        ]
+      },
+      {
+        "name": "Backend",
+        "icon": "Server",
+        "description": "APIs, dados e serviços.",
+        "items": [
+          "Node.js",
+          "Supabase",
+          "REST APIs",
+          "MongoDB"
+        ]
+      },
+      {
+        "name": "Edição de Vídeo",
+        "icon": "Clapperboard",
+        "description": "Pós-produção cinematográfica.",
+        "items": [
+          "Premiere Pro",
+          "DaVinci Resolve",
+          "CapCut"
+        ]
+      },
+      {
+        "name": "Fotografia",
+        "icon": "Camera",
+        "description": "Imagens com narrativa.",
+        "items": [
+          "Composição",
+          "Lightroom",
+          "Retoque"
+        ]
+      },
+      {
+        "name": "IA",
+        "icon": "Sparkles",
+        "description": "Integrações inteligentes.",
+        "items": [
+          "Prompt Engineering",
+          "Integração de IA",
+          "Automação"
+        ]
+      },
+      {
+        "name": "Marketing",
+        "icon": "Megaphone",
+        "description": "Alcance e envolvimento.",
+        "items": [
+          "Redes Sociais",
+          "Estratégia de Conteúdo",
+          "SEO"
+        ]
+      },
+      {
+        "name": "Design",
+        "icon": "PenTool",
+        "description": "UI limpa e intencional.",
+        "items": [
+          "UI Design",
+          "Figma",
+          "Photoshop"
+        ]
+      },
+      {
+        "name": "Ferramentas",
+        "icon": "Wrench",
+        "description": "Publicar com confiança.",
+        "items": [
+          "Git",
+          "GitHub",
+          "Vercel",
+          "VS Code"
+        ]
+      }
     ]
   },
   "projects": {
     "overline": "Portfólio",
     "title": "Projetos em Destaque",
-    "subtitle": "Uma coleção de trabalho em desenvolvimento web, direção criativa e IA.",
+    "subtitle": "Produtos digitais, aplicações e experiências que desenvolvi — da ideia à implementação.",
     "items": [
       {
         "id": "ssdoces",
         "title": "SSDoces",
         "category": "Desenvolvimento Web",
-        "description": "Site de e-commerce moderno para uma confeitaria local.",
-        "problem": "Uma confeitaria local precisava de presença online para vender produtos e gerir encomendas de forma eficiente.",
-        "solution": "Criei uma plataforma de e-commerce completa com carrinho, checkout, painel de administração e notificações por email automáticas.",
-        "result": "Uma experiência de compra fluida de ponta a ponta e um fluxo de gestão simples para o proprietário.",
-        "tech": ["React", "Vite", "Supabase", "Vercel"],
-        "icon": "ShoppingBag", "from": "#3B82F6", "to": "#06B6D4",
-        "github": "https://github.com/ArthurSant0s01/SSDoces", "demo": "https://ssdoces.vercel.app", "status": "Concluído"
+        "description": "Plataforma de comércio eletrónico para uma marca de confeitaria, com catálogo, carrinho, checkout e áreas de gestão.",
+        "problem": "A marca precisava de uma presença digital capaz de apresentar produtos e organizar o processo de encomenda.",
+        "solution": "Desenvolvi uma experiência de loja online com pesquisa, filtros, favoritos, carrinho persistente, checkout, área de cliente e painel administrativo. O projeto inclui estrutura de autenticação e integração com Supabase.",
+        "result": "Uma base de e-commerce completa, com fluxos de compra e gestão preparados para evolução e integração de produção.",
+        "tech": [
+          "React",
+          "TypeScript",
+          "Vite",
+          "Supabase",
+          "Zustand",
+          "Tailwind CSS"
+        ],
+        "icon": "ShoppingBag",
+        "from": "#3B82F6",
+        "to": "#06B6D4",
+        "github": "https://github.com/ArthurSant0s01/SSDoces",
+        "demo": "https://ss-doces.vercel.app",
+        "status": "Concluído"
       },
       {
         "id": "primecode",
         "title": "PrimeCode",
         "category": "Desenvolvimento Web",
-        "description": "Plataforma moderna para desenvolvimento de websites profissionais, landing pages, e-commerce e soluções digitais personalizadas, com foco em desempenho, design moderno e otimização para SEO.",
-        "problem": "Pequenas empresas e profissionais precisavam de uma forma rápida e profissional de criar uma presença online sem gastar muito.",
-        "solution": "Desenvolvi uma plataforma especializada na criação de websites modernos, rápidos e responsivos, utilizando tecnologias atuais e inteligência artificial para acelerar o desenvolvimento.",
-        "result": "Um website profissional, otimizado para SEO, rápido, totalmente responsivo e preparado para oferecer uma excelente experiência aos utilizadores.",
-        "tech": ["React", "TypeScript", "Vite", "Tailwind CSS", "Vercel"],
-        "icon": "Code2", "from": "#8B5CF6", "to": "#06B6D4",
-        "github": "https://github.com/ArthurSant0s01/Primecode", "demo": "https://primecode-pt.vercel.app", "status": "Concluído"
+        "description": "Website institucional de uma agência digital focada em desenvolvimento web e soluções personalizadas para empresas.",
+        "problem": "Era necessário apresentar os serviços da agência de forma profissional e facilitar o contacto com potenciais clientes.",
+        "solution": "Desenvolvi um website bilingue com páginas de serviços, portfólio, FAQ, formulários de contacto e newsletter. Preparei o envio de emails com Resend e a arquitetura de backend para deployment na Vercel.",
+        "result": "Uma presença digital comercial com comunicação PT/EN, estrutura de SEO e fluxos de contacto integrados.",
+        "tech": [
+          "React",
+          "JavaScript",
+          "Tailwind CSS",
+          "FastAPI",
+          "MongoDB",
+          "Resend",
+          "Vercel"
+        ],
+        "icon": "Code2",
+        "from": "#8B5CF6",
+        "to": "#06B6D4",
+        "github": "https://github.com/ArthurSant0s01/Primecode",
+        "demo": "https://primecode-pt.vercel.app",
+        "status": "Publicado"
+      },
+      {
+        "id": "campus-os",
+        "title": "Campus OS",
+        "category": "Aplicações Web",
+        "description": "Planeador académico para organizar a vida universitária, disciplinas, tarefas, avaliações e sessões de estudo.",
+        "problem": "A informação académica e as tarefas estavam dispersas, dificultando o planeamento e o acompanhamento do progresso.",
+        "solution": "Estou a desenvolver uma aplicação com calendário académico, avaliações, tarefas, sessões de estudo, modo de foco, objetivos e preferências. O motor de planeamento considera prioridades e revisão espaçada.",
+        "result": "Uma plataforma académica em evolução, com operações persistentes, regras de calendário e testes para cenários de datas e fuso horário.",
+        "tech": [
+          "React",
+          "TypeScript",
+          "Vite",
+          "Supabase",
+          "Tailwind CSS",
+          "Vitest"
+        ],
+        "icon": "GraduationCap",
+        "from": "#7C3AED",
+        "to": "#2563EB",
+        "status": "Em desenvolvimento"
+      },
+      {
+        "id": "planner-os",
+        "title": "PLANNER OS / ARTPLANNER",
+        "category": "Aplicações Web",
+        "description": "Plataforma de gestão pessoal concebida para reunir produtividade, estudos, tarefas, hábitos e objetivos num único sistema.",
+        "problem": "Ferramentas separadas tornam difícil acompanhar diferentes áreas da vida e manter uma visão integrada do progresso.",
+        "solution": "Estruturei a arquitetura do produto, módulos, regras de negócio, modelo de dados e identidade visual. A base técnica utiliza React, TypeScript, Supabase e Vite.",
+        "result": "Uma fundação de produto documentada e em desenvolvimento, com investigação de arquitetura e uma direção clara para os módulos integrados.",
+        "tech": [
+          "React",
+          "TypeScript",
+          "Vite",
+          "Supabase",
+          "Vitest"
+        ],
+        "icon": "PanelsTopLeft",
+        "from": "#D97706",
+        "to": "#7C3AED",
+        "github": "https://github.com/ArthurSant0s01/plannerOS",
+        "status": "Em desenvolvimento"
+      },
+      {
+        "id": "eurorail",
+        "title": "EuroRail — Módulo de Reservas",
+        "category": "Projetos Académicos",
+        "description": "Protótipo académico de um sistema de reservas de viagens, desenvolvido em Flowgorithm no âmbito de Algoritmia e Programação.",
+        "problem": "Era necessário modelar um processo de reserva com controlo de lugares, categorias e validação de passageiros.",
+        "solution": "Modelei a inicialização de lugares, disponibilidade, seleção de lugar, validações, suplemento para lugares premium e confirmação da reserva através de variáveis, arrays, ciclos e condições.",
+        "result": "Protótipo funcional testado com uma reserva premium. A implementação ainda precisa de evoluir para suportar múltiplas reservas e mais cenários de validação.",
+        "tech": [
+          "Flowgorithm",
+          "Algoritmos",
+          "Arrays",
+          "Ciclos",
+          "Condições",
+          "Lógica de Programação"
+        ],
+        "icon": "TrainFront",
+        "from": "#0F766E",
+        "to": "#2563EB",
+        "github": "https://github.com/ArthurSant0s01",
+        "status": "Protótipo académico"
+      },
+      {
+        "id": "real-estate",
+        "title": "Premium Real Estate Website",
+        "category": "Experiências Web",
+        "description": "Experiência web de apresentação imobiliária com uma abordagem visual premium e foco em arquitetura e propriedades.",
+        "problem": "Explorar uma apresentação digital mais editorial e sofisticada para o setor imobiliário.",
+        "solution": "Desenvolvi uma experiência frontend com Next.js, React e Motion, trabalhando estrutura de páginas, composição visual e componentes responsivos.",
+        "result": "Projeto de demonstração que evidencia exploração de interfaces premium e desenvolvimento com Next.js.",
+        "tech": [
+          "Next.js",
+          "React",
+          "TypeScript",
+          "Tailwind CSS",
+          "Motion"
+        ],
+        "icon": "Building2",
+        "from": "#B45309",
+        "to": "#1D4ED8",
+        "status": "Demonstração"
+      },
+      {
+        "id": "golden-archways",
+        "title": "Golden Archways Showcase",
+        "category": "Experiências Web",
+        "description": "Projeto de exploração visual com identidade premium, composição gráfica e interface web moderna.",
+        "problem": "Experimentar uma linguagem visual distintiva e traduzir uma direção criativa numa experiência web.",
+        "solution": "Desenvolvi a interface com o ecossistema React e TanStack, explorando componentes, estrutura e apresentação visual.",
+        "result": "Uma experiência demonstrativa para mostrar trabalho de interface e direção visual.",
+        "tech": [
+          "React",
+          "TypeScript",
+          "TanStack",
+          "Vite",
+          "Tailwind CSS"
+        ],
+        "icon": "PanelsTopLeft",
+        "from": "#B45309",
+        "to": "#7C3AED",
+        "status": "Demonstração"
       },
       {
         "id": "portfolio",
-        "title": "Site de Portfólio",
+        "title": "Portfólio Pessoal",
         "category": "Desenvolvimento Web",
-        "description": "Portfólio pessoal premium com movimento cinematográfico e suporte multilingue.",
-        "problem": "Precisava de uma presença memorável e profissional para atrair recrutadores, agências e clientes premium.",
-        "solution": "Desenhei e construí um portfólio de nível award com Framer Motion, glassmorphism e i18n EN/PT.",
-        "result": "Um site rápido, acessível e pronto para SEO que escala à medida que adiciono trabalho.",
-        "tech": ["React", "Tailwind CSS", "Framer Motion", "i18n"],
-        "icon": "LayoutTemplate", "from": "#8B5CF6", "to": "#3B82F6",
-        "github": "#", "demo": "#", "status": "Concluído"
-      },
-      {
-        "id": "future-ai",
-        "title": "Projetos Futuros de IA",
-        "category": "Inteligência Artificial",
-        "description": "Um espaço preparado para mostrar automações e aplicações inteligentes.",
-        "problem": "A IA evolui depressa — quis um espaço dedicado para os próximos produtos inteligentes.",
-        "solution": "Preparei uma secção escalável pronta para automações, chatbots e ferramentas de IA.",
-        "result": "Pronto para crescer — novos projetos de IA encaixam sem qualquer redesign.",
-        "tech": ["IA", "Prompt Engineering", "Automação"],
-        "icon": "Sparkles", "from": "#06B6D4", "to": "#8B5CF6",
-        "github": "#", "demo": "#", "status": "Em Progresso"
+        "description": "Portfólio bilingue que reúne projetos, competências, percurso, currículo e canais de contacto.",
+        "problem": "Precisava de uma presença profissional que apresentasse o meu trabalho e pudesse crescer com novos projetos.",
+        "solution": "Desenvolvi o website com páginas dedicadas, conteúdos PT/EN, animações, SEO técnico, currículo descarregável e navegação responsiva.",
+        "result": "Uma plataforma pessoal publicada e preparada para receber novos projetos e estudos de caso.",
+        "tech": [
+          "React",
+          "TypeScript",
+          "Vite",
+          "Tailwind CSS",
+          "Framer Motion",
+          "i18n",
+          "Vercel"
+        ],
+        "icon": "PanelsTopLeft",
+        "from": "#8B5CF6",
+        "to": "#3B82F6",
+        "github": "https://github.com/ArthurSant0s01/portfolio",
+        "demo": "https://arthur-santos.vercel.app",
+        "status": "Publicado"
       }
     ]
   },
@@ -173,14 +525,26 @@
     "overline": "Através da lente",
     "title": "Fotografia",
     "subtitle": "Imagens com atmosfera, capturadas entre luz e sombra.",
-    "filters": ["Todos", "Retrato", "Estúdio", "Rua", "Editorial"],
-    "empty": { "title": "Galeria em breve", "description": "Uma coleção de retratos, estúdio e fotografia de rua viverá aqui. Novas imagens a caminho." }
+    "filters": [
+      "Todos",
+      "Retrato",
+      "Estúdio",
+      "Rua",
+      "Editorial"
+    ],
+    "empty": {
+      "title": "Galeria em breve",
+      "description": "Uma coleção de retratos, estúdio e fotografia de rua viverá aqui. Novas imagens a caminho."
+    }
   },
   "videography": {
     "overline": "Movimento & Filme",
     "title": "Videografia",
     "subtitle": "Edições cinematográficas, showreels e histórias contadas fotograma a fotograma.",
-    "empty": { "title": "Showreel em produção", "description": "Este espaço está pronto para edições cinematográficas, showreels e curtas. Novos vídeos em breve." }
+    "empty": {
+      "title": "Showreel em produção",
+      "description": "Este espaço está pronto para edições cinematográficas, showreels e curtas. Novos vídeos em breve."
+    }
   },
   "ai": {
     "overline": "O futuro, hoje",
@@ -188,12 +552,36 @@
     "subtitle": "A explorar como ferramentas inteligentes podem amplificar a criatividade e eliminar trabalho repetitivo.",
     "intro": "Tenho um interesse profundo em inteligência artificial — de criar prompts precisos a construir automações e sites com IA. É aqui que a curiosidade encontra o ofício.",
     "cards": [
-      { "title": "Prompt Engineering", "description": "Prompts precisos que geram resultados fiáveis e de alta qualidade.", "icon": "Terminal" },
-      { "title": "Sites com IA", "description": "Experiências web melhoradas com funcionalidades generativas inteligentes.", "icon": "Globe" },
-      { "title": "Automação", "description": "Fluxos que eliminam trabalho repetitivo e poupam horas.", "icon": "Workflow" },
-      { "title": "Chatbots", "description": "Assistentes conversacionais adaptados a casos reais.", "icon": "MessageSquare" },
-      { "title": "Ferramentas de IA", "description": "Ferramentas práticas que transformam ideias em produtos.", "icon": "Wand2" },
-      { "title": "Projetos Futuros de IA", "description": "Um espaço em crescimento para futuras aplicações inteligentes.", "icon": "Rocket" }
+      {
+        "title": "Prompt Engineering",
+        "description": "Prompts precisos que geram resultados fiáveis e de alta qualidade.",
+        "icon": "Terminal"
+      },
+      {
+        "title": "Sites com IA",
+        "description": "Experiências web melhoradas com funcionalidades generativas inteligentes.",
+        "icon": "Globe"
+      },
+      {
+        "title": "Automação",
+        "description": "Fluxos que eliminam trabalho repetitivo e poupam horas.",
+        "icon": "Workflow"
+      },
+      {
+        "title": "Chatbots",
+        "description": "Assistentes conversacionais adaptados a casos reais.",
+        "icon": "MessageSquare"
+      },
+      {
+        "title": "Ferramentas de IA",
+        "description": "Ferramentas práticas que transformam ideias em produtos.",
+        "icon": "Wand2"
+      },
+      {
+        "title": "Projetos Futuros de IA",
+        "description": "Um espaço em crescimento para futuras aplicações inteligentes.",
+        "icon": "Rocket"
+      }
     ]
   },
   "resume": {
@@ -204,55 +592,135 @@
     "downloadEn": "Descarregar Currículo (Inglês)",
     "educationTitle": "Educação",
     "education": [
-      { "period": "2024 — Atual", "title": "Desenvolvimento Web (autodidata)", "org": "Independente" },
-      { "period": "2022 — 2025", "title": "Ensino Secundário", "org": "Portugal" }
+      {
+        "period": "2026 — Atual",
+        "title": "Licenciatura em Ciência de Dados",
+        "org": "Universidade do Minho"
+      },
+      {
+        "period": "2024 — Atual",
+        "title": "Desenvolvimento Web (autodidata)",
+        "org": "Independente"
+      },
+      {
+        "period": "2022 — 2025",
+        "title": "Ensino Secundário",
+        "org": "Portugal"
+      }
     ],
     "experienceTitle": "Experiência",
     "experience": [
-      { "period": "2025 — Atual", "title": "Creative Developer Freelance", "org": "Trabalho independente", "text": "Desenvolvimento web, edição de vídeo e fotografia para clientes e marcas pessoais." },
-      { "period": "2024", "title": "SSDoces — E-commerce", "org": "Projeto de Cliente", "text": "Desenhei e desenvolvi uma plataforma de e-commerce completa com painel de administração." }
+      {
+        "period": "2025 — Atual",
+        "title": "Creative Developer Freelance",
+        "org": "Trabalho independente",
+        "text": "Desenvolvimento web, edição de vídeo e fotografia para clientes e marcas pessoais."
+      },
+      {
+        "period": "2024",
+        "title": "SSDoces — E-commerce",
+        "org": "Projeto de Cliente",
+        "text": "Desenhei e desenvolvi uma plataforma de e-commerce completa com painel de administração."
+      }
     ],
     "languagesTitle": "Idiomas",
     "languages": [
-      { "name": "Português", "level": "Nativo", "percent": 100 },
-      { "name": "Inglês", "level": "Intermédio", "percent": 65 }
+      {
+        "name": "Português",
+        "level": "Nativo",
+        "percent": 100
+      },
+      {
+        "name": "Inglês",
+        "level": "Intermédio",
+        "percent": 65
+      }
     ]
   },
   "contact": {
     "overline": "Diga olá",
     "title": "Vamos criar algo",
     "subtitle": "Tem um projeto em mente ou quer apenas conversar? Envie-me uma mensagem.",
-    "nameLabel": "Nome", "namePlaceholder": "O seu nome",
-    "emailLabel": "Email", "emailPlaceholder": "voce@email.com",
-    "subjectLabel": "Assunto", "subjectPlaceholder": "Sobre o que é?",
-    "messageLabel": "Mensagem", "messagePlaceholder": "Fale-me do seu projeto...",
+    "nameLabel": "Nome",
+    "namePlaceholder": "O seu nome",
+    "emailLabel": "Email",
+    "emailPlaceholder": "voce@email.com",
+    "subjectLabel": "Assunto",
+    "subjectPlaceholder": "Sobre o que é?",
+    "messageLabel": "Mensagem",
+    "messagePlaceholder": "Fale-me do seu projeto...",
     "success": "Mensagem enviada! Responderei em breve.",
     "error": "Algo correu mal. Tente novamente.",
     "validation": "Preencha o nome, email e mensagem.",
     "successTitle": "Mensagem enviada!",
     "successText": "Obrigado pelo contacto — responderei assim que possível.",
     "sendAnother": "Enviar outra",
-    "infoEmail": "Email", "infoLocation": "Localização", "infoFollow": "Siga-me",
+    "infoEmail": "Email",
+    "infoLocation": "Localização",
+    "infoFollow": "Siga-me",
     "whatsapp": "WhatsApp",
     "formTitle": "Enviar mensagem",
-    "companyLabel": "Empresa", "companyPlaceholder": "A sua empresa (opcional)",
-    "countryLabel": "País", "countryPlaceholder": "O seu país",
-    "serviceLabel": "Serviço Pretendido", "servicePlaceholder": "Selecione um serviço",
-    "budgetLabel": "Orçamento Estimado", "budgetPlaceholder": "ex. €500 - €1000",
+    "companyLabel": "Empresa",
+    "companyPlaceholder": "A sua empresa (opcional)",
+    "countryLabel": "País",
+    "countryPlaceholder": "O seu país",
+    "serviceLabel": "Serviço Pretendido",
+    "servicePlaceholder": "Selecione um serviço",
+    "budgetLabel": "Orçamento Estimado",
+    "budgetPlaceholder": "ex. €500 - €1000",
     "privacy": "Concordo com a política de privacidade.",
     "privacyError": "Por favor, aceite a política de privacidade.",
-    "copy": "Copiar", "copied": "Copiado!",
+    "copy": "Copiar",
+    "copied": "Copiado!",
     "quickTitle": "Ações rápidas",
-    "actions": { "email": "Enviar Email", "whatsapp": "Falar no WhatsApp", "cvPt": "Descarregar CV (Português)", "cvEn": "Descarregar Currículo (Inglês)", "github": "Abrir GitHub", "linkedin": "Abrir LinkedIn", "instagram": "Abrir Instagram", "maps": "Ver no Google Maps", "schedule": "Agendar Reunião" },
+    "actions": {
+      "email": "Enviar Email",
+      "whatsapp": "Falar no WhatsApp",
+      "cvPt": "Descarregar CV (Português)",
+      "cvEn": "Descarregar Currículo (Inglês)",
+      "github": "Abrir GitHub",
+      "linkedin": "Abrir LinkedIn",
+      "instagram": "Abrir Instagram",
+      "maps": "Ver no Google Maps",
+      "schedule": "Agendar Reunião"
+    },
     "availabilityTitle": "Disponibilidade",
-    "availability": ["Disponível para Freelance", "Aberto a Trabalho Remoto", "Aberto a Oportunidades Internacionais"],
+    "availability": [
+      "Disponível para Freelance",
+      "Aberto a Trabalho Remoto",
+      "Aberto a Oportunidades Internacionais"
+    ],
     "letsWorkTitle": "Vamos Trabalhar Juntos",
     "letsWork": [
-      { "title": "Precisa de um Website?", "text": "Sites rápidos, modernos e responsivos que convertem.", "icon": "Rocket" },
-      { "title": "Precisa de Conteúdo Criativo?", "text": "Fotografia, videografia e edições que se destacam.", "icon": "Clapperboard" },
-      { "title": "Quer Soluções de IA?", "text": "Automações e ferramentas inteligentes à sua medida.", "icon": "Sparkles" }
+      {
+        "title": "Precisa de um Website?",
+        "text": "Sites rápidos, modernos e responsivos que convertem.",
+        "icon": "Rocket"
+      },
+      {
+        "title": "Precisa de Conteúdo Criativo?",
+        "text": "Fotografia, videografia e edições que se destacam.",
+        "icon": "Clapperboard"
+      },
+      {
+        "title": "Quer Soluções de IA?",
+        "text": "Automações e ferramentas inteligentes à sua medida.",
+        "icon": "Sparkles"
+      }
     ],
-    "serviceOptions": ["Desenvolvimento Web", "Landing Pages", "Sites de Portfólio", "Soluções de IA", "Automação", "Fotografia", "Videografia", "Edição de Vídeo", "Criação de Conteúdo", "Marketing Digital", "Outro"],
+    "serviceOptions": [
+      "Desenvolvimento Web",
+      "Landing Pages",
+      "Sites de Portfólio",
+      "Soluções de IA",
+      "Automação",
+      "Fotografia",
+      "Videografia",
+      "Edição de Vídeo",
+      "Criação de Conteúdo",
+      "Marketing Digital",
+      "Outro"
+    ],
     "mapsTitle": "Onde estou baseado",
     "openMaps": "Abrir no Google Maps",
     "calendlyTitle": "Agendar Reunião",
