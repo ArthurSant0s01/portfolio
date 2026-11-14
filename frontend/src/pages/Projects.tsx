@@ -26,7 +26,7 @@ export default function Projects() {
 
         <div className="mt-10 flex flex-wrap gap-3" data-testid="project-filters">
           {categories.map((c) => (
-            <button key={c} onClick={() => setFilter(c)} data-testid={`filter-${c.toLowerCase().replace(/\\s+/g, "-")}`}
+            <button key={c} onClick={() => setFilter(c)} data-testid={`filter-${c.toLowerCase().replace(/\s+/g, "-")}`}
               className={`px-5 py-2.5 rounded-full text-sm transition-colors ${filter === c ? "btn-glow text-white" : "glass text-muted hover:text-white"}`}>
               {c}
             </button>
