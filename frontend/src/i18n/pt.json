@@ -365,7 +365,14 @@
         "to": "#06B6D4",
         "github": "https://github.com/ArthurSant0s01/SSDoces",
         "demo": "https://ss-doces.vercel.app",
-        "status": "Concluído"
+        "status": "Concluído",
+        "competencies": [
+          "Modelação de dados e integração com Supabase",
+          "Gestão de estado e carrinho de compras",
+          "Desenvolvimento de fluxos de e-commerce",
+          "Interface responsiva e experiência de compra"
+        ],
+        "image": "https://image.thum.io/get/width/1200/crop/675/noanimate/https://ss-doces.vercel.app"
       },
       {
         "id": "primecode",
@@ -388,7 +395,14 @@
         "from": "#8B5CF6",
         "to": "#06B6D4",
         "demo": "https://primecode-pt.vercel.app",
-        "status": "Publicado"
+        "status": "Publicado",
+        "competencies": [
+          "Desenvolvimento frontend e estruturação de páginas",
+          "Comunicação bilingue e internacionalização",
+          "Formulários e integração de email",
+          "Apresentação de serviços e SEO"
+        ],
+        "image": "https://image.thum.io/get/width/1200/crop/675/noanimate/https://primecode-pt.vercel.app"
       },
       {
         "id": "campus-os",
@@ -409,7 +423,13 @@
         "icon": "GraduationCap",
         "from": "#7C3AED",
         "to": "#2563EB",
-        "status": "Em desenvolvimento"
+        "status": "Em desenvolvimento",
+        "competencies": [
+          "Modelação de funcionalidades académicas",
+          "Gestão de estado e persistência de dados",
+          "Planeamento temporal e regras de calendário",
+          "Testes automatizados e validação"
+        ]
       },
       {
         "id": "planner-os",
@@ -429,7 +449,13 @@
         "icon": "PanelsTopLeft",
         "from": "#D97706",
         "to": "#7C3AED",
-        "status": "Em desenvolvimento"
+        "status": "Em desenvolvimento",
+        "competencies": [
+          "Arquitetura de produto e decomposição modular",
+          "Levantamento de requisitos e regras de negócio",
+          "Modelação de dados e planeamento técnico",
+          "Design de sistemas e experiência do utilizador"
+        ]
       },
       {
         "id": "eurorail",
@@ -450,7 +476,13 @@
         "icon": "TrainFront",
         "from": "#0F766E",
         "to": "#2563EB",
-        "status": "Protótipo académico"
+        "status": "Protótipo académico",
+        "competencies": [
+          "Decomposição de problemas em algoritmos",
+          "Utilização de variáveis, arrays e ciclos",
+          "Estruturas condicionais e validação",
+          "Testes de cenários e lógica de reservas"
+        ]
       },
       {
         "id": "real-estate",
@@ -470,7 +502,14 @@
         "icon": "Building2",
         "from": "#B45309",
         "to": "#1D4ED8",
-        "status": "Demonstração"
+        "status": "Demonstração",
+        "competencies": [
+          "Composição de interfaces e hierarquia visual",
+          "Desenvolvimento frontend com React",
+          "Design responsivo",
+          "Animações e microinterações"
+        ],
+        "image": "https://image.thum.io/get/width/1200/crop/675/noanimate/https://premium-real-estate-website.vercel.app"
       },
       {
         "id": "golden-archways",
@@ -490,7 +529,13 @@
         "icon": "PanelsTopLeft",
         "from": "#B45309",
         "to": "#7C3AED",
-        "status": "Demonstração"
+        "status": "Demonstração",
+        "competencies": [
+          "Direção visual e consistência de interface",
+          "Componentização e reutilização",
+          "Desenvolvimento com TypeScript",
+          "Exploração de layouts e experiência digital"
+        ]
       },
       {
         "id": "portfolio",
@@ -514,9 +559,31 @@
         "to": "#3B82F6",
         "github": "https://github.com/ArthurSant0s01/portfolio",
         "demo": "https://arthur-santos.vercel.app",
-        "status": "Publicado"
+        "status": "Publicado",
+        "competencies": [
+          "Arquitetura de páginas e componentes",
+          "Internacionalização PT/EN",
+          "SEO técnico e acessibilidade",
+          "Animações, performance e deployment"
+        ],
+        "image": "https://image.thum.io/get/width/1200/crop/675/noanimate/https://arthur-santos.vercel.app"
       }
-    ]
+    ],
+    "accessLabels": {
+      "ssdoces": "Abrir loja",
+      "primecode": "Visitar website",
+      "campus-os": "Ver repositório",
+      "planner-os": "Ver repositório",
+      "real-estate": "Ver demonstração",
+      "golden-archways": "Ver projeto",
+      "portfolio": "Abrir portfólio",
+      "eurorail": "Ver resumo"
+    },
+    "competenciesTitle": "Competências desenvolvidas",
+    "toolsTitle": "Tecnologias e ferramentas",
+    "accessTitle": "Acesso ao projeto",
+    "summaryTitle": "Resumo do projeto",
+    "visualNote": "Pré-visualização do projeto"
   },
   "photography": {
     "overline": "Através da lente",
