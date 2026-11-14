@@ -42,10 +42,10 @@ export default function Projects() {
                   <div className="relative aspect-[16/10] overflow-hidden bg-black/30">
                     {project.image ? (
                       <img src={project.image} alt={`${project.title} — ${t.projects.visualNote}`} loading="lazy" decoding="async"
-                        className="w-full h-full object-cover" onError={(event) => { event.currentTarget.style.display = "none"; }} />
+                        className="relative z-10 w-full h-full object-cover" onError={(event) => { event.currentTarget.style.display = "none"; }} />
                     ) : null}
                     <GradientThumb iconName={project.icon} from={project.from} to={project.to} className="absolute inset-0 -z-0" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/10 pointer-events-none" />
+                    <div className="absolute inset-0 z-20 bg-gradient-to-t from-black/70 via-transparent to-black/10 pointer-events-none" />
                     <span className="absolute top-4 left-4 text-xs font-mono glass px-3 py-1 rounded-full">{project.status}</span>
                     <span className="absolute bottom-4 left-4 text-xs text-white/75 font-mono">{project.category}</span>
                   </div>
@@ -89,8 +89,8 @@ export default function Projects() {
               <div className="relative aspect-video max-h-64 overflow-hidden">
                 {active.image ? <img src={active.image} alt={active.title} loading="lazy" decoding="async" className="w-full h-full object-cover" onError={(event) => { event.currentTarget.style.display = "none"; }} /> : null}
                 <GradientThumb iconName={active.icon} from={active.from} to={active.to} className="absolute inset-0 -z-0" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#101012] to-transparent" />
-                <button onClick={() => setActive(null)} aria-label={t.common.close} className="absolute top-4 right-4 w-10 h-10 rounded-full bg-black/70 border border-white/15 flex items-center justify-center"><X size={18} /></button>
+                <div className="absolute inset-0 z-20 bg-gradient-to-t from-[#101012] to-transparent pointer-events-none" />
+                <button onClick={() => setActive(null)} aria-label={t.common.close} className="absolute top-4 right-4 z-30 w-10 h-10 rounded-full bg-black/70 border border-white/15 flex items-center justify-center"><X size={18} /></button>
               </div>
               <div className="px-6 sm:px-9 pb-8 -mt-2 relative">
                 <p className="overline mb-2">{active.category} · {active.status}</p>
