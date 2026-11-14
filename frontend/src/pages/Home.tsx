@@ -233,7 +233,7 @@ export default function Home() {
           </Link>
         </div>
         <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {t.projects.items.map((p, i) => (
+          {t.projects.items.slice(0, 3).map((p, i) => (
             <Reveal key={p.id} delay={i * 0.08}>
               <Link to="/projects" data-testid={`home-project-${i}`}>
                 <motion.div whileHover={{ y: -8 }} className="group glass rounded-2xl overflow-hidden h-full">
