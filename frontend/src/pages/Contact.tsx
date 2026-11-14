@@ -61,22 +61,57 @@ export default function Contact() {
 
   const submit = async (e) => {
     e.preventDefault();
-    if (!form.name || !form.email || !form.message) return toast.error(t.contact.validation);
+    if (!form.name.trim() || !form.email.trim() || !form.message.trim()) return toast.error(t.contact.validation);
     if (!form.agree) return toast.error(t.contact.privacyError);
     setSending(true);
+
+    const openEmailDraft = () => {
+      const subject = "Mensagem através do portfólio — " + form.name;
+      const body = [
+        "Nome: " + form.name,
+        "Email: " + form.email,
+        "Empresa: " + (form.company || "-"),
+        "País: " + (form.country || "-"),
+        "Serviço: " + (form.service || "-"),
+        "Orçamento: " + (form.budget || "-"),
+        "",
+        "Mensagem:",
+        form.message,
+      ].join("\\n");
+      window.location.href = `mailto:${profile.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    };
+
     try {
       const { agree, ...payload } = form;
-      const res = await fetch(`${BACKEND_URL}/api/contact`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-      if (!res.ok) throw new Error("failed");
+      const controller = new AbortController();
+      const timeout = window.setTimeout(() => controller.abort(), 8000);
+      let res;
+      try {
+        res = await fetch(`${BACKEND_URL}/api/contact`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+          signal: controller.signal,
+        });
+      } finally {
+        window.clearTimeout(timeout);
+      }
+
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const result = await res.json();
+      if (result.status !== "success" || result.email_sent !== true) {
+        openEmailDraft();
+        toast.info(t.contact.emailFallback);
+        return;
+      }
+
       toast.success(t.contact.success);
       setForm({ name: "", email: "", company: "", country: "", service: "", budget: "", message: "", agree: false });
       setSent(true);
-    } catch {
-      toast.error(t.contact.error);
+    } catch (error) {
+      console.error("Contact form delivery failed:", error);
+      openEmailDraft();
+      toast.info(t.contact.emailFallback);
     } finally {
       setSending(false);
     }
