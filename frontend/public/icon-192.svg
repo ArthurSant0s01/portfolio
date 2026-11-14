@@ -1,12 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" role="img" aria-labelledby="title">
-  <title id="title">Arthur Santos app icon 192</title>
+  <title id="title">Arthur Santos app icon — A monogram</title>
   <defs>
     <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#3B82F6" />
-      <stop offset="50%" stop-color="#8B5CF6" />
-      <stop offset="100%" stop-color="#06B6D4" />
+      <stop offset="0%" stop-color="#3B82F6"/>
+      <stop offset="52%" stop-color="#8B5CF6"/>
+      <stop offset="100%" stop-color="#06B6D4"/>
     </linearGradient>
   </defs>
-  <rect width="192" height="192" rx="44" fill="#0A0A0A" />
-  <path d="M53 137V55h32c26.3 0 41 14.2 41 40.8S111.3 137 85 137H53Zm23.4-19.4h6.4c13.6 0 21.1-7.2 21.1-21.8s-7.5-21.4-21.1-21.4h-6.4v43.2Z" fill="url(#g)" />
+  <rect width="192" height="192" rx="42" fill="#0A0A0A"/>
+  <path d="M 42.24 149.76 L 90.24 38.400000000000006 Q 96 26.880000000000003 101.76 38.400000000000006 L 151.68 149.76 L 124.80000000000001 149.76 L 96 82.56 L 67.19999999999999 149.76 Z" fill="url(#g)"/>
+  <path d="M 76.80000000000001 117.12 H 115.19999999999999" stroke="#FFFFFF" stroke-width="8.64" stroke-linecap="round"/>
 </svg>
