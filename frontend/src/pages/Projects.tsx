@@ -60,15 +60,6 @@ export default function Projects() {
                       <button type="button" onClick={() => setActive(project)} className="inline-flex items-center gap-2 glass rounded-full px-4 py-2.5 text-sm hover:border-white/30 transition-colors">
                         {t.common.more} <ArrowUpRight size={15} />
                       </button>
-                      {access ? (
-                        <a href={access} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 btn-glow rounded-full px-4 py-2.5 text-sm text-white">
-                          {getAccessLabel(project)} <ExternalLink size={15} />
-                        </a>
-                      ) : (
-                        <button type="button" onClick={() => setActive(project)} className="inline-flex items-center gap-2 btn-glow rounded-full px-4 py-2.5 text-sm text-white">
-                          {t.projects.accessLabels[project.id]} <ArrowUpRight size={15} />
-                        </button>
-                      )}
                     </div>
                   </div>
                 </article>
