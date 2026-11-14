@@ -110,9 +110,10 @@ export default function Projects() {
                 <h3 className="mt-7 text-xs font-mono uppercase tracking-wider text-brand-cyan flex items-center gap-2"><Wrench size={15}/>{t.projects.toolsTitle}</h3>
                 <div className="mt-3 flex flex-wrap gap-2">{active.tech.map((tech) => <span key={tech} className="text-xs font-mono px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-muted">{tech}</span>)}</div>
 
-                <div className="mt-8 flex flex-wrap gap-3">
-                  {getAccess(active) && <a href={getAccess(active)} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 btn-glow text-white text-sm font-medium px-5 py-3 rounded-full">{getAccessLabel(active)} <ExternalLink size={16}/></a>}
-                  {active.github && active.github !== "#" && <a href={active.github} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 glass text-white text-sm font-medium px-5 py-3 rounded-full"><Github size={16}/> {t.common.github}</a>}
+                <div className="project-actions sticky bottom-0 -mx-6 sm:-mx-9 mt-8 px-6 sm:px-9 py-4 flex flex-wrap gap-3 border-t border-white/10 bg-[#101012]/95 backdrop-blur-md">
+                  {active.demo && active.demo !== "#" && <a href={active.demo} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 btn-glow text-white text-sm font-medium px-5 py-3 rounded-full">{getAccessLabel(active)} <ExternalLink size={16}/></a>}
+                  {active.github && active.github !== "#" && <a href={active.github} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 glass text-white text-sm font-medium px-5 py-3 rounded-full"><Github size={16}/> {active.id === "planner-os" ? "Abrir Planner OS no GitHub" : active.id === "campus-os" ? "Abrir Campus OS no GitHub" : t.common.github}</a>}
+                  {!active.demo && !active.github && <span className="text-sm text-muted">{t.projects.accessTitle}: {t.projects.accessLabels[active.id]}</span>}
                 </div>
               </div>
             </motion.div>
