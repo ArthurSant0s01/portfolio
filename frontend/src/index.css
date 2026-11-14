@@ -73,14 +73,14 @@ code, .font-mono {
 @layer components {
   .glass {
     background: rgba(255, 255, 255, 0.04);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.08);
   }
   .glass-strong {
     background: rgba(18, 18, 18, 0.7);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.1);
   }
   .text-gradient {
@@ -126,25 +126,25 @@ code, .font-mono {
 .mesh-blob {
   position: absolute;
   border-radius: 50%;
-  filter: blur(80px);
-  opacity: 0.5;
+  filter: blur(56px);
+  opacity: 0.28;
   will-change: transform;
 }
 .mesh-blob.b1 {
   width: 42vw; height: 42vw; top: -10%; left: -8%;
   background: #3B82F6;
-  animation: float1 18s ease-in-out infinite;
+  animation: none;
 }
 .mesh-blob.b2 {
   width: 38vw; height: 38vw; bottom: -12%; right: -6%;
   background: #8B5CF6;
-  animation: float2 22s ease-in-out infinite;
+  animation: none;
 }
 .mesh-blob.b3 {
   width: 26vw; height: 26vw; top: 30%; left: 40%;
   background: #06B6D4;
   opacity: 0.28;
-  animation: float3 26s ease-in-out infinite;
+  animation: none;
 }
 
 @keyframes float1 {
@@ -214,4 +214,16 @@ code, .font-mono {
     animation: none !important;
     transform: translateX(0) !important;
   }
+}
+
+/* Lightweight project cards and modal */
+.project-card { content-visibility: auto; contain-intrinsic-size: 420px; }
+.project-modal { overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: #555 transparent; }
+.project-card img { position: relative; z-index: 1; }
+.project-card .project-cover-fallback { z-index: 0; }
+@media (max-width: 767px) {
+  .mesh-blob { filter: blur(36px); opacity: 0.18; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mesh-blob { animation: none !important; }
 }
