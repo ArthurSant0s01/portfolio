@@ -91,7 +91,7 @@
   "home": {
     "whoOverline": "Who I am",
     "whoTitle": "I'm a web developer and creator of digital experiences, passionate about turning ideas into modern, fast and intuitive solutions. I specialise in building fully responsive websites, web applications and digital solutions that combine web development, artificial intelligence, design and creativity to help businesses and professionals stand out in the digital world.",
-    "whoBody": "I stand out for my discipline, perseverance and commitment to excellence, continuously evolving, learning new technologies and overcoming challenges through innovative solutions. In every project, I strive to combine performance, user experience, technical quality and attention to detail to deliver results that generate real impact and value.",
+    "whoBody": "I am currently studying Data Science at the University of Minho while building independent projects that let me apply programming, design, database and product-development skills. I aim to combine technical rigour, user experience and attention to detail through real problems and continuous learning.",
     "moreAbout": "My Journey",
     "aiBandOverline": "AI & Automation",
     "aiBandTitle": "Exploring the future with intelligent tools",
@@ -178,7 +178,7 @@
     "overline": "About me",
     "title": "Turning ideas into experiences.",
     "bio": "I'm a web developer and creator of digital experiences, passionate about turning ideas into modern, fast and intuitive solutions. I specialise in building fully responsive websites, web applications and digital solutions that combine web development, artificial intelligence, design and creativity to help businesses and professionals stand out in the digital world.",
-    "bio2": "I stand out for my discipline, perseverance and commitment to excellence, continuously evolving, learning new technologies and overcoming challenges through innovative solutions. In every project, I strive to combine performance, user experience, technical quality and attention to detail to deliver results that generate real impact and value.",
+    "bio2": "I am currently studying Data Science at the University of Minho and building independent projects in web applications, e-commerce and productivity. I am interested in the intersection of technology, problem-solving and useful digital products.",
     "missionTitle": "My Mission",
     "mission": "To craft digital experiences that feel human, elegant and future-ready — bridging creative vision with technical execution.",
     "goalsTitle": "Career Goals",
@@ -387,7 +387,6 @@
         "icon": "Code2",
         "from": "#8B5CF6",
         "to": "#06B6D4",
-        "github": "https://github.com/ArthurSant0s01/Primecode",
         "demo": "https://primecode-pt.vercel.app",
         "status": "Published"
       },
@@ -430,7 +429,6 @@
         "icon": "PanelsTopLeft",
         "from": "#D97706",
         "to": "#7C3AED",
-        "github": "https://github.com/ArthurSant0s01/plannerOS",
         "status": "In Progress"
       },
       {
@@ -452,7 +450,6 @@
         "icon": "TrainFront",
         "from": "#0F766E",
         "to": "#2563EB",
-        "github": "https://github.com/ArthurSant0s01",
         "status": "Academic Prototype"
       },
       {
