@@ -364,7 +364,7 @@
         "from": "#3B82F6",
         "to": "#06B6D4",
         "github": "https://github.com/ArthurSant0s01/SSDoces",
-        "demo": "https://ss-doces.vercel.app",
+        "demo": "https://ssdoces.vercel.app",
         "status": "Concluído",
         "competencies": [
           "Modelação de dados e integração com Supabase",
@@ -372,7 +372,7 @@
           "Desenvolvimento de fluxos de e-commerce",
           "Interface responsiva e experiência de compra"
         ],
-        "image": "https://image.thum.io/get/width/1200/crop/675/noanimate/https://ss-doces.vercel.app"
+        "image": "https://image.thum.io/get/width/1200/crop/675/noanimate/https://ssdoces.vercel.app"
       },
       {
         "id": "primecode",
