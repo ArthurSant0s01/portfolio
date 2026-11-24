@@ -462,6 +462,55 @@
         "demo": "https://artplanner-one.vercel.app"
       },
       {
+        "id": "empenho-original",
+        "title": "Empenho Original",
+        "category": "Management Systems",
+        "description": "ERP in specification to centralize construction sites, employees, attendance and company management.",
+        "problem": "A construction company needs coordination across sites, employees, attendance and administrative information.",
+        "solution": "Defined an ERP architecture with separate management and employee environments, role-based permissions and database-level security.",
+        "result": "Functional and technical specification prepared; production implementation and validation remain pending.",
+        "tech": [
+          "React",
+          "TypeScript",
+          "Supabase",
+          "PostgreSQL",
+          "RLS"
+        ],
+        "icon": "HardHat",
+        "from": "#D97706",
+        "to": "#1D4ED8",
+        "status": "In Specification",
+        "competencies": [
+          "Requirements discovery",
+          "Systems architecture",
+          "Data modelling",
+          "Security and access control"
+        ]
+      },
+      {
+        "id": "episten-assistent",
+        "title": "Episten-assistent",
+        "category": "Artificial Intelligence",
+        "description": "Python experiment exploring the architecture of a personal AI assistant.",
+        "problem": "Explore a modular foundation for experimenting with AI models and tools.",
+        "solution": "Organized an experimental Python workspace related to the OpenJarvis ecosystem.",
+        "result": "An experimental foundation for research and development; advanced capabilities are not yet confirmed.",
+        "tech": [
+          "Python",
+          "OpenJarvis",
+          "AI tooling"
+        ],
+        "icon": "Bot",
+        "from": "#0F766E",
+        "to": "#7C3AED",
+        "status": "Experimental",
+        "competencies": [
+          "Modular organization",
+          "AI exploration",
+          "Python experimentation"
+        ]
+      },
+      {
         "id": "eurorail",
         "title": "EuroRail — Reservation Module",
         "category": "Academic Projects",
@@ -583,7 +632,9 @@
       "real-estate": "View demo",
       "golden-archways": "View project",
       "portfolio": "Open portfolio",
-      "eurorail": "View summary"
+      "eurorail": "View summary",
+      "empenho-original": "View case study",
+      "episten-assistent": "View project"
     },
     "competenciesTitle": "Skills developed",
     "toolsTitle": "Technologies and tools",
