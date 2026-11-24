@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import SEO from "../components/SEO";
@@ -10,7 +11,7 @@ export default function Projects() {
   const { t, lang } = useI18n();
   const projects = t.projects.items;
   const categories = [t.common.all, ...Array.from(new Set(projects.map((p) => p.category)))];
-  const [filter, setFilter] = React.useState(t.common.all);
+  const [filter, setFilter] = useState(t.common.all);
   const list = filter === t.common.all ? projects : projects.filter((p) => p.category === filter);
   const detailLabel = lang === "pt" ? "Explorar projeto" : "Explore project";
 
@@ -56,4 +57,3 @@ export default function Projects() {
   );
 }
 
-import React from "react";
