@@ -2,52 +2,66 @@
 
 **Full-Stack Developer · Data Science Student**
 
-I build practical digital products, web applications and tools that connect software engineering with real-world problems. My work spans full-stack development, product thinking, interface design and applied AI experimentation.
+I design and build web applications and digital products, combining software engineering, product thinking and practical problem-solving. I am currently studying Data Science and developing projects across productivity, business software, e-commerce and AI.
 
-- **Portfolio:** https://arthur-santos.vercel.app
-- **GitHub:** https://github.com/ArthurSant0s01
-- **Location:** Portugal
-- **Languages:** Portuguese and English
+<p align="left">
+  <a href="https://arthur-santos.vercel.app"><img src="https://img.shields.io/badge/Portfolio-Visit-111827?style=for-the-badge" alt="Portfolio"/></a>
+  <a href="https://github.com/ArthurSant0s01"><img src="https://img.shields.io/badge/GitHub-Profile-181717?style=for-the-badge&logo=github" alt="GitHub"/></a>
+</p>
 
-## Focus areas
+## Technical focus
 
-- Full-stack web development
-- React, TypeScript and modern frontend architecture
-- Supabase, authentication and data access
-- Product design, responsive UI and usability
-- Data Science foundations and applied AI
+- **Frontend:** React, TypeScript, JavaScript, Vite, Tailwind CSS
+- **Backend & data:** Supabase, PostgreSQL, authentication, data access
+- **Engineering:** Git, GitHub, responsive UI, testing and maintainable architecture
+- **Exploring:** Data Science, applied AI and automation
 
-## Selected projects
+## Selected work
 
 ### Productivity & Education
-- **[Planner OS](https://github.com/ArthurSant0s01/plannerOS)** — personal productivity platform for studies, tasks, routines and goals. Private repository.
-- **[Campus OS](https://github.com/ArthurSant0s01/syllabus-starlight-planner)** — academic planning and study management application.
 
-### Business Software
-- **[Empenho Original](https://github.com/ArthurSant0s01/empenho-original)** — ERP workflows for construction operations, financial records and role-based access. Private repository.
-- **[SSDoces](https://github.com/ArthurSant0s01/SSDoces)** — e-commerce project for a sweets business.
+| Project | What it does | Access |
+|---|---|---|
+| **Planner OS / ARTPLANNER** | Personal operating system for studies, tasks, habits and goals | [Live app](https://artplanner-one.vercel.app) · [Private source](https://github.com/ArthurSant0s01/plannerOS) |
+| **Campus OS** | Academic planner for subjects, tasks, assessments and study sessions | [Live app](https://planneruminho.vercel.app) · [Source](https://github.com/ArthurSant0s01/syllabus-starlight-planner) |
 
-### Web Development
-- **[PrimeCode](https://github.com/ArthurSant0s01/Primecode)** — web development and digital product work. Private repository.
-- **[Portfolio](https://github.com/ArthurSant0s01/portfolio)** — personal portfolio and project showcase.
+### Business & E-commerce
 
-### AI & Experimentation
-- **[Episten-assistent](https://github.com/ArthurSant0s01/Episten-assistent)** — OpenJarvis-based modular AI assistant workspace. Private repository.
+| Project | What it does | Access |
+|---|---|---|
+| **SSDoces** | E-commerce experience for a confectionery brand, with catalogue, cart and checkout | [Live store](https://ssdoces.vercel.app) · [Source](https://github.com/ArthurSant0s01/SSDoces) |
+| **PrimeCode** | Digital agency website for web development and tailored business solutions | [Live website](https://primecode-pt.vercel.app) · [Private source](https://github.com/ArthurSant0s01/Primecode) |
+| **Empenho Original** | Construction-business ERP workflows and role-based operational management | [Private source](https://github.com/ArthurSant0s01/empenho-original) |
 
-> Private repositories are intentionally identified as private. Their source code, credentials and internal documentation are not shared through this profile.
+### Web Experiences & AI
 
-## Technology
+- **[Premium Real Estate Website](https://github.com/ArthurSant0s01/premium-real-estate-website)** — premium real-estate web experience.
+- **[Golden Archways Showcase](https://github.com/ArthurSant0s01/golden-archways-showcase)** — visual web experience for Rota 2 Arcos.
+- **[Episten-assistent / OpenJarvis](https://github.com/ArthurSant0s01/Episten-assistent)** — modular AI assistant experimentation workspace.
 
-React · TypeScript · JavaScript · Vite · Tailwind CSS · Supabase · Python · Git · GitHub
+### Personal Portfolio
 
-## Engineering principles
+- **[Arthur Santos — Portfolio](https://arthur-santos.vercel.app)** — bilingual overview of selected work, skills and contact channels.
 
-- Build for clarity, maintainability and real use cases.
-- Keep secrets out of source control.
-- Apply least-privilege access and server-side authorization.
-- Document setup, architecture and security assumptions.
-- Prefer tested, incremental changes over risky releases.
+## How I work
+
+- Start with the user problem and define a clear scope.
+- Build responsive, accessible and understandable interfaces.
+- Keep architecture and implementation documented.
+- Protect credentials and user data by default.
+- Use incremental changes and tests to reduce release risk.
+
+## Security & privacy
+
+Some projects are intentionally private. Their source code, internal documentation, customer data and credentials are not exposed through this profile. Public demos are presented separately from private source repositories.
 
 ## Contact
 
-For employment, freelance projects or collaborations, visit [arthur-santos.vercel.app](https://arthur-santos.vercel.app).
+**Employment, freelance work and collaborations**
+
+- Portfolio: [arthur-santos.vercel.app](https://arthur-santos.vercel.app)
+- GitHub: [@ArthurSant0s01](https://github.com/ArthurSant0s01)
+
+---
+
+*Built and maintained by Arthur Santos · Portugal*
