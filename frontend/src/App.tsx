@@ -13,6 +13,7 @@ import Footer from "@/components/Footer";
 const Home = lazy(() => import("@/pages/Home"));
 const About = lazy(() => import("@/pages/About"));
 const Projects = lazy(() => import("@/pages/Projects"));
+const CaseStudy = lazy(() => import("@/pages/CaseStudy"));
 const Photography = lazy(() => import("@/pages/Photography"));
 const Videography = lazy(() => import("@/pages/Videography"));
 const AI = lazy(() => import("@/pages/AI"));
@@ -33,6 +34,7 @@ function AnimatedRoutes() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/projects" element={<Projects />} />
+          <Route path="/projects/:slug" element={<CaseStudy />} />
           <Route path="/photography" element={<Photography />} />
           <Route path="/videography" element={<Videography />} />
           <Route path="/ai" element={<AI />} />
