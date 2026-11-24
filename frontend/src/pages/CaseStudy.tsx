@@ -12,7 +12,7 @@ export default function CaseStudy() {
   const { slug } = useParams();
   const { t, lang } = useI18n();
   const project = t.projects.items.find((item) => item.id === slug);
-  const study = caseStudies[slug];
+  const study = slug ? (caseStudies as Record<string, any>)[slug] : undefined;
   const content = study?.[lang] || study?.en;
   if (!project || !content) {
     return <Page><section className="max-w-4xl mx-auto px-5 py-24"><h1 className="text-3xl font-bold">Project not found</h1><Link className="inline-flex mt-6 items-center gap-2 text-brand-cyan" to="/projects"><ArrowLeft size={16}/> {t.common.allProjects}</Link></section></Page>;
